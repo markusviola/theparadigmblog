@@ -10,13 +10,21 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
+    protected $attributes = [
+        'status' => 1,
+        'isAdmin' => 0,
+        'blogTitle' => 'Unnamed Blog',
+        'blogDesc' =>  'Write your blog description...',
+        'blogHeaderImg' => '',
+    ];
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'email', 'password', 'url',
     ];
 
     /**
