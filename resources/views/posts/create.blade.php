@@ -12,7 +12,10 @@
     <div class="row justify-content-center">
         <div class="col-9">
             <hr>
+            {{-- Form method creating a blog post --}}
             <form action="/posts" method="POST">
+                
+                {{-- Uses a form view for blog post operations --}}
                 @include('posts.form')
                 <div class="row justify-content-center pt-3">
                     <button class="btn btn-primary" type="submit">Submit Post</button>

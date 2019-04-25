@@ -10,6 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // For default attribute values
     protected $attributes = [
         'status' => 1,
         'isAdmin' => 0,

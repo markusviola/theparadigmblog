@@ -36,14 +36,6 @@ class BlogPostsController extends Controller
      */
     public function store()
     {
-
-        // dd(request());
-        // BlogPost::create([
-        //     'title' => ['title'],
-        //     'body' => $data['body'],
-        //     'user_id' => Auth::user()->id,
-        // ]);
-
         $data = $this->validateRequest();
         
         $post = new BlogPost();
@@ -100,9 +92,10 @@ class BlogPostsController extends Controller
         //
     }
 
+    // For validating the blog post fields
     private function validateRequest(){
         return request()->validate([
-            'title' => 'required',
+            'title' => 'required|min:100',
             'body'=> 'required'
         ]);
     }
