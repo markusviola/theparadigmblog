@@ -61,7 +61,7 @@
                         @else
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/posts/create">Create Blog</a>
+                                <a class="nav-link" href="{{ URL::route('posts.create') }}">Create Blog</a>
                             </li>
 
                             <div class="nav-link"> | </div>
@@ -73,7 +73,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
-                                    <a class="dropdown-item" href="/profile"><strong>Profile</strong></a>
+                                    <a class="dropdown-item" href="{{ URL::route('profile') }}"><strong>Profile</strong></a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

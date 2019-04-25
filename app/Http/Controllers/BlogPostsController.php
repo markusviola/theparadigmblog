@@ -44,7 +44,7 @@ class BlogPostsController extends Controller
         $post->body = $data['body'];
         $post->save();
 
-        return redirect('/home');
+        return redirect('/profile');
     }
 
     /**
@@ -95,7 +95,7 @@ class BlogPostsController extends Controller
     // For validating the blog post fields
     private function validateRequest(){
         return request()->validate([
-            'title' => 'required|min:100',
+            'title' => 'required|max:100',
             'body'=> 'required'
         ]);
     }
