@@ -40,21 +40,25 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+
                         <!-- Authentication Links -->
                         @guest
+
+                            <div class="nav-link"> | </div>
+
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Sign In') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
                                 </li>
                             @endif
                         @else
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="/home">Home</a>
-                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="/posts/create">Create Blog</a>
@@ -69,7 +73,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
-                                    <a class="dropdown-item" href="/{{ Auth::user()->username }}"><strong>Profile</strong></a>
+                                    <a class="dropdown-item" href="/profile"><strong>Profile</strong></a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

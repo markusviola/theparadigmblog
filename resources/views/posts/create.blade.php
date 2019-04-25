@@ -4,13 +4,13 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-7">
+        <div class="col-9">
             <h1>Create Post</h1>
         </div>
     </div>
     
     <div class="row justify-content-center">
-        <div class="col-7">
+        <div class="col-9">
             <hr>
             <form action="/posts" method="POST">
                 @include('posts.form')
