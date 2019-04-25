@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\BlogPost;
 
 class HomeController extends Controller
 {
@@ -24,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = BlogPost::all();
+        return view('home', compact('posts'));
     }
 }
