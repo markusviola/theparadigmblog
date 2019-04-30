@@ -13,7 +13,11 @@
         <div class="col-9">
             <hr>
             {{-- Form method creating a blog post --}}
+<<<<<<< HEAD
             <form action="{{ route('posts.store') }}" method="POST">
+=======
+            <form action="{{ URL::route('posts.store') }}" method="POST">
+>>>>>>> initial commit
                 
                 {{-- Uses a form view for blog post operations --}}
                 @include('posts.form')
