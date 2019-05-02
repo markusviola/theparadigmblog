@@ -13,6 +13,10 @@ class BlogPostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
+=======
+
+>>>>>>> registered users and admins can now be separated
     public function __construct()
     {
         $this->middleware('auth')->except(['show']);
