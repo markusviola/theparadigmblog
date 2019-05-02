@@ -27,7 +27,7 @@
                             <td class="col-4 align-middle">{{ $user->email }}</td>
                             <td class="col-2 align-middle">{{ $user->created_at }}</td>
                             <td class="col-2 align-middle text-center"> 
-                                <form action="/users/{{ $user->id }}" method="POST">
+                                <form action="{{ URL::route('users.update', $user->id) }}" method="POST">
                                     @method('PATCH')
                                     <button class="btn btn-{{ $user->status == "Active" ? "primary" : "danger" }}" type="submit" name="status" value="{{ $user->status }}">{{ $user->status }}</button> 
                                     @csrf

@@ -12,9 +12,15 @@ class BlogPost extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
-    public function getCreatedAtAttribute($attribute)
-    {
+
+    public function getCreatedAtAttribute($attribute){
+
+        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $attribute);
+        return $date->format('F d, Y');
+    }
+
+    public function getUpdatedAtAttribute($attribute){
+
         $date = \DateTime::createFromFormat('Y-m-d H:i:s', $attribute);
         return $date->format('F d, Y');
     }

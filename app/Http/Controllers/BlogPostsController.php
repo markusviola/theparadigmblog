@@ -13,10 +13,6 @@ class BlogPostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-=======
-
->>>>>>> registered users and admins can now be separated
     public function __construct()
     {
         $this->middleware('auth')->except(['show']);
@@ -34,7 +30,8 @@ class BlogPostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $post = new BlogPost();
+        return view('posts.create', compact('post'));
     }
 
     /**
@@ -62,7 +59,7 @@ class BlogPostsController extends Controller
      * @param  \App\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function show(BlogPost $blogPost)
+    public function show(BlogPost $post)
     {
         //
     }
@@ -70,24 +67,25 @@ class BlogPostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\BlogPost  $blogPost
+     * @param  \App\BlogPost  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(BlogPost $blogPost)
+    public function edit(BlogPost $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \App\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BlogPost $blogPost)
+    public function update(BlogPost $post)
     {
-        //
+        $post->update($this->validateRequest());
+
+        return redirect('profile');
     }
 
     /**
