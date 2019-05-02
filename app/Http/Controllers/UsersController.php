@@ -19,13 +19,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
         $users = User::all();
 
         return view('users.index', compact('users'));
-=======
-        
->>>>>>> registered users and admins can now be separated
     }
 
     /**
@@ -80,16 +76,12 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-<<<<<<< HEAD
         $currentStatus = $request->input('status');
 
         $user->status = !array_search($currentStatus, with(new User)->statusOptions());
         $user->save();
         
         return redirect()->route('users.index');
-=======
-        //
->>>>>>> registered users and admins can now be separated
     }
 
     /**
@@ -102,9 +94,4 @@ class UsersController extends Controller
     {
         //
     }
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> registered users and admins can now be separated
 }
