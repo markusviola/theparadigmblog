@@ -19,11 +19,7 @@ class AdminAccess
         if (Auth::user() == null ||
             Auth::user()->isAdmin != 1)
         {
-<<<<<<< HEAD
             return redirect()->route('home');
-=======
-            return redirect('/');
->>>>>>> registered users and admins can now be separated
         }
         return $next($request);
     }

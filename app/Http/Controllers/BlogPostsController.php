@@ -85,7 +85,7 @@ class BlogPostsController extends Controller
     {
         $post->update($this->validateRequest());
 
-        return redirect('profile');
+        return redirect()->route('profile');
     }
 
     /**

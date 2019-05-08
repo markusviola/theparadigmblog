@@ -21,7 +21,7 @@
                     <div class="col-5 text-muted text-right">
                         Updated on {{ $post->updated_at }}
                     </div>
-                    <a class="col text-right text-info" href="/posts/{{ $post->id }}/edit" >
+                    <a class="col text-right text-info" href="{{ route('posts.edit', $post->id) }}" >
                         <strong>Edit</strong> 
                     </a>
                     <a class="col text-right text-danger" href="#">
