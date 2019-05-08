@@ -10,7 +10,7 @@
                 <h3>{{ $post->title }}</h3>
                 <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 210, "...")  }}</strong>
                 <p>
-                <div class="text-muted">Posted by {{ $post->user->username }}</div>
+                <div class="text-muted">Posted by {{ $post->user->username }} on {{ $post->created_at }}</div>
                 <hr>
             @endforeach
         </div>
