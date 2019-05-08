@@ -35,14 +35,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-<<<<<<< HEAD
                         @if(Auth::user() !== null && Auth::user()->isAdmin == 1)
                             <div class="nav-link"> | </div>    
                             <div class="nav-link text-danger">  Administrator </div>
                         @endif
-=======
-                        
->>>>>>> initial commit
                     </ul>
 
                     <!-- Right Side Of Navbar -->
