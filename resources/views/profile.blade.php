@@ -14,7 +14,7 @@
                 <h3>{{ $post->title }}</h3>
                 <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 210, "...")  }}</strong>
                 <p>
-                <div class="text-muted">Posted on September 19, 2014</div>
+                <div class="text-muted"> Posted on {{ $post->created_at }}  </div>
                 <hr>
             @endforeach
         </div>
