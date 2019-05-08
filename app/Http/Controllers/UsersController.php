@@ -81,7 +81,7 @@ class UsersController extends Controller
         $user->status = !array_search($currentStatus, with(new User)->statusOptions());
         $user->save();
         
-        return redirect('users');
+        return redirect()->route('users.index');
     }
 
     /**
