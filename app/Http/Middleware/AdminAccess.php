@@ -19,7 +19,7 @@ class AdminAccess
         if (Auth::user() == null ||
             Auth::user()->isAdmin != 1)
         {
-            return redirect()->route('home');
+            return redirect('/');
         }
         return $next($request);
     }

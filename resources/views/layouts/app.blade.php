@@ -64,22 +64,22 @@
                         @else
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('posts.create') }}">Create Post</a>
+                                <a class="nav-link" href="{{ URL::route('posts.create') }}">Create Post</a>
                             </li>
 
                             <div class="nav-link"> | </div>
 
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
                                     @if(Auth::user()->isAdmin == 1)
-                                        <a class="dropdown-item" href="{{ route('users.index') }}"><strong>User Control</strong></a>
+                                        <a class="dropdown-item" href="{{ URL::route('users.index') }}"><strong>User Control</strong></a>
                                     @else
-                                        <a class="dropdown-item" href="{{ route('profile') }}"><strong>Profile</strong></a>
+                                        <a class="dropdown-item" href="{{ URL::route('profile') }}"><strong>Profile</strong></a>
                                     @endif
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"
