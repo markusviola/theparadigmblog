@@ -13,7 +13,7 @@
         <div class="col-9">
             <hr>
             {{-- Form method creating a blog post --}}
-            <form action="{{ URL::route('posts.update', $post->id) }}" method="POST">
+            <form action="{{ route('posts.update', $post->id) }}" method="POST">
                 
                 {{-- Uses a form view for blog post operations --}}
                 @method('PATCH')

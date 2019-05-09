@@ -10,7 +10,10 @@ class ProfileController extends Controller
 {
     public function index(){
         
-        $posts = BlogPost::where('user_id', Auth::user()->id)->get();
+        $posts = BlogPost::where(
+            'user_id', 
+            Auth::user()->id
+        )->get()->sortBy('created_at');
 
         return view('profile', compact('posts'));
     }

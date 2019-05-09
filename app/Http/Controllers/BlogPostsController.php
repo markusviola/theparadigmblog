@@ -51,7 +51,7 @@ class BlogPostsController extends Controller
         $post->body = $data['body'];
         $post->save();
 
-        return redirect('/profile');
+        return redirect()->route('profile');
     }
 
     /**
@@ -86,7 +86,7 @@ class BlogPostsController extends Controller
     {
         $post->update($this->validateRequest());
 
-        return redirect('profile');
+        return redirect()->route('profile');
     }
 
     /**
@@ -99,7 +99,7 @@ class BlogPostsController extends Controller
     {
         $post->delete($post);
 
-        return redirect('profile');
+        return redirect()->route('profile');
     }
 
     // For validating the blog post fields
