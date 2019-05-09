@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -37,8 +37,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    // To override the authentication from email to username.
     public function username()
     {
-        return 'username'; //or return the field which you want to use.
+        return 'username'; 
     }
 }
