@@ -8,12 +8,9 @@ use App\BlogPost;
 
 class ProfileController extends Controller
 {
-    public function index()
-    {
-        $posts = BlogPost::where(
-            'user_id', 
-            Auth::user()->id
-        )->get()->sortBy('created_at');
+    public function index(){
+        
+        $posts = BlogPost::where('user_id', Auth::user()->id)->get();
 
         return view('profile', compact('posts'));
     }

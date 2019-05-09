@@ -13,6 +13,7 @@ class BlogPostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function __construct()
     {
         $this->middleware('auth')->except(['show']);
@@ -50,7 +51,7 @@ class BlogPostsController extends Controller
         $post->body = $data['body'];
         $post->save();
 
-        return redirect()->route('profile');
+        return redirect('/profile');
     }
 
     /**
@@ -61,7 +62,7 @@ class BlogPostsController extends Controller
      */
     public function show(BlogPost $post)
     {
-        //
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -85,7 +86,7 @@ class BlogPostsController extends Controller
     {
         $post->update($this->validateRequest());
 
-        return redirect()->route('profile');
+        return redirect('profile');
     }
 
     /**
@@ -98,7 +99,7 @@ class BlogPostsController extends Controller
     {
         $post->delete($post);
 
-        return redirect()->route('profile');
+        return redirect('profile');
     }
 
     // For validating the blog post fields

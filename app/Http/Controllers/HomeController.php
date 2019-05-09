@@ -25,8 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = BlogPost::all()->sortBy('created_at');
-
+        $posts = BlogPost::all();
         return view('home', compact('posts'));
     }
 }
