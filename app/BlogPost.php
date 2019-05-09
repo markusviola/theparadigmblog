@@ -13,6 +13,11 @@ class BlogPost extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function getCreatedAtAttribute($attribute){
 
         $date = \DateTime::createFromFormat('Y-m-d H:i:s', $attribute);

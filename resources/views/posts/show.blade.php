@@ -11,6 +11,8 @@
             <hr>
             <br>
             <h6 class="text-justify">{{ $post->body }}</h6>
+
+            @include('comments.form')
         </div>
     </div>
 @endsection
