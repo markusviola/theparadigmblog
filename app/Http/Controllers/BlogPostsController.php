@@ -94,9 +94,11 @@ class BlogPostsController extends Controller
      * @param  \App\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogPost $blogPost)
+    public function destroy(BlogPost $post)
     {
-        //
+        $post->delete($post);
+
+        return redirect()->route('profile');
     }
 
     // For validating the blog post fields
