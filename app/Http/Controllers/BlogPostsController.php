@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BlogPost;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,7 +63,8 @@ class BlogPostsController extends Controller
      */
     public function show(BlogPost $post)
     {
-        return view('posts.show', compact('post'));
+        $comments = Comment::where('blog_post_id', $post->id)->get()->reverse();
+        return view('posts.show', compact('post', 'comments'));
     }
 
     /**

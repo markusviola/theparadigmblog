@@ -13,6 +13,7 @@
             <h6 class="text-justify">{{ $post->body }}</h6>
 
             @include('comments.form')
+            @include('comments.index')
         </div>
     </div>
 @endsection
