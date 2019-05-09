@@ -8,8 +8,8 @@ use App\BlogPost;
 
 class ProfileController extends Controller
 {
-    public function index(){
-        
+    public function index()
+    {
         $posts = BlogPost::where(
             'user_id', 
             Auth::user()->id

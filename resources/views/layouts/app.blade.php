@@ -35,7 +35,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        
+                        @if(Auth::user() !== null && Auth::user()->isAdmin == 1)
+                            <div class="nav-link"> | </div>    
+                            <div class="nav-link text-danger">  Administrator </div>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -73,8 +76,12 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
-                                    <a class="dropdown-item" href="{{ route('profile') }}"><strong>Profile</strong></a>
-
+                                    @if(Auth::user()->isAdmin == 1)
+                                        <a class="dropdown-item" href="{{ route('users.index') }}"><strong>User Control</strong></a>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('profile') }}"><strong>Profile</strong></a>
+                                    @endif
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
