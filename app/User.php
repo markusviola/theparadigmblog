@@ -49,4 +49,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(BlogPost::class);
     }
+
+    public function getStatusAttribute($attribute){
+
+        return $this->statusOptions()[$attribute];
+    }
+
+    public function getCreatedAtAttribute($attribute){
+
+        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $attribute);
+        return $date->format('F d, Y');
+    }
+
+    public function statusOptions() {
+
+        return [
+            1 => 'Active',
+            0 => 'Inactive',
+        ];
+    }
 }

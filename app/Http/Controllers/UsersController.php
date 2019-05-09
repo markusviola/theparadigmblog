@@ -19,7 +19,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        
+        $users = User::all();
+
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -74,7 +76,12 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $currentStatus = $request->input('status');
+
+        $user->status = !array_search($currentStatus, with(new User)->statusOptions());
+        $user->save();
+        
+        return redirect()->route('users.index');
     }
 
     /**
@@ -87,4 +94,6 @@ class UsersController extends Controller
     {
         //
     }
+
+    
 }
