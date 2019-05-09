@@ -10,7 +10,13 @@
             <h4 class="text-muted">{{ Auth::user()->blogDesc }}</h4>
 
             <br>
-            Blog posts go here...
+            @foreach ($posts as $post)
+                <h3>{{ $post->title }}</h3>
+                <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 210, "...")  }}</strong>
+                <p>
+                <div class="text-muted">Posted on September 19, 2014</div>
+                <hr>
+            @endforeach
         </div>
     </div>
     

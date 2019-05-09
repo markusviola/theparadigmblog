@@ -44,7 +44,7 @@ class BlogPostsController extends Controller
         $post->body = $data['body'];
         $post->save();
 
-        return redirect('/profile');
+        return redirect()->route('profile');
     }
 
     /**
