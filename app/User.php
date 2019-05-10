@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany(BlogPost::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function getStatusAttribute($attribute){
 
         return $this->statusOptions()[$attribute];

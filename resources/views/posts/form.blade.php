@@ -9,5 +9,4 @@
     <label for="body">Content</label>
     <textarea class="form-control" name="body" placeholder="Write your thoughts here..." id="body" cols="30" rows="20">{{ old('body') ?? $post->body  }}</textarea>
 </div>
-
 @csrf
