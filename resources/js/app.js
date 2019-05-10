@@ -37,3 +37,41 @@ $(document).on("click", ".delete-modal", function () {
     var postID = $(this).data('id');
     $('#delete-confirmation').attr('action', '/posts/' + postID);
 });
+
+$("input.blog-title").focusout(function() {
+    if ($(this).val().trim() != $(this).data('current')) {
+        $("#blog-form").submit();
+    } 
+});
+
+$("textarea.blog-desc").focusout(function() {
+    if ($(this).val().trim() != $(this).data('current')) {
+        $("#blog-form").submit();
+    }
+});
+
+function notifyUser(message) {
+    $('#notify-message').text(message);
+    $('#notify-toast').toast('show');
+}
+
+$("#blog-form").submit(function(e) {
+    
+    $.ajax({
+        type:"PATCH",
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        success:function(response) {
+            $("input.blog-title").data('current', response['blogTitle']);
+            $("textarea.blog-desc").data('current', response['blogDesc']);
+
+            notifyUser("Profile Updated!");
+        },
+        error:function() {
+            notifyUser("Title & Description should be filled to save changes!");
+        }
+    });
+    e.preventDefault();
+});
+
+
