@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BlogPost;
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,7 @@ class BlogPostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function __construct()
     {
         $this->middleware('auth')->except(['show']);
@@ -61,7 +63,8 @@ class BlogPostsController extends Controller
      */
     public function show(BlogPost $post)
     {
-        //
+        $comments = Comment::where('blog_post_id', $post->id)->get()->reverse();
+        return view('posts.show', compact('post', 'comments'));
     }
 
     /**
