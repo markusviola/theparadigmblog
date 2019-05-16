@@ -14,9 +14,9 @@ class User extends Authenticatable
     protected $attributes = [
         'status' => 1,
         'isAdmin' => 0,
-        'blogTitle' => 'Unnamed Blog',
-        'blogDesc' =>  'Write your blog description...',
-        'blogHeaderImg' => '',
+        'blogTitle' => '',
+        'blogDesc' =>  '',
+        'blogHeaderImg' => null,
     ];
     /**
      * The attributes that are mass assignable.

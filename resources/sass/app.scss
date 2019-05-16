@@ -12,5 +12,44 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.clean-input {
+    outline: none; 
+    border: 0px;
+    width: 100%;
+    display: block;
+}
 
+.no-scroll {
+    overflow:hidden;
+    resize: none;
+}
 
+.notify-layout {
+    position: absolute; 
+    top: 70px; 
+    right: 20px; 
+    min-width: 350px;
+    z-index: 3;
+}
+
+.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.header-img {
+    min-width: 100%; 
+    max-height: 250px;
+    border-bottom: 2px solid lightgrey !important;
+    object-fit: cover;
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
