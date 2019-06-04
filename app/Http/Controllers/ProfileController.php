@@ -41,7 +41,8 @@ class ProfileController extends Controller
         return redirect()->route('profile');
     }
 
-    private function validateImage(){
+    private function validateImage()
+    {
         return request()->validate([
             'blogHeaderImg' => 'file|image|max:5000',
         ]);

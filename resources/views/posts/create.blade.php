@@ -1,16 +1,9 @@
 @extends('layouts/app')
 
-@section('title','Create Post')
-
 @section('content')
     <div class="row justify-content-center">
         <div class="col-9">
             <h1>Create Post</h1>
-        </div>
-    </div>
-    
-    <div class="row justify-content-center">
-        <div class="col-9">
             <hr>
             {{-- Form method creating a blog post --}}
             <form action="{{ route('posts.store') }}" method="POST">

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-9">
-            <h1>Blog Posts</h1>
+            <h2 class="text-secondary">Recent Posts</h2>
             <hr>
             @foreach ($posts as $post)
                 <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>

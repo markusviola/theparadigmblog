@@ -1,7 +1,5 @@
 @extends('layouts/app')
 
-@section('title','{{ Auth::user()->username }}')
-
 @section('content')
     @if (Auth::user()->blogHeaderImg)
         <div class="row">
@@ -109,5 +107,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

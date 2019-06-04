@@ -1,7 +1,5 @@
 @extends('layouts/app')
 
-@section('title','{{ Auth::user()->username }}')
-
 @section('content')
     <div class="row justify-content-center">
         <div class="col-7">

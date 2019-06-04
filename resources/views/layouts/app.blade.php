@@ -14,7 +14,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   The Paradigm Blog
+                   The Paradigm Articles
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -77,9 +77,10 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     
                                     @if(Auth::user()->isAdmin == 1)
-                                        <a class="dropdown-item" href="{{ route('users.index') }}"><strong>User Control</strong></a>
+                                        <a class="dropdown-item text-secondary" href="{{ route('users.index') }}">User Control</a>
                                     @else
-                                        <a class="dropdown-item" href="{{ route('profile') }}"><strong>Profile</strong></a>
+                                        <a class="dropdown-item text-secondary" href="{{ route('profile') }}">Profile</a>
+                                        <a class="dropdown-item text-secondary" href="{{ route('settings.index') }}">Settings</a>
                                     @endif
                                     
                                     <a class="dropdown-item" href="{{ route('logout') }}"

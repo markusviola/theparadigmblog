@@ -21,4 +21,5 @@ Route::patch('profile/{user}/upload', 'ProfileController@updateHeaderImg')->name
 Route::resource('posts','BlogPostsController');
 Route::resource('users','UsersController');
 Route::resource('comments','CommentsController');
+Route::resource('settings', 'SettingsController');
 
