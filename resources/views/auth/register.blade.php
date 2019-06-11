@@ -61,12 +61,26 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                        <div class="form-group row">
+                            <label for="isAdmin" class="col-md-4 col-form-label text-md-right">{{ __('User Status') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="isAdmin" class="form-control" name="isAdmin">
+                                    <option value="" disabled>Select Access Permission</option>
+                                    {{-- <option value="1">Regular</option>
+                                    <option value="2">Administrator</option> --}}
+                                    @foreach ($user->isAdminOptions() as $optionKey => $optionValue)
+                                        <option value="{{ $optionKey }}" {{ $user->isAdmin == $optionValue ? 'selected' : '' }}>{{ $optionValue }}</option>
+                                    @endforeach
+                                </select>
+                                <small class="form-text text-muted">For testing purposes only.</small>
                             </div>
+                        </div>
+
+                        <div class="form-group row justify-content-center mt-4">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Register') }}
+                            </button>
                         </div>
                     </form>
                 </div>

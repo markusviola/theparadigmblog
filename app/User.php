@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'url',
+        'username', 'email', 'password', 'url', 'isAdmin'
     ];
 
     /**
@@ -71,6 +71,14 @@ class User extends Authenticatable
         return [
             1 => 'Active',
             0 => 'Inactive',
+        ];
+    }
+
+    public function isAdminOptions() {
+
+        return [
+            1 => 'Administrator',
+            0 => 'Regular',
         ];
     }
 }

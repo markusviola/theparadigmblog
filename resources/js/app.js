@@ -50,24 +50,23 @@ $("textarea.blog-desc").focusout(function() {
     }
 });
 
-function notifyUser(message) {
+notifyUser = (message) => {
     $('#notify-message').text(message);
     $('#notify-toast').toast('show');
 }
 
 $("#blog-form").submit(function(e) {
-    
     $.ajax({
         type:"PATCH",
         url: $(this).attr('action'),
         data: $(this).serialize(),
-        success:function(response) {
+        success: function(response) {
             $("input.blog-title").data('current', response['blogTitle']);
             $("textarea.blog-desc").data('current', response['blogDesc']);
 
             notifyUser("Profile Updated!");
         },
-        error:function() {
+        error: function() {
             notifyUser("Title & Description should be filled to save changes!");
         }
     });

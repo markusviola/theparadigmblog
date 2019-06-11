@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 // Variables
 @import 'variables';
@@ -8,8 +8,12 @@
 @import '~bootstrap/scss/bootstrap';
 
 
+body {
+    font-family: 'Poppins', sans-serif !important;
+}
 
 .navbar-laravel {
+    z-index: 2;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
@@ -42,7 +46,6 @@
 .header-img {
     min-width: 100%; 
     max-height: 250px;
-    border-bottom: 2px solid lightgrey !important;
     object-fit: cover;
 }
 

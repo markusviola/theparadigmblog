@@ -38,7 +38,7 @@ class SettingsController extends Controller
             $setting->url = $data['url'];
         $setting->save();
 
-        return view('settings');
+        return redirect()->route('settings.index')->with('notify','Account settings updated!');
         
     }
 }

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Crimson+Text&display=swap);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Poppins&display=swap);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -34,7 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Crimson Text", serif;
+  --font-family-sans-serif: "Poppins", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -10662,7 +10662,12 @@ a.text-dark:focus {
   }
 }
 
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
 .navbar-laravel {
+  z-index: 2;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
@@ -10695,7 +10700,6 @@ a.text-dark:focus {
 .header-img {
   min-width: 100%;
   max-height: 250px;
-  border-bottom: 2px solid lightgrey !important;
   -o-object-fit: cover;
      object-fit: cover;
 }

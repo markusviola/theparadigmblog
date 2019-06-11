@@ -52,7 +52,7 @@ class BlogPostsController extends Controller
         $post->body = $data['body'];
         $post->save();
 
-        return redirect()->route('profile');
+        return redirect()->route('profile')->with('notify','Article published!');
     }
 
     /**
@@ -88,7 +88,7 @@ class BlogPostsController extends Controller
     {
         $post->update($this->validateRequest());
 
-        return redirect()->route('profile');
+        return redirect()->route('profile')->with('notify','Article updated!');
     }
 
     /**
@@ -101,7 +101,7 @@ class BlogPostsController extends Controller
     {
         $post->delete($post);
 
-        return redirect()->route('profile');
+        return redirect()->route('profile')->with('notify','Article deleted!');
     }
 
     // For validating the blog post fields

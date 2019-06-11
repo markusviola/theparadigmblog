@@ -36944,10 +36944,10 @@ $("textarea.blog-desc").focusout(function () {
   }
 });
 
-function notifyUser(message) {
+notifyUser = function notifyUser(message) {
   $('#notify-message').text(message);
   $('#notify-toast').toast('show');
-}
+};
 
 $("#blog-form").submit(function (e) {
   $.ajax({

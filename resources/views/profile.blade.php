@@ -20,7 +20,7 @@
                     @method('PATCH')
                     <h1>
                         <input 
-                            class="blog-title clean-input" 
+                            class="blog-title clean-input text-secondary" 
                             placeholder="Click to edit blog title..." 
                             type="text"
                             id="blogTitle"
@@ -30,15 +30,15 @@
                         >
                     </h1>
                     <hr>
-                    <h4>
+                    <h5>
                         <textarea 
-                            class="blog-desc clean-input no-scroll text-secondary" 
+                            class="blog-desc clean-input no-scroll text-secondary text-justify" 
                             name="blogDesc" placeholder="Write your thoughts here..." 
                             id="blogDesc" 
                             data-current="{{ Auth::user()->blogDesc }}"
                             rows="4"
                         >{{ old('body') ?? Auth::user()->blogDesc }}</textarea>
-                    </h4>
+                    </h5>
                     @csrf
                 </form>
 
@@ -86,7 +86,7 @@
                 <br>
                 @foreach ($posts as $post)
                     <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
-                    <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 210, "...")  }}</strong>
+                    <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
                     <p>
                     <div class="row">
                         <div class="col-5">

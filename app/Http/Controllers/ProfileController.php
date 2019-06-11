@@ -38,7 +38,7 @@ class ProfileController extends Controller
         $user->save();
         
 
-        return redirect()->route('profile');
+        return redirect()->route('profile')->with('notify','Profile header updated!');
     }
 
     private function validateImage()
