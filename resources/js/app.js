@@ -50,6 +50,12 @@ $("textarea.blog-desc").focusout(function() {
     }
 });
 
+$("#banner-image").click((e) => {
+    if (e.target.tagName === 'IMG') {
+        $("h2.upload-area")[0].click();  
+    }
+});
+
 notifyUser = (message) => {
     $('#notify-message').text(message);
     $('#notify-toast').toast('show');

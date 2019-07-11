@@ -16569,14 +16569,8 @@ body {
   min-width: 100%;
   max-height: 100%;
   background: rgba(0, 0, 0, 0);
-}
-
-.banner-image:hover .header-overlay {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.banner-image:hover .banner-upload-text {
-  color: rgba(255, 255, 255, 0.9);
+  transition-property: background;
+  transition-duration: 0.5s;
 }
 
 .banner-upload-text {
@@ -16586,6 +16580,16 @@ body {
   justify-self: center;
   background: none;
   color: rgba(255, 255, 255, 0);
+  transition-property: color;
+  transition-duration: 0.5s;
+}
+
+.banner-image:hover .header-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.banner-image:hover .banner-upload-text {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 input[type=file] {

@@ -1,16 +1,25 @@
 @extends('layouts/app')
 
 @section('content')
-    {{-- @if (Auth::user()->blogHeaderImg) --}}
+    
     <div class="profile-wrapper">
-        <div class="banner-image">
-            <img 
-                class="header-img" 
-                alt="Responsive image" 
-                src="{{ asset('storage/'. Auth::user()->blogHeaderImg) }}"
-            >
+        <div class="banner-image" id="banner-image">
+            @if (Auth::user()->blogHeaderImg)
+                <img 
+                    class="header-img" 
+                    alt="Responsive image" 
+                    src="{{ asset('storage/'. Auth::user()->blogHeaderImg) }}"
+                >
+            @endif
             <div class="header-overlay"></div>
-            <div class="banner-upload-text"><h2>Upload a Header Photo</h2></div>
+            <div class="banner-upload-text">
+                <form action="{{ route('profile.updateHeaderImg', Auth::user()->id) }}" name="upload-form" id="upload-form" method="POST" enctype="multipart/form-data">
+                    @method('PATCH')
+                    <label for="file-upload"><h2 class="upload-area">Upload a Header Photo</h2></label>
+                    <input id="file-upload" type="file" name="blogHeaderImg" onchange="form.submit()"/>
+                    @csrf
+                </form>
+            </div>
         </div>
         <div class="profile-card shadow">
             <div class="row justify-content-center">
@@ -41,21 +50,10 @@
                         </h5>
                         @csrf
                     </form>
-    
                     <hr>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-6 text-left">
                             <h4 class="text-secondary">Published Posts</h4>
-                        </div>
-                        <div class="col-6 text-right">
-                            <form action="{{ route('profile.updateHeaderImg', Auth::user()->id) }}" name="upload-form" id="upload-form" method="POST" enctype="multipart/form-data">
-                                @method('PATCH')
-                                <label for="file-upload" class="custom-file-upload">
-                                    <i class="fa fa-cloud-upload"></i> Upload Header
-                                </label>
-                                <input id="file-upload" type="file" name="blogHeaderImg" onchange="form.submit()"/>
-                                @csrf
-                            </form>
                         </div>
                     </div>
                     
@@ -108,8 +106,5 @@
             </div>
         </div>
     </div>
-        
-    {{-- @endif --}}
     
-
 @endsection

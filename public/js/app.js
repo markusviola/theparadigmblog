@@ -36943,6 +36943,11 @@ $("textarea.blog-desc").focusout(function () {
     $("#blog-form").submit();
   }
 });
+$("#banner-image").click(function (e) {
+  if (e.target.tagName === 'IMG') {
+    $("h2.upload-area")[0].click();
+  }
+});
 
 notifyUser = function notifyUser(message) {
   $('#notify-message').text(message);
