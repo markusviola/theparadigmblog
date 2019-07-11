@@ -71,9 +71,36 @@ body {
 }
 
 .header-img {
+    grid-column: 1;
+    grid-row: 1;
     min-width: 100%; 
     max-height: 100%;
     object-fit: cover;
+}
+
+.header-overlay {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 100%; 
+    max-height: 100%;
+    background: rgb(0, 0, 0, 0.0);
+}
+
+.banner-image:hover .header-overlay {
+    background: rgb(0, 0, 0, 0.4);
+}
+
+.banner-image:hover .banner-upload-text {
+    color: rgb(255, 255, 255, 0.9);
+}
+
+.banner-upload-text {
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 70px;
+    justify-self: center;
+    background: none;
+    color: rgb(255, 255, 255, 0.0);
 }
 
 input[type="file"] {
@@ -88,11 +115,14 @@ input[type="file"] {
 }
 
 .banner-image {
+    display: grid;
+    grid-template-columns: 1fr;
     grid-column: 1/4;
     grid-row: 1/4;
     height: 350px;
     background: #ddd;
 }
+
 .profile-card {
     padding-top: 40px;
     padding-bottom: 20px;

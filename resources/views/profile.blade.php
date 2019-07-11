@@ -9,6 +9,8 @@
                 alt="Responsive image" 
                 src="{{ asset('storage/'. Auth::user()->blogHeaderImg) }}"
             >
+            <div class="header-overlay"></div>
+            <div class="banner-upload-text"><h2>Upload a Header Photo</h2></div>
         </div>
         <div class="profile-card shadow">
             <div class="row justify-content-center">
