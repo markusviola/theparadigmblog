@@ -14,6 +14,13 @@ class CommentsController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $comments = Comment::all();
+
+        return view('comments.index', compact('comments'));
+    }
+
     public function store()
     {
         $data = $this->validateRequest();

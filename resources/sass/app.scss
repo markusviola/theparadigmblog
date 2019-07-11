@@ -7,6 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "@fortawesome/fontawesome-free/scss/solid.scss";
+@import "@fortawesome/fontawesome-free/scss/brands.scss";
+
 
 body {
     font-family: 'Poppins', sans-serif !important;
@@ -23,6 +27,29 @@ body {
     border: 0px;
     width: 100%;
     display: block;
+}
+
+.trans-btn {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.v-centered-table td {
+    display: flex; 
+    align-items: center;
+}
+
+.edit-post:hover {
+    opacity: 50%;
+}
+
+.user-status-btn {
+    width: 100px;
+    border-radius: 25px !important;
 }
 
 .no-scroll {
@@ -45,16 +72,44 @@ body {
 
 .header-img {
     min-width: 100%; 
-    max-height: 250px;
+    max-height: 100%;
     object-fit: cover;
 }
 
 input[type="file"] {
     display: none;
 }
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+}
+
+.banner-image {
+    grid-column: 1/4;
+    grid-row: 1/4;
+    height: 350px;
+    background: #ddd;
+}
+.profile-card {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 3;
+    background: white;
+    border-radius: 17px; 
+}
+
+@media(min-width: 960px) {
+    .profile-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 960px 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 1em;
+        grid-auto-rows: minmax(150px, auto);
+    }
 }

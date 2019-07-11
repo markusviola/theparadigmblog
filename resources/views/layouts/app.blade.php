@@ -62,7 +62,9 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->isAdmin == 1)
-                                        <a class="dropdown-item text-secondary" href="{{ route('users.index') }}">User Control</a>
+                                        <a class="dropdown-item text-secondary" href="{{ route('users.index') }}">Manage Users</a>
+                                        <a class="dropdown-item text-secondary" href="{{ route('posts.index') }}">Manage Posts</a>
+                                        <a class="dropdown-item text-secondary" href="{{ route('comments.index') }}">Manage Comments</a>
                                     @else
                                         <a class="dropdown-item text-secondary" href="{{ route('profile') }}">Profile</a>
                                         <a class="dropdown-item text-secondary" href="{{ route('settings.index') }}">Settings</a>
