@@ -33,16 +33,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::user() !== null && Auth::user()->isAdmin == 1)
-                            <div class="nav-link"> | </div>    
+                            <div class="nav-link nav-divider"> | </div>    
                             <div class="nav-link text-danger">  Administrator </div>
                         @endif
                     </ul>
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
+                        <li class="nav-item ">
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         @guest
-                            <div class="nav-link"> | </div>
+                            <div class="nav-link nav-divider"> | </div>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Sign In') }}</a>
                             </li>
@@ -55,7 +55,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('posts.create') }}">Create Post</a>
                             </li>
-                            <div class="nav-link"> | </div>
+                            <div class="nav-link nav-divider"> | </div>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }} <span class="caret"></span>
@@ -85,7 +85,7 @@
             </div>
         </nav>
         @include('tools.toast')
-        <main class="container{{ Request::path() == 'profile' ? '-fluid no-padding' : ' py-4'}}">
+        <main class="paradigm container{{ Request::path() == 'profile' ? '-fluid no-padding' : ' py-4'}}">
             @yield('content')
         </main>
     </div>

@@ -36944,7 +36944,7 @@ $("textarea.blog-desc").focusout(function () {
   }
 });
 $("#banner-image").click(function (e) {
-  if (e.target.tagName === 'IMG') {
+  if (e.target.tagName === 'IMG' || e.target.tagName === 'DIV') {
     $("h2.upload-area")[0].click();
   }
 });

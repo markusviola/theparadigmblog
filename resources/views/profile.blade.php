@@ -50,58 +50,69 @@
                         </h5>
                         @csrf
                     </form>
-                    <hr>
+                    <hr class="mb-4">
                     <div class="row">
                         <div class="col-6 text-left">
                             <h4 class="text-secondary">Published Posts</h4>
                         </div>
                     </div>
                     
+                    @if (sizeof($posts) > 0)
                     <div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Delete Post</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to proceed?
-                        </div>
-                        <div class="modal-footer">
-                            <form id="delete-confirmation" method="POST">
-                                @method('DELETE')
-                                <button class="btn btn-link text-danger" type="submit" href="#">
-                                    <strong>Confirm</strong> 
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Delete Post</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
                                 </button>
-                                @csrf
-                            </form>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <br>
-                    @foreach ($posts as $post)
-                        <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
-                        <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
-                        <p>
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="text-muted">Posted on {{ $post->created_at }} </div>
                             </div>
-                            <div class="col-5 text-muted text-right">
-                                Updated on {{ $post->updated_at }}
+                            <div class="modal-body">
+                                Are you sure you want to proceed?
                             </div>
-                            <a class="col text-right text-info" href="{{ route('posts.edit', $post->id) }}" >
-                                <strong>Edit</strong> 
-                            </a>
-                            <a class="col text-right text-danger delete-modal" data-toggle="modal" data-target="#delete-confirm" data-id="{{ $post->id }}" href="#">
-                                <strong>Delete</strong> 
-                            </a>
+                            <div class="modal-footer">
+                                <form id="delete-confirmation" method="POST">
+                                    @method('DELETE')
+                                    <button class="btn btn-link text-danger" type="submit" href="#">
+                                        <strong>Confirm</strong> 
+                                    </button>
+                                    @csrf
+                                </form>
+                            </div>
+                            </div>
                         </div>
-                        <hr>
-                    @endforeach
+                        </div>
+                        <br>
+                        @foreach ($posts as $post)
+                            <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
+                            <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
+                            <p>
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="text-muted">Posted on {{ $post->created_at }} </div>
+                                </div>
+                                <div class="col-5 text-muted text-right">
+                                    Updated on {{ $post->updated_at }}
+                                </div>
+                                <a class="col text-right text-info" href="{{ route('posts.edit', $post->id) }}" >
+                                    <strong>Edit</strong> 
+                                </a>
+                                <a class="col text-right text-danger delete-modal" data-toggle="modal" data-target="#delete-confirm" data-id="{{ $post->id }}" href="#">
+                                    <strong>Delete</strong> 
+                                </a>
+                            </div>
+                            <hr>
+                        @endforeach
+                    @else
+                        <div class="text-muted" style="width: 100%; height: 80px; display: flex; justify-content:center; align-items: center; text-align: center">
+                            <div>
+                                <div class="mb-1">No articles posted yet.</div>
+                                <div>
+                                    Create your first post <a href="{{ route('posts.create') }}"><strong>HERE</strong></a>!
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
