@@ -90,7 +90,10 @@ class BlogPostsController extends Controller
     {
         $post->update($this->validateRequest());
 
-        return redirect()->route('profile')->with('notify','Article updated!');
+        if(Auth::user()->isAdmin)
+            return redirect()->route('posts.index')->with('notify','Article updated!');
+        else
+            return redirect()->route('profile')->with('notify','Article updated!');
     }
 
     /**

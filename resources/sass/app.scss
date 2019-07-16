@@ -31,11 +31,13 @@ body {
 
 .trans-btn {
     background-color: transparent;
-    background-repeat: no-repeat;
     border: none;
     cursor: pointer;
     overflow: hidden;
-    outline: none;
+}
+
+.trans-btn:focus {
+    outline: 0 !important;
 }
 
 .v-centered-table td {
@@ -43,9 +45,29 @@ body {
     align-items: center;
 }
 
-.edit-post:hover {
-    opacity: 50%;
+.delete-post {
+    color: #ED6A5A;
+    transition-property: color;
 }
+
+.delete-post:hover {
+    color: #AD4E42;
+}
+
+.edit-post {
+    color: #6DA490;
+    transition-property: color;
+}
+
+.edit-post:hover {
+    color: #396958;
+}
+
+.edit-post:focus {
+    outline: 0 !important;
+}
+
+
 
 .user-status-btn {
     width: 100px;
@@ -135,7 +157,7 @@ input[type="file"] {
     grid-column: 2/3;
     grid-row: 3;
     background: white;
-    border-radius: 17px; 
+    border-radius: 12px; 
 }
 
 @media(min-width: 960px) {

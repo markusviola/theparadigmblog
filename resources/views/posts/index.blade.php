@@ -7,6 +7,7 @@
             <hr>
             <div class="text-muted">Article posts can be <strong>edited</strong> or be <strong>deleted</strong>.
             <p>
+            @include('posts.modals.delete')
             <table class="table">
                 <thead>
                     <tr class="d-flex">
@@ -26,20 +27,10 @@
                             <td class="col-2 align-middle">{{ $post->created_at }}</td>
                             <td class="col-2 align-middle">{{ $post->updated_at }}</td>
                             <td class="col-1 align-middle text-center"> 
-                                <button class="trans-btn"><i class="edit-post fas fa-pencil-alt fa-lg text-info"></i></button>
-                                {{-- <form action="{{ route('users.update', $user->id) }}" method="POST">
-                                    @method('PATCH') --}}
-                                    {{-- <button class="btn btn-{{ $user->status == "Active" ? "primary" : "danger" }}" type="submit" name="status" value="{{ $user->status }}">{{ $user->status }}</button>  --}}
-                                    {{-- @csrf
-                                </form>     --}}
+                                <a class="trans-btn"  href="{{ route('posts.edit', $post->id) }}"><i class="edit-post fas fa-pencil-alt fa-lg"></i></a>
                             </td>
                             <td class="col-1 align-middle text-center"> 
-                                    <button class="trans-btn"><i class="fas fa-minus-circle fa-lg text-danger"></i></button>
-                                    {{-- <form action="{{ route('users.update', $user->id) }}" method="POST">
-                                        @method('PATCH') --}}
-                                        {{-- <button class="btn btn-{{ $user->status == "Active" ? "primary" : "danger" }}" type="submit" name="status" value="{{ $user->status }}">{{ $user->status }}</button>  --}}
-                                        {{-- @csrf
-                                    </form>     --}}
+                                    <button class="trans-btn delete-modal" data-toggle="modal" data-target="#delete-confirm" data-id="{{ $post->id }}"><i class="delete-post fas fa-minus-circle fa-lg"></i></button>
                                 </td>
                         </tr>    
                     @endforeach

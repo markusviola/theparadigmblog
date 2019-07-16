@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   The Paradigm Articles
+                    The Paradigm Articles
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::user() !== null && Auth::user()->isAdmin == 1)
                             <div class="nav-link nav-divider"> | </div>    
-                            <div class="nav-link text-danger">  Administrator </div>
+                            <div class="nav-link text-danger">Administrator</div>
                         @endif
                     </ul>
                     <ul class="navbar-nav ml-auto">
