@@ -31,21 +31,33 @@ require('./bootstrap');
 //     el: '#app',
 // });
 
-
-
-$(document).on("click", ".delete-modal", function () {
-    var postID = $(this).data('id');
-    $('#delete-confirmation').attr('action', '/posts/' + postID);
+$(document).on("click", ".delete-modal", (elem) => {
+    const id = $(elem.currentTarget).data('id');
+    const type = $(elem.currentTarget).data('type');
+    switch (type) {
+        case 'post':
+            $('#delete-confirmation')
+            .attr('action', '/posts/' + id);
+            break;
+        case 'comment':
+            $('#delete-confirmation')
+            .attr('action', '/comments/' + id);
+            break;
+        default:
+            console.log("Delete type not specified!")
+            break;
+    }
+        
 });
 
-$("input.blog-title").focusout(function() {
-    if ($(this).val().trim() != $(this).data('current')) {
+$("input.blog-title").focusout((elem) => {
+    if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
         $("#blog-form").submit();
     } 
 });
 
-$("textarea.blog-desc").focusout(function() {
-    if ($(this).val().trim() != $(this).data('current')) {
+$("textarea.blog-desc").focusout((elem) => {
+    if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
         $("#blog-form").submit();
     }
 });
@@ -61,7 +73,7 @@ notifyUser = (message) => {
     $('#notify-toast').toast('show');
 }
 
-$("#blog-form").submit(function(e) {
+$("#blog-form").submit((e) => {
     $.ajax({
         type:"PATCH",
         url: $(this).attr('action'),

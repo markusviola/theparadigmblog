@@ -106,7 +106,10 @@ class BlogPostsController extends Controller
     {
         $post->delete($post);
 
-        return redirect()->route('profile')->with('notify','Article deleted!');
+        if(Auth::user()->isAdmin)
+            return redirect()->route('posts.index')->with('notify','Article deleted!');
+        else
+            return redirect()->route('profile')->with('notify','Article deleted!');
     }
 
     // For validating the blog post fields

@@ -64,23 +64,19 @@
                             <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
                             <p>
                             <div class="row">
-                                <div class="col-5">
+                                <div class="col-md-5">
                                     <div class="text-muted">Posted on {{ $post->created_at }} </div>
                                 </div>
-                                <div class="col-5 text-muted text-right">
+                                <div class="col-md-5 text-muted text-right">
                                     Updated on {{ $post->updated_at }}
                                 </div>
-                                <a class="col text-right text-info" href="{{ route('posts.edit', $post->id) }}" >
-                                    <strong>Edit</strong> 
-                                </a>
-                                <a class="col text-right text-danger delete-modal" data-toggle="modal" data-target="#delete-confirm" data-id="{{ $post->id }}" href="#">
-                                    <strong>Delete</strong> 
-                                </a>
+                                <a class="col-md-1 text-right trans-btn"  href="{{ route('posts.edit', $post->id) }}"><i class="edit-post fas fa-pencil-alt fa-lg"></i></a>
+                                <button class="col-md-1 text-right trans-btn delete-modal" data-toggle="modal" data-target="#delete-confirm" data-id="{{ $post->id }}"><i class="delete-post fas fa-minus-circle fa-lg"></i></button>
                             </div>
                             <hr>
                         @endforeach
                     @else
-                        <div class="text-muted" style="width: 100%; height: 80px; display: flex; justify-content:center; align-items: center; text-align: center">
+                        <div class="no-posts text-muted">
                             <div>
                                 <div class="mb-1">No articles posted yet.</div>
                                 <div>

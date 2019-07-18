@@ -32,6 +32,15 @@ class CommentsController extends Controller
 
         return back();
     }
+
+    public function destroy(Comment $comment)
+    {
+        $comment->delete($comment);
+
+        if(Auth::user()->isAdmin)
+            return redirect()->route('comments.index')->with('notify','Comment deleted!');
+    }
+
     // For validating the blog post fields
     private function validateRequest(){
         return request()->validate([

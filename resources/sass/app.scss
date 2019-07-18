@@ -160,6 +160,20 @@ input[type="file"] {
     border-radius: 12px; 
 }
 
+.no-posts {
+    width: 100%; 
+    height: 80px; 
+    display: flex; 
+    justify-content:center; 
+    align-items: center; 
+    text-align: center
+}
+
+.article-id {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 @media(min-width: 960px) {
     .profile-wrapper {
         display: grid;

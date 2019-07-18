@@ -36901,6 +36901,8 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var _this = this;
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -36929,17 +36931,31 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 // });
 
 
-$(document).on("click", ".delete-modal", function () {
-  var postID = $(this).data('id');
-  $('#delete-confirmation').attr('action', '/posts/' + postID);
+$(document).on("click", ".delete-modal", function (elem) {
+  var id = $(elem.currentTarget).data('id');
+  var type = $(elem.currentTarget).data('type');
+
+  switch (type) {
+    case 'post':
+      $('#delete-confirmation').attr('action', '/posts/' + id);
+      break;
+
+    case 'comment':
+      $('#delete-confirmation').attr('action', '/comments/' + id);
+      break;
+
+    default:
+      console.log("Delete type not specified!");
+      break;
+  }
 });
-$("input.blog-title").focusout(function () {
-  if ($(this).val().trim() != $(this).data('current')) {
+$("input.blog-title").focusout(function (elem) {
+  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
     $("#blog-form").submit();
   }
 });
-$("textarea.blog-desc").focusout(function () {
-  if ($(this).val().trim() != $(this).data('current')) {
+$("textarea.blog-desc").focusout(function (elem) {
+  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
     $("#blog-form").submit();
   }
 });
@@ -36957,8 +36973,8 @@ notifyUser = function notifyUser(message) {
 $("#blog-form").submit(function (e) {
   $.ajax({
     type: "PATCH",
-    url: $(this).attr('action'),
-    data: $(this).serialize(),
+    url: $(_this).attr('action'),
+    data: $(_this).serialize(),
     success: function success(response) {
       $("input.blog-title").data('current', response['blogTitle']);
       $("textarea.blog-desc").data('current', response['blogDesc']);
