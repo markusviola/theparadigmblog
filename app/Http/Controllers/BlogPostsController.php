@@ -113,7 +113,7 @@ class BlogPostsController extends Controller
     }
 
     // For validating the blog post fields
-    private function validateRequest(){
+    private function validateRequest() {
         return request()->validate([
             'title' => 'required|max:100',
             'body'=> 'required'

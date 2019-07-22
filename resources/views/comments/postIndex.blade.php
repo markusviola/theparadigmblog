@@ -12,16 +12,19 @@
         </div>
         {{-- need to adjust appropriately when switching account types --}}
         <div class="row">
-            <div class="col-11 text-justify mt-2 long-text">{{ $comment->body }}</div>
+            <div class="col-{{ Auth::user() !== null && Auth::user()->isAdmin == 1 ? '11' : 'auto' }}
+                 text-justify mt-2 long-text align-content-center">{{ $comment->body }}
+            </div>
             @if(Auth::user() !== null && Auth::user()->isAdmin == 1)
-                <button class="col-1 trans-btn delete-modal" 
+                <button class="col-1 trans-btn delete-modal row align-content-center mx-0 px-0" 
                     data-toggle="modal" 
                     data-target="#delete-confirm" 
                     data-id="{{ $comment->id }}" 
                     data-type="comment" 
-                ><i class="delete-post fas fa-minus-circle fa-lg"></i>
+                ><i class="col text-right delete-post fas fa-minus-circle fa-lg"></i>
                 </button>
             @endif
         </div>
+
     <hr>
 @endforeach
