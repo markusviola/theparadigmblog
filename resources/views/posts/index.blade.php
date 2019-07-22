@@ -35,6 +35,7 @@
                                 data-target="#delete-confirm" 
                                 data-id="{{ $post->id }}" 
                                 data-type="post" 
+                                data-on-post="false" 
                             ><i class="delete-post fas fa-minus-circle fa-lg"></i>
                         </button>
                         </td>

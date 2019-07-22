@@ -21,6 +21,7 @@
                     data-target="#delete-confirm" 
                     data-id="{{ $comment->id }}" 
                     data-type="comment" 
+                    data-on-post="true" 
                 ><i class="col text-right delete-post fas fa-minus-circle fa-lg"></i>
                 </button>
             @endif

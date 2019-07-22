@@ -36932,14 +36932,16 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 $(document).on("click", ".delete-modal", function (elem) {
   var id = $(elem.currentTarget).data('id');
   var type = $(elem.currentTarget).data('type');
+  var onPost = $(elem.currentTarget).data('on-post');
+  var pageQuery = "?onPost=".concat(onPost == true ? 'true' : 'false');
 
   switch (type) {
     case 'post':
-      $('#delete-confirmation').attr('action', '/posts/' + id);
+      $('#delete-confirmation').attr('action', '/posts/' + id + pageQuery);
       break;
 
     case 'comment':
-      $('#delete-confirmation').attr('action', '/comments/' + id);
+      $('#delete-confirmation').attr('action', '/comments/' + id + pageQuery);
       break;
 
     default:
