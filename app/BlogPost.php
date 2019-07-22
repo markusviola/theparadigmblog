@@ -18,6 +18,11 @@ class BlogPost extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
     public function getCreatedAtAttribute($attribute){
 
         $date = \DateTime::createFromFormat('Y-m-d H:i:s', $attribute);

@@ -8,7 +8,7 @@
             <h5 class="text-muted">Posted by {{ $post->user->username }} on {{ $post->created_at }}</h5>
             <hr>
             <br>
-            <h6 class="text-justify">{{ $post->body }}</h6>
+            <div class="text-justify long-text">{{ $post->body }}</div>
 
             @include('comments.form')
             @include('comments.postIndex')

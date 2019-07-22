@@ -61,7 +61,7 @@
                         <br>
                         @foreach ($posts as $post)
                             <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
-                            <strong class="text-muted">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
+                            <strong class="text-muted long-text">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
                             <p>
                             <div class="row">
                                 <div class="col-md-5">

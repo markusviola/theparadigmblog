@@ -46,8 +46,7 @@ $(document).on("click", ".delete-modal", (elem) => {
         default:
             console.log("Delete type not specified!")
             break;
-    }
-        
+    }     
 });
 
 $("input.blog-title").focusout((elem) => {
@@ -76,8 +75,8 @@ notifyUser = (message) => {
 $("#blog-form").submit((e) => {
     $.ajax({
         type:"PATCH",
-        url: $(this).attr('action'),
-        data: $(this).serialize(),
+        url: $(e.currentTarget).attr('action'),
+        data: $(e.currentTarget).serialize(),
         success: function(response) {
             $("input.blog-title").data('current', response['blogTitle']);
             $("textarea.blog-desc").data('current', response['blogDesc']);

@@ -140,6 +140,10 @@ input[type="file"] {
     cursor: pointer;
 }
 
+.long-text {
+    overflow-wrap: break-word;
+}
+
 .banner-image {
     display: grid;
     grid-template-columns: 1fr;

@@ -36901,8 +36901,6 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _this = this;
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -36973,8 +36971,8 @@ notifyUser = function notifyUser(message) {
 $("#blog-form").submit(function (e) {
   $.ajax({
     type: "PATCH",
-    url: $(_this).attr('action'),
-    data: $(_this).serialize(),
+    url: $(e.currentTarget).attr('action'),
+    data: $(e.currentTarget).serialize(),
     success: function success(response) {
       $("input.blog-title").data('current', response['blogTitle']);
       $("textarea.blog-desc").data('current', response['blogDesc']);

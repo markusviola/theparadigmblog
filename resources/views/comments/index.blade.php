@@ -25,7 +25,7 @@
                         <th class="col-1 align-middle" scope="row">{{ $comment->id }}</th>
                         <td class="col-1 article-id align-middle">{{ $comment->blog_post_id }}</td>
                         <td class="col-2 align-middle">{{ $comment->user->username }}</td>
-                        <td class="col-5 align-middle">{{ $comment->body }}</td>
+                        <td class="col-5 align-middle long-text">{{ mb_strimwidth($comment->body, 0, 75, "...")  }}</td>
                         <td class="col-2 align-middle">{{ $comment->created_at }}</td>
                         <td class="col-1 align-middle text-center"> 
                             <button class="trans-btn delete-modal" 
