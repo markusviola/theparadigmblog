@@ -50,6 +50,15 @@ body {
     transition-property: color;
 }
 
+.like-post {
+    color: rgb(201, 201, 201);
+    transition-property: color;
+}
+
+.like-post:hover {
+    color: #ED6A5A;
+}
+
 .delete-post:hover {
     color: #AD4E42;
 }

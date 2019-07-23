@@ -1,4 +1,4 @@
-<h6 class="text-muted mt-5 mb-3">Leave a comment</h6>
+<h6 class="text-muted mt-3 mb-3">Leave a comment</h6>
 <form action="{{ route('comments.store') }}" method="POST">
     <div class="text-danger">{{ $errors->first('body') }}</div>
     <div class="form-group mt-2">

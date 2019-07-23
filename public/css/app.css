@@ -16534,6 +16534,15 @@ body {
   transition-property: color;
 }
 
+.like-post {
+  color: #c9c9c9;
+  transition-property: color;
+}
+
+.like-post:hover {
+  color: #ED6A5A;
+}
+
 .delete-post:hover {
   color: #AD4E42;
 }

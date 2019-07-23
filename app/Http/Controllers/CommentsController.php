@@ -44,8 +44,7 @@ class CommentsController extends Controller
             } else return redirect()
                     ->back()
                     ->with('notify','Comment deleted!');
-        }
-            
+        }       
     }
 
     // For validating the blog post fields
