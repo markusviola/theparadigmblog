@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BlogPost;
 use App\Comment;
+use App\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -66,7 +67,17 @@ class BlogPostsController extends Controller
     public function show(BlogPost $post)
     {
         $comments = Comment::where('blog_post_id', $post->id)->get()->reverse();
-        return view('posts.show', compact('post', 'comments'));
+        $like_count = Like::where('blog_post_id', $post->id)->get()->count();
+        $didLike = Like::where([
+            ['blog_post_id', $post->id],
+            ['user_id', Auth::user()->id]    
+        ])->count();
+
+        if($didLike == 1) {
+            $like_status = true;
+        } else $like_status = false;
+    
+        return view('posts.show', compact('post', 'comments', 'like_count', 'like_status'));
     }
 
     /**

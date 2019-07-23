@@ -50,6 +50,15 @@ body {
     transition-property: color;
 }
 
+.delete-post-alt {
+    color: rgb(194, 193, 193);
+    transition-property: color;
+}
+
+.delete-post-alt:hover {
+    color: rgb(148, 147, 147);
+}
+
 .like-post {
     color: rgb(201, 201, 201);
     transition-property: color;

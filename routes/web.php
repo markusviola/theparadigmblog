@@ -22,4 +22,5 @@ Route::resource('posts','BlogPostsController');
 Route::resource('users','UsersController');
 Route::resource('comments','CommentsController');
 Route::resource('settings', 'SettingsController');
+Route::resource('likes', 'LikesController');
 

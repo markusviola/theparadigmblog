@@ -16534,6 +16534,15 @@ body {
   transition-property: color;
 }
 
+.delete-post-alt {
+  color: #c2c1c1;
+  transition-property: color;
+}
+
+.delete-post-alt:hover {
+  color: #949393;
+}
+
 .like-post {
   color: #c9c9c9;
   transition-property: color;
