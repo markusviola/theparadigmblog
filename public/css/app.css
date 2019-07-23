@@ -16535,7 +16535,7 @@ body {
 }
 
 .delete-post-alt {
-  color: #c2c1c1;
+  color: #d6d5d5;
   transition-property: color;
 }
 
@@ -16550,6 +16550,10 @@ body {
 
 .like-post:hover {
   color: #ED6A5A;
+}
+
+.liked-state {
+  color: #ED6A5A !important;
 }
 
 .delete-post:hover {

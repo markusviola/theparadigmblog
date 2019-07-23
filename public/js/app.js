@@ -36929,7 +36929,22 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 // });
 
 
-$(document).on("click", ".delete-modal", function (elem) {
+$("input.blog-title").focusout(function (elem) {
+  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
+    $("#blog-form").submit();
+  }
+});
+$("textarea.blog-desc").focusout(function (elem) {
+  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
+    $("#blog-form").submit();
+  }
+});
+$("#banner-image").click(function (elem) {
+  if (elem.target.tagName === 'IMG' || elem.target.tagName === 'DIV') {
+    $("h2.upload-area")[0].click();
+  }
+});
+$(".delete-modal").click(function (elem) {
   var id = $(elem.currentTarget).data('id');
   var type = $(elem.currentTarget).data('type');
   var onPost = $(elem.currentTarget).data('on-post');
@@ -36949,27 +36964,59 @@ $(document).on("click", ".delete-modal", function (elem) {
       break;
   }
 });
-$("input.blog-title").focusout(function (elem) {
-  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
-    $("#blog-form").submit();
-  }
-});
-$("textarea.blog-desc").focusout(function (elem) {
-  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
-    $("#blog-form").submit();
-  }
-});
-$("#banner-image").click(function (e) {
-  if (e.target.tagName === 'IMG' || e.target.tagName === 'DIV') {
-    $("h2.upload-area")[0].click();
-  }
-});
 
 notifyUser = function notifyUser(message) {
   $('#notify-message').text(message);
   $('#notify-toast').toast('show');
 };
 
+$("#like-form").submit(function (e) {
+  $('#like-btn').prop('disabled', true);
+  var likeInput = $(e.currentTarget).serializeArray();
+  var likeStatus = likeInput.find(function (a) {
+    return a.name == "likeStatus";
+  });
+
+  if (likeStatus.value == 0) {
+    $.ajax({
+      type: "POST",
+      url: $(e.currentTarget).attr('action'),
+      data: $(e.currentTarget).serialize(),
+      success: function success(response) {
+        var currLikeCount = $("#like-count").text();
+        $("#like-count").text(parseInt(currLikeCount) + 1);
+        $(".like-post").css("color", "#ED6A5A");
+        $("#likeStatus").val(1);
+        $('#like-btn').prop('disabled', false); // $("input.blog-title").data('current', response['blogTitle']);
+        // $("textarea.blog-desc").data('current', response['blogDesc']);
+        // notifyUser("Profile Updated!");
+      },
+      error: function error() {
+        notifyUser("Somethign went wrong!");
+      }
+    });
+  } else {
+    $.ajax({
+      type: "DELETE",
+      url: $(e.currentTarget).attr('action'),
+      data: $(e.currentTarget).serialize(),
+      success: function success(response) {
+        var currLikeCount = $("#like-count").text();
+        $("#like-count").text(parseInt(currLikeCount) - 1);
+        $(".like-post").css("color", "#c9c9c9");
+        $("#likeStatus").val(0);
+        $('#like-btn').prop('disabled', false); // $("input.blog-title").data('current', response['blogTitle']);
+        // $("textarea.blog-desc").data('current', response['blogDesc']);
+        // notifyUser("Profile Updated!");
+      },
+      error: function error() {
+        notifyUser("Somethign went wrong!");
+      }
+    });
+  }
+
+  e.preventDefault();
+});
 $("#blog-form").submit(function (e) {
   $.ajax({
     type: "PATCH",

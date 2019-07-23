@@ -68,16 +68,22 @@ class BlogPostsController extends Controller
     {
         $comments = Comment::where('blog_post_id', $post->id)->get()->reverse();
         $like_count = Like::where('blog_post_id', $post->id)->get()->count();
-        $didLike = Like::where([
+        $user_like = Like::where([
             ['blog_post_id', $post->id],
-            ['user_id', Auth::user()->id]    
-        ])->count();
+            ['user_id', Auth::user() != null ? Auth::user()->id : 0 ]    
+        ])->get();
 
-        if($didLike == 1) {
-            $like_status = true;
-        } else $like_status = false;
+        $didLike = $user_like->count();
+        
+        if (sizeof($user_like) > 0) {
+            $like_id = $user_like[0]->id;
+        } else $like_id = 0;
+
+        if($didLike > 0) {
+            $like_status = 1;
+        } else $like_status = 0;
     
-        return view('posts.show', compact('post', 'comments', 'like_count', 'like_status'));
+        return view('posts.show', compact('post', 'comments', 'like_count', 'like_status', 'like_id'));
     }
 
     /**
