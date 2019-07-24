@@ -10,7 +10,17 @@
                 <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
                 <strong class="text-muted long-text">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
                 <p>
-                <div class="text-muted">Posted by {{ $post->user->username }} on {{ $post->created_at }}</div>
+                <div class="row align-content-center">
+                    <div class="col-6 text-muted">Posted by {{ $post->user->username }} on {{ $post->created_at }}</div>
+                    <div class="col-6">
+                        <div class="d-flex float-right pr-3">
+                            <div class="row align-content-center">
+                                <i id="like-icon" class="col-auto like-post fas fa-heart fa-lg mr-2"></i>
+                            </div>
+                            <div><strong id="like-count">{{ $post->likes->count() }}</strong></div>
+                        </div>
+                    </div>
+                </div>
                 <hr>
             @endforeach
         </div>

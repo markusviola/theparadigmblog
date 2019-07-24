@@ -32,7 +32,6 @@ require('./bootstrap');
 // });
 
 
-
 $("input.blog-title").focusout((elem) => {
     if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
         $("#blog-form").submit();
@@ -56,8 +55,6 @@ $(".delete-modal").click((elem) => {
     const type = $(elem.currentTarget).data('type');
     const onPost = $(elem.currentTarget).data('on-post');
     const pageQuery = `?onPost=${(onPost == true ? 'true' : 'false')}`; 
-
-
     switch (type) {
         case 'post':
             $('#delete-confirmation')

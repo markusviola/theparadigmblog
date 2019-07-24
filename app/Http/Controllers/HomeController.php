@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\BlogPost;
+use App\Like;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $posts = BlogPost::all()->sortBy('created_at');
-        
+
         return view('home', compact('posts'));
     }
 }

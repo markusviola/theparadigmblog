@@ -47,6 +47,7 @@ class BlogPostsController extends Controller
      */
     public function store()
     {
+        // Should not be redirected to profile if Admin
         $data = $this->validateRequest();
         
         $post = new BlogPost();
@@ -66,24 +67,27 @@ class BlogPostsController extends Controller
      */
     public function show(BlogPost $post)
     {
+        // Needs code optimization in the future [Temporary]
         $comments = Comment::where('blog_post_id', $post->id)->get()->reverse();
-        $like_count = Like::where('blog_post_id', $post->id)->get()->count();
-        $user_like = Like::where([
-            ['blog_post_id', $post->id],
-            ['user_id', Auth::user() != null ? Auth::user()->id : 0 ]    
-        ])->get();
-
-        $didLike = $user_like->count();
         
-        if (sizeof($user_like) > 0) {
-            $like_id = $user_like[0]->id;
-        } else $like_id = 0;
-
-        if($didLike > 0) {
+        $user_like = null;
+        if (Auth::user() != null) {
+            foreach ($post->likes as $like) {
+                if ($like->user_id == Auth::user()->id) {
+                    $user_like = $like;
+                    break;
+                }
+            }
+        }
+        
+        if ($user_like != null) {
+            $like_id = $user_like->id;
             $like_status = 1;
-        } else $like_status = 0;
-    
-        return view('posts.show', compact('post', 'comments', 'like_count', 'like_status', 'like_id'));
+        } else {
+            $like_id = 0;
+            $like_status = 0;
+        }
+        return view('posts.show', compact('post', 'comments', 'like_status', 'like_id'));
     }
 
     /**

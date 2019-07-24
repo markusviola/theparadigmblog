@@ -16543,6 +16543,10 @@ body {
   color: #949393;
 }
 
+.like-post {
+  color: #ED6A5A;
+}
+
 .liked-post {
   color: #ED6A5A;
   transition-property: color;
