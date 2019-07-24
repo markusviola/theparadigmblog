@@ -67,9 +67,7 @@ class BlogPostsController extends Controller
      */
     public function show(BlogPost $post)
     {
-        // Needs code optimization in the future [Temporary]
         $comments = Comment::where('blog_post_id', $post->id)->get()->reverse();
-        
         $user_like = null;
         if (Auth::user() != null) {
             foreach ($post->likes as $like) {
@@ -79,7 +77,6 @@ class BlogPostsController extends Controller
                 }
             }
         }
-        
         if ($user_like != null) {
             $like_id = $user_like->id;
             $like_status = 1;
@@ -87,7 +84,13 @@ class BlogPostsController extends Controller
             $like_id = 0;
             $like_status = 0;
         }
-        return view('posts.show', compact('post', 'comments', 'like_status', 'like_id'));
+        return view('posts.show', 
+            compact(
+                'post', 
+                'comments', 
+                'like_status', 
+                'like_id'
+            ));
     }
 
     /**
