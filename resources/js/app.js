@@ -80,23 +80,22 @@ notifyUser = (message) => {
 
 $("#like-form").submit((e) => {
     $('#like-btn').prop('disabled', true);
-    const likeInput = $(e.currentTarget).serializeArray()
+    const likeInput = $(e.currentTarget).serializeArray();
     const likeStatus = likeInput.find(a => a.name == "likeStatus");
+    const likeId = likeInput.find(a => a.name == "likeId");
     if(likeStatus.value == 0) {
         $.ajax({
             type:"POST",
-            url: $(e.currentTarget).attr('action'),
+            url: '/likes',
             data: $(e.currentTarget).serialize(),
-            success: function(response) {
+            success: function(likeId) {
                 const currLikeCount = $("#like-count").text();
                 $("#like-count").text(parseInt(currLikeCount) + 1);
-                $(".like-post").css("color", "#ED6A5A");
+                $("#like-icon").removeClass("unliked-post");
+                $("#like-icon").addClass("liked-post");
                 $("#likeStatus").val(1);
+                $("#likeId").val(likeId);
                 $('#like-btn').prop('disabled', false);
-                // $("input.blog-title").data('current', response['blogTitle']);
-                // $("textarea.blog-desc").data('current', response['blogDesc']);
-    
-                // notifyUser("Profile Updated!");
             },
             error: function() {
                 notifyUser("Somethign went wrong!");
@@ -105,18 +104,15 @@ $("#like-form").submit((e) => {
     } else {
         $.ajax({
             type:"DELETE",
-            url: $(e.currentTarget).attr('action'),
+            url: '/likes/'+ likeId.value,
             data: $(e.currentTarget).serialize(),
-            success: function(response) {
+            success: function() {
                 const currLikeCount = $("#like-count").text();
                 $("#like-count").text(parseInt(currLikeCount) - 1);
-                $(".like-post").css("color", "#c9c9c9");
+                $("#like-icon").removeClass("liked-post");
+                $("#like-icon").addClass("unliked-post");
                 $("#likeStatus").val(0);
                 $('#like-btn').prop('disabled', false);
-                // $("input.blog-title").data('current', response['blogTitle']);
-                // $("textarea.blog-desc").data('current', response['blogDesc']);
-    
-                // notifyUser("Profile Updated!");
             },
             error: function() {
                 notifyUser("Somethign went wrong!");
@@ -134,7 +130,6 @@ $("#blog-form").submit((e) => {
         success: function(response) {
             $("input.blog-title").data('current', response['blogTitle']);
             $("textarea.blog-desc").data('current', response['blogDesc']);
-
             notifyUser("Profile Updated!");
         },
         error: function() {

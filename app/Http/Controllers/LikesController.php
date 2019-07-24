@@ -20,13 +20,13 @@ class LikesController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = $this->validateRequest();
-        // $like = new Like();
-        // $like->user_id = Auth::user()->id;
-        // $like->blog_post_id = $data['blogPostId'];
-        // $like->save();
+        $data = $this->validateRequest();
+        $like = new Like();
+        $like->user_id = Auth::user()->id;
+        $like->blog_post_id = $data['blogPostId'];
+        $like->save();
         
-        return 1;
+        return $like->id;
     }
 
     /**
@@ -37,8 +37,7 @@ class LikesController extends Controller
      */
     public function destroy(Like $like)
     {
-        // dd($like);
-        // $like->delete($like);
+        $like->delete($like);
         return 1;
     }
 

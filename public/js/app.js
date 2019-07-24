@@ -36976,20 +36976,23 @@ $("#like-form").submit(function (e) {
   var likeStatus = likeInput.find(function (a) {
     return a.name == "likeStatus";
   });
+  var likeId = likeInput.find(function (a) {
+    return a.name == "likeId";
+  });
 
   if (likeStatus.value == 0) {
     $.ajax({
       type: "POST",
-      url: $(e.currentTarget).attr('action'),
+      url: '/likes',
       data: $(e.currentTarget).serialize(),
-      success: function success(response) {
+      success: function success(likeId) {
         var currLikeCount = $("#like-count").text();
         $("#like-count").text(parseInt(currLikeCount) + 1);
-        $(".like-post").css("color", "#ED6A5A");
+        $("#like-icon").removeClass("unliked-post");
+        $("#like-icon").addClass("liked-post");
         $("#likeStatus").val(1);
-        $('#like-btn').prop('disabled', false); // $("input.blog-title").data('current', response['blogTitle']);
-        // $("textarea.blog-desc").data('current', response['blogDesc']);
-        // notifyUser("Profile Updated!");
+        $("#likeId").val(likeId);
+        $('#like-btn').prop('disabled', false);
       },
       error: function error() {
         notifyUser("Somethign went wrong!");
@@ -36998,16 +37001,15 @@ $("#like-form").submit(function (e) {
   } else {
     $.ajax({
       type: "DELETE",
-      url: $(e.currentTarget).attr('action'),
+      url: '/likes/' + likeId.value,
       data: $(e.currentTarget).serialize(),
-      success: function success(response) {
+      success: function success() {
         var currLikeCount = $("#like-count").text();
         $("#like-count").text(parseInt(currLikeCount) - 1);
-        $(".like-post").css("color", "#c9c9c9");
+        $("#like-icon").removeClass("liked-post");
+        $("#like-icon").addClass("unliked-post");
         $("#likeStatus").val(0);
-        $('#like-btn').prop('disabled', false); // $("input.blog-title").data('current', response['blogTitle']);
-        // $("textarea.blog-desc").data('current', response['blogDesc']);
-        // notifyUser("Profile Updated!");
+        $('#like-btn').prop('disabled', false);
       },
       error: function error() {
         notifyUser("Somethign went wrong!");

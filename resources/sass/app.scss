@@ -59,12 +59,21 @@ body {
     color: rgb(148, 147, 147);
 }
 
-.like-post {
+.liked-post {
+    color: #ED6A5A;
+    transition-property: color;
+}
+
+.liked-post:hover {
+    color: rgb(201, 201, 201);
+}
+
+.unliked-post {
     color: rgb(201, 201, 201);
     transition-property: color;
 }
 
-.like-post:hover {
+.unliked-post:hover {
     color: #ED6A5A;
 }
 

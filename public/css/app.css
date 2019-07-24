@@ -16543,12 +16543,21 @@ body {
   color: #949393;
 }
 
-.like-post {
+.liked-post {
+  color: #ED6A5A;
+  transition-property: color;
+}
+
+.liked-post:hover {
+  color: #c9c9c9;
+}
+
+.unliked-post {
   color: #c9c9c9;
   transition-property: color;
 }
 
-.like-post:hover {
+.unliked-post:hover {
   color: #ED6A5A;
 }
 
