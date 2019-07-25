@@ -36906,7 +36906,13 @@ module.exports = function(module) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./notification */ "./resources/js/notification.js");
+
+__webpack_require__(/*! ./profile */ "./resources/js/profile.js");
+
+__webpack_require__(/*! ./modal */ "./resources/js/modal.js"); // window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -36930,30 +36936,76 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 
 
 $(function () {
-  switch (window.location.hash) {
-    case "#unauth-access":
-      notifyUser("Please log in to your account!");
-      break;
+  initNotifications();
+});
 
-    default:
-      console.log("OK");
-  }
-});
-$("input.blog-title").focusout(function (elem) {
-  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
-    $("#blog-form").submit();
-  }
-});
-$("textarea.blog-desc").focusout(function (elem) {
-  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
-    $("#blog-form").submit();
-  }
-});
-$("#banner-image").click(function (elem) {
-  if (elem.target.tagName === 'IMG' || elem.target.tagName === 'DIV') {
-    $("h2.upload-area")[0].click();
-  }
-});
+/***/ }),
+
+/***/ "./resources/js/bootstrap.js":
+/*!***********************************!*\
+  !*** ./resources/js/bootstrap.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/**
+ * We'll load jQuery and the Bootstrap jQuery plugin which provides support
+ * for JavaScript based Bootstrap features such as modals and tabs. This
+ * code may be modified to fit the specific needs of your application.
+ */
+
+try {
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
+  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+  __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+} catch (e) {}
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+
+
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+/**
+ * Next we will register the CSRF Token as a common header with Axios so that
+ * all outgoing HTTP requests automatically have it attached. This is just
+ * a simple convenience so we don't have to attach every token manually.
+ */
+
+var token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
+/**
+ * Echo exposes an expressive API for subscribing to channels and listening
+ * for events that are broadcast by Laravel. Echo and event broadcasting
+ * allows your team to easily build robust real-time web applications.
+ */
+// import Echo from 'laravel-echo'
+// window.Pusher = require('pusher-js');
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: process.env.MIX_PUSHER_APP_KEY,
+//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+//     encrypted: true
+// });
+
+/***/ }),
+
+/***/ "./resources/js/modal.js":
+/*!*******************************!*\
+  !*** ./resources/js/modal.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
 $(".delete-modal").click(function (elem) {
   var id = $(elem.currentTarget).data('id');
   var type = $(elem.currentTarget).data('type');
@@ -36975,11 +37027,59 @@ $(".delete-modal").click(function (elem) {
   }
 });
 
+/***/ }),
+
+/***/ "./resources/js/notification.js":
+/*!**************************************!*\
+  !*** ./resources/js/notification.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+initNotifications = function initNotifications() {
+  switch (window.location.hash) {
+    case "#unauth-access":
+      notifyUser("Please log in to your account!");
+      break;
+
+    case "#admin-only":
+      notifyUser("You need administrative privileges!");
+      break;
+
+    default:
+      console.log("OK");
+  }
+};
+
 notifyUser = function notifyUser(message) {
   $('#notify-message').text(message);
   $('#notify-toast').toast('show');
 };
 
+/***/ }),
+
+/***/ "./resources/js/profile.js":
+/*!*********************************!*\
+  !*** ./resources/js/profile.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$("input.blog-title").focusout(function (elem) {
+  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
+    $("#blog-form").submit();
+  }
+});
+$("textarea.blog-desc").focusout(function (elem) {
+  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
+    $("#blog-form").submit();
+  }
+});
+$("#banner-image").click(function (elem) {
+  if (elem.target.tagName === 'IMG' || elem.target.tagName === 'DIV') {
+    $("h2.upload-area")[0].click();
+  }
+});
 $("#like-form").submit(function (e) {
   $('#like-btn').prop('disabled', true);
   var likeInput = $(e.currentTarget).serializeArray();
@@ -37045,64 +37145,6 @@ $("#blog-form").submit(function (e) {
   });
   e.preventDefault();
 });
-
-/***/ }),
-
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
-
-try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
-  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-  __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
-} catch (e) {}
-/**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
- */
-
-
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-/**
- * Next we will register the CSRF Token as a common header with Axios so that
- * all outgoing HTTP requests automatically have it attached. This is just
- * a simple convenience so we don't have to attach every token manually.
- */
-
-var token = document.head.querySelector('meta[name="csrf-token"]');
-
-if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-// import Echo from 'laravel-echo'
-// window.Pusher = require('pusher-js');
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
-// });
 
 /***/ }),
 
