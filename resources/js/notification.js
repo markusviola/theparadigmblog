@@ -6,6 +6,9 @@ initNotifications = () => {
         case "#admin-only":
                 notifyUser("You need administrative privileges!");
             break;
+        case "#regular-only":
+                notifyUser("Limited to regular users only!");
+            break;
         default:
             console.log("OK");
     }
