@@ -36929,6 +36929,16 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 // });
 
 
+$(function () {
+  switch (window.location.hash) {
+    case "#unauth-access":
+      notifyUser("Please log in to your account!");
+      break;
+
+    default:
+      console.log("OK");
+  }
+});
 $("input.blog-title").focusout(function (elem) {
   if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
     $("#blog-form").submit();
@@ -36995,7 +37005,7 @@ $("#like-form").submit(function (e) {
         $('#like-btn').prop('disabled', false);
       },
       error: function error() {
-        notifyUser("Somethign went wrong!");
+        window.location = "/login#unauth-access";
       }
     });
   } else {
@@ -37012,7 +37022,7 @@ $("#like-form").submit(function (e) {
         $('#like-btn').prop('disabled', false);
       },
       error: function error() {
-        notifyUser("Somethign went wrong!");
+        window.location = "/login#unauth-access";
       }
     });
   }

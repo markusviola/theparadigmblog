@@ -31,6 +31,15 @@ require('./bootstrap');
 //     el: '#app',
 // });
 
+$(() => {
+    switch(window.location.hash) {
+        case "#unauth-access":
+                notifyUser("Please log in to your account!");
+            break;
+        default:
+            console.log("OK");
+    }
+});
 
 $("input.blog-title").focusout((elem) => {
     if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
@@ -95,7 +104,7 @@ $("#like-form").submit((e) => {
                 $('#like-btn').prop('disabled', false);
             },
             error: function() {
-                notifyUser("Somethign went wrong!");
+                window.location = "/login#unauth-access"
             }
         });
     } else {
@@ -112,7 +121,7 @@ $("#like-form").submit((e) => {
                 $('#like-btn').prop('disabled', false);
             },
             error: function() {
-                notifyUser("Somethign went wrong!");
+                window.location = "/login#unauth-access"
             }
         });
     }
