@@ -34,8 +34,8 @@
                                 type="text"
                                 id="blogTitle"
                                 name="blogTitle" 
-                                data-current="{{ Auth::user()->blogTitle }}"
-                                value="{{ old('title') ?? Auth::user()->blogTitle }}"
+                                data-current="{{ $userBlogTitle }}"
+                                value="{{ old('title') ?? $userBlogTitle }}"
                             >
                         </h1>
                         <hr>
@@ -44,9 +44,9 @@
                                 class="blog-desc clean-input no-scroll text-secondary text-justify" 
                                 name="blogDesc" placeholder="Write your thoughts here..." 
                                 id="blogDesc" 
-                                data-current="{{ Auth::user()->blogDesc }}"
+                                data-current="{{ $userBlogDesc }}"
                                 rows="4"
-                            >{{ old('body') ?? Auth::user()->blogDesc }}</textarea>
+                            >{{ old('body') ?? $userBlogDesc }}</textarea>
                         </h5>
                         @csrf
                     </form>

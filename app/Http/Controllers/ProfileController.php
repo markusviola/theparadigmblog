@@ -14,14 +14,18 @@ class ProfileController extends Controller
         $this->middleware('regular')->only(['index']);
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $url = $request->user_url;
+        $user = User::whereUrl($url)->first();
+        $userBlogTitle = $user->blogTitle;
+        $userBlogDesc = $user->blogDesc;
         $posts = BlogPost::where(
             'user_id', 
-            Auth::user()->id
+            $user->id
         )->get()->sortBy('created_at');
 
-        return view('profile', compact('posts'));
+        return view('profile', compact('posts','url','userBlogTitle','userBlogDesc'));
     }
 
     public function update(Request $request, User $user)

@@ -65,7 +65,7 @@
                                         <a class="dropdown-item text-secondary" href="{{ route('posts.index') }}">Manage Posts</a>
                                         <a class="dropdown-item text-secondary" href="{{ route('comments.index') }}">Manage Comments</a>
                                     @else
-                                        <a class="dropdown-item text-secondary" href="{{ route('profile') }}">Profile</a>
+                                        <a class="dropdown-item text-secondary" href="{{ route('profile', Auth::user()->url) }}">Profile</a>
                                         <a class="dropdown-item text-secondary" href="{{ route('settings.index') }}">Settings</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -84,7 +84,7 @@
             </div>
         </nav>
         @include('tools.toast')
-        <main class="paradigm container{{ Request::path() == 'profile' ? '-fluid no-padding' : ' py-4'}}">
+        <main class="paradigm container{{ Request::path() == 'profile/'.$url ? '-fluid no-padding' : ' py-4'}}">
             @yield('content')
         </main>
     </div>

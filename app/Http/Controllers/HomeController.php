@@ -25,8 +25,9 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
+    {   
+        $url = '';
         $posts = BlogPost::all()->sortBy('created_at');
-        return view('home', compact('posts'))->with('alert','hello');
+        return view('home', compact('posts', 'url'));
     }
 }
