@@ -9,6 +9,11 @@ use App\User;
 
 class ProfileController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('regular')->only(['index']);
+    }
+
     public function index()
     {
         $posts = BlogPost::where(

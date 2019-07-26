@@ -20,6 +20,7 @@ class BlogPostsController extends Controller
     {
         $this->middleware('auth')->except(['show']);
         $this->middleware('admin')->only(['index']);
+        $this->middleware('regular')->only(['create','store']);
     }
 
     public function index()
