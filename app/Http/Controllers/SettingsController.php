@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SettingsController extends Controller
 {
@@ -21,12 +22,12 @@ class SettingsController extends Controller
             $this->validate($request, [
                 'newPass' => 'min:8',
                 'confirmPass' => 'same:newPass',
-                'url' => 'required|max:25',
+                'url' => 'required|max:25|unique:users,url,'.Auth::user()->id,
                 'currentPass' => 'required',
             ]);
         } else {
             $this->validate($request, [
-                'url' => 'required|max:25',
+                'url' => 'required|max:25|unique:users,url,'.Auth::user()->id,
                 'currentPass' => 'required',
             ]);          
         }
