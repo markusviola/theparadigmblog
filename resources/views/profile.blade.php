@@ -4,16 +4,16 @@
     
     <div class="profile-wrapper">
         <div class="banner-image" id="banner-image">
-            @if (Auth::user()->blogHeaderImg)
+            @if ($userHeaderImg)
                 <img 
                     class="header-img" 
                     alt="Responsive image" 
-                    src="{{ asset('storage/'. Auth::user()->blogHeaderImg) }}"
+                    src="{{ asset('storage/'. $userHeaderImg) }}"
                 >
             @endif
             <div class="header-overlay"></div>
             <div class="banner-upload-text">
-                <form action="{{ route('profile.updateHeaderImg', Auth::user()->id) }}" name="upload-form" id="upload-form" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('profile.updateHeaderImg', $userId) }}" name="upload-form" id="upload-form" method="POST" enctype="multipart/form-data">
                     @method('PATCH')
                     <label for="file-upload"><h2 class="upload-area">Upload a Header Photo</h2></label>
                     <input id="file-upload" type="file" name="blogHeaderImg" onchange="form.submit()"/>
@@ -24,7 +24,7 @@
         <div class="profile-card shadow">
             <div class="row justify-content-center">
                 <div class="col-11">
-                    <form action="{{ route('profile.update', Auth::user()->id) }}" name="blog-form" id="blog-form" method="POST">
+                    <form action="{{ route('profile.update', $userId) }}" name="blog-form" id="blog-form" method="POST">
     
                         @method('PATCH')
                         <h1>
@@ -34,8 +34,8 @@
                                 type="text"
                                 id="blogTitle"
                                 name="blogTitle" 
-                                data-current="{{ $userBlogTitle }}"
-                                value="{{ old('title') ?? $userBlogTitle }}"
+                                data-current="{{ $userTitle }}"
+                                value="{{ old('title') ?? $userTitle }}"
                             >
                         </h1>
                         <hr>
@@ -44,9 +44,9 @@
                                 class="blog-desc clean-input no-scroll text-secondary text-justify" 
                                 name="blogDesc" placeholder="Write your thoughts here..." 
                                 id="blogDesc" 
-                                data-current="{{ $userBlogDesc }}"
+                                data-current="{{ $userDesc }}"
                                 rows="4"
-                            >{{ old('body') ?? $userBlogDesc }}</textarea>
+                            >{{ old('body') ?? $userDesc }}</textarea>
                         </h5>
                         @csrf
                     </form>

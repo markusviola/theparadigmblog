@@ -18,14 +18,23 @@ class ProfileController extends Controller
     {
         $url = $request->user_url;
         $user = User::whereUrl($url)->first();
-        $userBlogTitle = $user->blogTitle;
-        $userBlogDesc = $user->blogDesc;
+        $userId = $user->id;
+        $userTitle = $user->blogTitle;
+        $userDesc = $user->blogDesc;
+        $userHeaderImg = $user->blogHeaderImg;
         $posts = BlogPost::where(
             'user_id', 
             $user->id
         )->get()->sortBy('created_at');
 
-        return view('profile', compact('posts','url','userBlogTitle','userBlogDesc'));
+        return view('profile', compact(
+            'posts',
+            'url',
+            'userId',
+            'userTitle',
+            'userDesc',
+            'userHeaderImg'
+        ));
     }
 
     public function update(Request $request, User $user)
