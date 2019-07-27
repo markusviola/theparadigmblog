@@ -1,7 +1,7 @@
 <div>{{ $errors->first('title') }}</div>
 <div class="form-group">
-    <label for="title">Post Title</label>
-    <input class="form-control" type="text" placeholder="Make a good title title..." name="title" value="{{ old('title') ?? $post->title  }}">
+    <label for="title">{{ Auth::user()->isAdmin == 1 ? "Announcement" : "Post" }} Title</label>
+    <input class="form-control" type="text" placeholder="Make a good title..." name="title" value="{{ old('title') ?? $post->title  }}">
 </div>
 
 <div>{{ $errors->first('body') }}</div>

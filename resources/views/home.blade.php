@@ -7,17 +7,30 @@
             <h2 class="text-secondary">Recent Posts</h2>
             <hr>
             @foreach ($posts as $post)
+                @if ($post->user->isAdmin == 1)
+                    <div class="announce-text"><i class="fas fa-flag fa-sm mr-2"></i><strong>Announcement</strong></div>    
+                @endif
                 <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
                 <strong class="text-muted long-text">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
                 <p>
                 <div class="row align-content-center">
-                    <div class="col-6 text-muted">Posted by {{ $post->user->username }} on {{ $post->created_at }}</div>
-                    <div class="col-6">
-                        <div class="d-flex float-right pr-3">
-                            <div class="row align-content-center">
-                                <i id="like-icon" class="col-auto like-post fas fa-heart fa-lg mr-2"></i>
+                    <div class="col-md-6 text-muted">Posted by {{ $post->user->username }} on {{ $post->created_at }}</div>
+                    <div class="col-md-6 row no-padding pr-2 text-muted">
+                        <div class="col-md-5 offset-md-2 no-padding">
+                            <div class="d-flex float-right">
+                                <div class="row align-content-center">
+                                    <i id="like-icon" class="col-auto like-post fas fa-heart fa-lg mr-2"></i>
+                                </div>
+                                <div><strong id="like-count">0</strong> likes</div>
                             </div>
-                            <div><strong id="like-count">{{ $post->likes->count() }}</strong></div>
+                        </div>
+                        <div class="col-md-5 no-padding">
+                            <div class="d-flex float-right">
+                                <div class="row align-content-center">
+                                    <i id="like-icon" class="col-auto fas fa-comment fa-lg mr-2"></i>
+                                </div>
+                                <div><strong id="like-count">0</strong> comments</div>
+                            </div>
                         </div>
                     </div>
                 </div>

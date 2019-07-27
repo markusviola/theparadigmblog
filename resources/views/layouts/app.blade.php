@@ -52,7 +52,7 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('posts.create') }}">Create Post</a>
+                                <a class="nav-link" href="{{ route('posts.create') }}">{{ Auth::user()->isAdmin == 1 ? "Announce!" : "Create Post" }}</a>
                             </li>
                             <div class="nav-link nav-divider"> | </div>
                             <li class="nav-item dropdown">
