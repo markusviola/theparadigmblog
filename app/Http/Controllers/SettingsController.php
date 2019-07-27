@@ -11,6 +11,7 @@ class SettingsController extends Controller
 {
     public function index()
     {
+        parent::__construct();
         return view('settings');
     }
 

@@ -11,6 +11,7 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('regular')->only(['index']);
     }
 
@@ -19,6 +20,7 @@ class ProfileController extends Controller
         $url = $request->user_url;
         $user = User::whereUrl($url)->first();
         $userId = $user->id;
+        $userName = $user->username;
         $userTitle = $user->blogTitle;
         $userDesc = $user->blogDesc;
         $userHeaderImg = $user->blogHeaderImg;
@@ -31,6 +33,7 @@ class ProfileController extends Controller
             'posts',
             'url',
             'userId',
+            'userName',
             'userTitle',
             'userDesc',
             'userHeaderImg'

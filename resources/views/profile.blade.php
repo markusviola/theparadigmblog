@@ -11,42 +11,49 @@
                     src="{{ asset('storage/'. $userHeaderImg) }}"
                 >
             @endif
-            <div class="header-overlay"></div>
-            <div class="banner-upload-text">
-                <form action="{{ route('profile.updateHeaderImg', $userId) }}" name="upload-form" id="upload-form" method="POST" enctype="multipart/form-data">
-                    @method('PATCH')
-                    <label for="file-upload"><h2 class="upload-area">Upload a Header Photo</h2></label>
-                    <input id="file-upload" type="file" name="blogHeaderImg" onchange="form.submit()"/>
-                    @csrf
-                </form>
-            </div>
+            @if ($userId == Auth::user()->id)
+                <div class="header-overlay"></div>
+                <div class="banner-upload-text">
+                    <form action="{{ route('profile.updateHeaderImg', $userId) }}" name="upload-form" id="upload-form" method="POST" enctype="multipart/form-data">
+                        @method('PATCH')
+                        <label for="file-upload"><h2 class="upload-area">Upload a Header Photo</h2></label>
+                        <input id="file-upload" type="file" name="blogHeaderImg" onchange="form.submit()"/>
+                        @csrf
+                    </form>
+                </div>
+            @endif
         </div>
         <div class="profile-card shadow">
             <div class="row justify-content-center">
                 <div class="col-11">
                     <form action="{{ route('profile.update', $userId) }}" name="blog-form" id="blog-form" method="POST">
-    
                         @method('PATCH')
                         <h1>
                             <input 
-                                class="blog-title clean-input text-secondary" 
-                                placeholder="Click to edit blog title..." 
+                                class="trans-elem blog-title clean-input text-secondary" 
+                                placeholder="{{ $userId == Auth::user()->id 
+                                    ? 'Write a clever article title...' 
+                                    : ucfirst($userName)."'s Article Posts" 
+                                }}" 
                                 type="text"
                                 id="blogTitle"
                                 name="blogTitle" 
                                 data-current="{{ $userTitle }}"
                                 value="{{ old('title') ?? $userTitle }}"
-                            >
+                            {{ $userId == Auth::user()->id ? '' : 'disabled'}}>
                         </h1>
                         <hr>
                         <h5>
                             <textarea 
-                                class="blog-desc clean-input no-scroll text-secondary text-justify" 
-                                name="blogDesc" placeholder="Write your thoughts here..." 
+                                class="trans-elem blog-desc clean-input no-scroll text-secondary text-justify" 
+                                name="blogDesc" placeholder="{{ $userId == Auth::user()->id 
+                                    ? 'Write your thoughts here...' 
+                                    : $userName.' has not written anything here yet...'
+                                }}"  
                                 id="blogDesc" 
                                 data-current="{{ $userDesc }}"
                                 rows="4"
-                            >{{ old('body') ?? $userDesc }}</textarea>
+                            {{ $userId == Auth::user()->id ? '' : 'disabled'}}>{{ old('body') ?? $userDesc }}</textarea>
                         </h5>
                         @csrf
                     </form>
@@ -79,9 +86,11 @@
                         <div class="no-posts text-muted">
                             <div>
                                 <div class="mb-1">No articles posted yet.</div>
-                                <div>
-                                    Create your first post <a href="{{ route('posts.create') }}"><strong>HERE</strong></a>!
-                                </div>
+                                @if ($userId == Auth::user()->id)
+                                    <div>
+                                        Create your first post <a href="{{ route('posts.create') }}"><strong>HERE</strong></a>!
+                                    </div>     
+                                @endif
                             </div>
                         </div>
                     @endif

@@ -15,6 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
         // USE THIS FOR CONTROLLERS THAT NEED VERIFICATION
         // $this->middleware('auth');
     }
@@ -26,8 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        $url = '';
         $posts = BlogPost::all()->sortBy('created_at');
-        return view('home', compact('posts', 'url'));
+        return view('home', compact('posts'));
     }
 }
