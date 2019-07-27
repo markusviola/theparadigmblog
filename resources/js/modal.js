@@ -1,4 +1,3 @@
-
 $(".delete-modal").click((elem) => {
     const id = $(elem.currentTarget).data('id');
     const type = $(elem.currentTarget).data('type');
