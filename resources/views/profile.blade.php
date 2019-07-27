@@ -74,11 +74,20 @@
                                 <div class="col-md-5">
                                     <div class="text-muted">Posted on {{ $post->created_at }} </div>
                                 </div>
-                                <div class="col-md-5 text-muted text-right">
+                                <div class="col-md text-muted text-right mr-1">
                                     Updated on {{ $post->updated_at }}
                                 </div>
-                                <a class="col-md-1 text-right trans-btn"  href="{{ route('posts.edit', $post->id) }}"><i class="edit-post fas fa-pencil-alt fa-lg"></i></a>
-                                <button class="col-md-1 text-right trans-btn delete-modal" data-toggle="modal" data-target="#delete-confirm" data-id="{{ $post->id }}"><i class="delete-post fas fa-minus-circle fa-lg"></i></button>
+                                @if (Auth::check() && $userId == Auth::user()->id)
+                                    <a class="col-md-1 text-right trans-btn no-padding"  href="{{ route('posts.edit', $post->id) }}">
+                                        <i class="edit-post fas fa-pencil-alt fa-lg"></i>
+                                    </a>
+                                    <button class="col-md-1 text-right trans-btn delete-modal mr-1" 
+                                        data-toggle="modal" 
+                                        data-target="#delete-confirm" 
+                                        data-id="{{ $post->id }}">
+                                        <i class="delete-post fas fa-minus-circle fa-lg"></i>
+                                    </button>
+                                @endif
                             </div>
                             <hr>
                         @endforeach
