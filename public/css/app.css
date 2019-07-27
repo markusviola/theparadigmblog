@@ -16581,6 +16581,10 @@ body {
   color: #ED6A5A;
 }
 
+.comment-post {
+  color: #c4c3c3;
+}
+
 .edit-post {
   color: #6DA490;
   transition-property: color;
