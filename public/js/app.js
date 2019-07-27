@@ -37055,6 +37055,14 @@ initNotifications = function initNotifications() {
       notifyUser("Limited to regular users only!");
       break;
 
+    case "#guest-only":
+      notifyUser("Limited to guest users only!");
+      break;
+
+    case "#non-admin-only":
+      notifyUser("This feature is for non-admin users only!");
+      break;
+
     default:
       console.log("OK");
   }

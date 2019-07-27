@@ -11,7 +11,7 @@
                     src="{{ asset('storage/'. $userHeaderImg) }}"
                 >
             @endif
-            @if ($userId == Auth::user()->id)
+            @if (Auth::check() && $userId == Auth::user()->id)
                 <div class="header-overlay"></div>
                 <div class="banner-upload-text">
                     <form action="{{ route('profile.updateHeaderImg', $userId) }}" name="upload-form" id="upload-form" method="POST" enctype="multipart/form-data">
@@ -31,7 +31,7 @@
                         <h1>
                             <input 
                                 class="trans-elem blog-title clean-input text-secondary" 
-                                placeholder="{{ $userId == Auth::user()->id 
+                                placeholder="{{ Auth::check() && $userId == Auth::user()->id 
                                     ? 'Write a clever article title...' 
                                     : ucfirst($userName)."'s Article Posts" 
                                 }}" 
@@ -40,20 +40,20 @@
                                 name="blogTitle" 
                                 data-current="{{ $userTitle }}"
                                 value="{{ old('title') ?? $userTitle }}"
-                            {{ $userId == Auth::user()->id ? '' : 'disabled'}}>
+                            {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}>
                         </h1>
                         <hr>
                         <h5>
                             <textarea 
                                 class="trans-elem blog-desc clean-input no-scroll text-secondary text-justify" 
-                                name="blogDesc" placeholder="{{ $userId == Auth::user()->id 
+                                name="blogDesc" placeholder="{{ Auth::check() && $userId == Auth::user()->id 
                                     ? 'Write your thoughts here...' 
                                     : $userName.' has not written anything here yet...'
                                 }}"  
                                 id="blogDesc" 
                                 data-current="{{ $userDesc }}"
                                 rows="4"
-                            {{ $userId == Auth::user()->id ? '' : 'disabled'}}>{{ old('body') ?? $userDesc }}</textarea>
+                            {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}>{{ old('body') ?? $userDesc }}</textarea>
                         </h5>
                         @csrf
                     </form>
@@ -86,7 +86,7 @@
                         <div class="no-posts text-muted">
                             <div>
                                 <div class="mb-1">No articles posted yet.</div>
-                                @if ($userId == Auth::user()->id)
+                                @if (Auth::check() && $userId == Auth::user()->id)
                                     <div>
                                         Create your first post <a href="{{ route('posts.create') }}"><strong>HERE</strong></a>!
                                     </div>     

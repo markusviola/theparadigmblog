@@ -5,22 +5,22 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
+class NonAdminAccess
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+    public function handle($request, Closure $next)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/')->route('home', ['#guest-only']);;
+        if (!Auth::check() &&
+            Auth::user()->isAdmin == 1)
+        {
+            return redirect()->route('home', ['#non-admin-only']);
         }
-
         return $next($request);
     }
 }

@@ -21,7 +21,6 @@ class BlogPostsController extends Controller
         parent::__construct();
         $this->middleware('auth')->except(['show']);
         $this->middleware('admin')->only(['index']);
-        $this->middleware('regular')->only(['create','store']);
     }
 
     public function index()
@@ -50,7 +49,6 @@ class BlogPostsController extends Controller
      */
     public function store()
     {
-        // Should not be redirected to profile if Admin
         $data = $this->validateRequest();
         
         $post = new BlogPost();
@@ -58,8 +56,13 @@ class BlogPostsController extends Controller
         $post->title = $data['title'];
         $post->body = $data['body'];
         $post->save();
-
-        return redirect()->route('profile')->with('notify','Article published!');
+        $posts = BlogPost::all()->sortBy('created_at');
+        if (Auth::user()->isAdmin == 1) {
+            return redirect()->route('home');
+        } else return redirect()
+            ->route('profile', Auth::user()->url)
+            ->with('notify','Article published!');
+        
     }
 
     /**

@@ -16,7 +16,7 @@ class AdminAccess
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() == null ||
+        if (!Auth::check() ||
             Auth::user()->isAdmin != 1)
         {
             return redirect()->route('home', ['#admin-only']);

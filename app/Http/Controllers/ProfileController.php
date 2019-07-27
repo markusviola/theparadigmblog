@@ -11,8 +11,8 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('non.admin')->only(['index']);
         parent::__construct();
-        $this->middleware('regular')->only(['index']);
     }
 
     public function index(Request $request)
