@@ -16,6 +16,10 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
+a {
+    color: rgb(122, 122, 122) !important;
+}
+
 .navbar-laravel {
     z-index: 2;
     background-color: #fff;
@@ -93,8 +97,8 @@ body {
     color: #AD4E42;
 }
 
-.announce-text {
-    color: #ED6A5A;
+.admin-text {
+    color: rgb(211, 96, 81);
 }
 
 .comment-post {

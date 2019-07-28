@@ -4,13 +4,26 @@
 @foreach ($comments as $comment)
         <div class="row">
             <div class="col-5">
-                <strong class="text-secondary">{{ $comment->user->username }}</strong>
+                <strong class="text-secondary">
+                    @if ($comment->user->isAdmin == 0)
+                    <a href="{{ route('profile', $comment->user->url) }}">
+                        <div>
+                            {{ $comment->user->username }}
+                            <i class="fas fa-user fa-sm ml-1"></i>
+                        </div>
+                    </a>     
+                    @else
+                        <div class="admin-text">
+                            {{ $comment->user->username }}
+                            <i class="fas fa-user-cog fa-sm ml-1"></i>
+                        </div>
+                    @endif
+                </strong>
             </div>
             <div class="col d-flex justify-content-end text-muted">
                 Posted on {{ $comment->created_at }}
             </div>
         </div>
-        {{-- need to adjust appropriately when switching account types --}}
         <div class="row">
             <div class="col-{{ Auth::user() !== null && Auth::user()->isAdmin == 1 ? '11' : 'auto' }}
                  text-justify mt-2 long-text align-content-center">{{ $comment->body }}

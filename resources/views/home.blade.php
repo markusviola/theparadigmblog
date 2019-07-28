@@ -8,7 +8,7 @@
             <hr>
             @foreach ($posts as $post)
                 @if ($post->user->isAdmin == 1)
-                    <div class="announce-text"><i class="fas fa-flag fa-sm mr-2"></i><strong>Announcement</strong></div>    
+                    <div class="admin-text"><i class="fas fa-flag fa-sm mr-2"></i><strong>Announcement</strong></div>    
                 @endif
                 <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
                 <div class="text-muted long-text">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</div>
