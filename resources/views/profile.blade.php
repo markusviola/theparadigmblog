@@ -78,13 +78,16 @@
                                     Updated on {{ $post->updated_at }}
                                 </div>
                                 @if (Auth::check() && $userId == Auth::user()->id)
-                                    <a class="col-md-1 text-right trans-btn no-padding"  href="{{ route('posts.edit', $post->id) }}">
+                                    <a class="col-md-1 text-right trans-btn no-padding" href="{{ route('posts.edit', $post->id) }}">
                                         <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                                     </a>
                                     <button class="col-md-1 text-right trans-btn delete-modal mr-1" 
                                         data-toggle="modal" 
                                         data-target="#delete-confirm" 
-                                        data-id="{{ $post->id }}">
+                                        data-id="{{ $post->id }}" 
+                                        data-type="post" 
+                                        data-on-post="false"
+                                    >
                                         <i class="delete-post fas fa-minus-circle fa-lg"></i>
                                     </button>
                                 @endif
@@ -107,5 +110,4 @@
             </div>
         </div>
     </div>
-    
 @endsection

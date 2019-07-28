@@ -26,7 +26,6 @@ class BlogPostsController extends Controller
     public function index()
     {
         $posts = BlogPost::all();
-
         return view('posts.index', compact('posts'));
     }
 
@@ -50,7 +49,6 @@ class BlogPostsController extends Controller
     public function store()
     {
         $data = $this->validateRequest();
-        
         $post = new BlogPost();
         $post->user_id = Auth::user()->id;
         $post->title = $data['title'];
@@ -62,7 +60,6 @@ class BlogPostsController extends Controller
         } else return redirect()
             ->route('profile', Auth::user()->url)
             ->with('notify','Article published!');
-        
     }
 
     /**
@@ -120,10 +117,10 @@ class BlogPostsController extends Controller
     {
         $post->update($this->validateRequest());
 
-        if(Auth::user()->isAdmin)
+        if(Auth::user()->isAdmin == 1)
             return redirect()->route('posts.index')->with('notify','Article updated!');
         else
-            return redirect()->route('profile')->with('notify','Article updated!');
+            return redirect()->route('profile', Auth::user()->url)->with('notify','Article updated!');
     }
 
     /**
@@ -136,10 +133,10 @@ class BlogPostsController extends Controller
     {
         $post->delete($post);
 
-        if(Auth::user()->isAdmin)
+        if(Auth::user()->isAdmin == 1)
             return redirect()->route('posts.index')->with('notify','Article deleted!');
         else
-            return redirect()->route('profile')->with('notify','Article deleted!');
+            return redirect()->route('profile', Auth::user()->url)->with('notify','Article deleted!');
     }
 
     // For validating the blog post fields

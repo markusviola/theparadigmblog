@@ -1,4 +1,5 @@
 $(".delete-modal").click((elem) => {
+    console.log("WORKS");
     const id = $(elem.currentTarget).data('id');
     const type = $(elem.currentTarget).data('type');
     const onPost = $(elem.currentTarget).data('on-post');

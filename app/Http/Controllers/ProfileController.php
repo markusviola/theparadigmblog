@@ -27,7 +27,7 @@ class ProfileController extends Controller
         $posts = BlogPost::where(
             'user_id', 
             $user->id
-        )->get()->sortBy('created_at');
+        )->get()->reverse();
 
         return view('profile', compact(
             'posts',

@@ -37012,6 +37012,7 @@ if (token) {
 /***/ (function(module, exports) {
 
 $(".delete-modal").click(function (elem) {
+  console.log("WORKS");
   var id = $(elem.currentTarget).data('id');
   var type = $(elem.currentTarget).data('type');
   var onPost = $(elem.currentTarget).data('on-post');
