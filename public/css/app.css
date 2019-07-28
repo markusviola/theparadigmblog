@@ -16500,10 +16500,6 @@ body {
   font-family: "Poppins", sans-serif !important;
 }
 
-a {
-  color: #7a7a7a !important;
-}
-
 .navbar-laravel {
   z-index: 2;
   background-color: #fff;
