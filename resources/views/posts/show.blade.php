@@ -5,7 +5,16 @@
         <div class="col-7">
             <br>
             <h2>{{ $post->title }}</h2>
-            <h5 class="text-muted mt-2">Posted by <a href="{{ route('profile', $post->user->url) }}">{{ $post->user->username }}</a> on {{ $post->created_at }}</h5>
+            <h5 class="text-muted mt-2">
+                Posted by 
+                @if ($post->user->isAdmin == 0)
+                    <a href="{{ route('profile', $post->user->url) }}">
+                        {{ $post->user->username }}
+                    </a>     
+                @else
+                    {{ $post->user->username }}
+                @endif
+                on {{ $post->created_at }}</h5>
             <hr>
             <br>
             <div class="text-justify long-text">{{ $post->body }}</div>
