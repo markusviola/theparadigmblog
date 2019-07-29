@@ -6,7 +6,7 @@
             <div class="col-5">
                 <strong class="text-secondary">
                     @if ($comment->user->isAdmin == 0)
-                    <a href="{{ route('profile', $comment->user->url) }}">
+                    <a class="link-neutral" href="{{ route('profile', $comment->user->url) }}">
                         <div>
                             {{ $comment->user->username }}
                             <i class="fas fa-user fa-sm ml-1"></i>

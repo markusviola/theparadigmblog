@@ -16,9 +16,15 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
-// a {
-//     color: rgb(122, 122, 122) !important;
-// }
+.link-neutral {
+    color: rgb(0, 172, 120);
+    transition-property: color;
+}
+
+.link-neutral:hover {
+    text-decoration: none;
+    color: rgb(0, 129, 90);
+}
 
 .navbar-laravel {
     z-index: 2;

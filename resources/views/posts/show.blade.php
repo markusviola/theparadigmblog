@@ -8,7 +8,7 @@
             <h5 class="text-muted mt-2">
                 Posted by 
                 @if ($post->user->isAdmin == 0)
-                    <a href="{{ route('profile', $post->user->url) }}">
+                    <a class="link-neutral" href="{{ route('profile', $post->user->url) }}">
                         {{ $post->user->username }}
                     </a>     
                 @else

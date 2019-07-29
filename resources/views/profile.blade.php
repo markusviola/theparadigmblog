@@ -67,7 +67,7 @@
                         @include('posts.modals.delete')
                         <br>
                         @foreach ($posts as $post)
-                            <h3><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
+                            <h3><a class="link-neutral" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
                             <strong class="text-muted long-text">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</strong>
                             <p>
                             <div class="row">

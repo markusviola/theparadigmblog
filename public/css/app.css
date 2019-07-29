@@ -16500,6 +16500,16 @@ body {
   font-family: "Poppins", sans-serif !important;
 }
 
+.link-neutral {
+  color: #00ac78;
+  transition-property: color;
+}
+
+.link-neutral:hover {
+  text-decoration: none;
+  color: #00815a;
+}
+
 .navbar-laravel {
   z-index: 2;
   background-color: #fff;
