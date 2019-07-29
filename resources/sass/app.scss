@@ -16,15 +16,51 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
-.link-neutral {
-    color: rgb(0, 172, 120);
-    transition-property: color;
+.anti-neutral {
+    color: rgb(73, 115, 163);
 }
 
-.link-neutral:hover {
+.anti-neutral:hover {
     text-decoration: none;
-    color: rgb(0, 129, 90);
+    color: rgb(43, 69, 98);
 }
+
+.alt-anti-neutral {
+    color: rgb(65, 104, 148);
+}
+
+.neutral {
+    color: #1aa17c;
+}
+
+.neutral:hover {
+    color: #117458;
+}
+
+.alt-neutral {
+    color: #1aa17c;
+}
+
+.btn-anti-neutral {
+    background: rgb(73, 115, 163) !important;
+    border-color: rgb(73, 115, 163) !important;
+    transition-property: background;
+}
+
+.btn-anti-neutral:hover {
+    background: rgb(53, 84, 119) !important;
+}
+
+.btn-neutral {
+    background: #1aa17c !important;
+    border-color: #1aa17c !important;
+    transition-property: background;
+}
+
+.btn-neutral:hover {
+    background: #117458 !important;
+}
+
 
 .navbar-laravel {
     z-index: 2;

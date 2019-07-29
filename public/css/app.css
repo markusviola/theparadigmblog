@@ -16500,14 +16500,49 @@ body {
   font-family: "Poppins", sans-serif !important;
 }
 
-.link-neutral {
-  color: #00ac78;
-  transition-property: color;
+.anti-neutral {
+  color: #4973a3;
 }
 
-.link-neutral:hover {
+.anti-neutral:hover {
   text-decoration: none;
-  color: #00815a;
+  color: #2b4562;
+}
+
+.alt-anti-neutral {
+  color: #416894;
+}
+
+.neutral {
+  color: #1aa17c;
+}
+
+.neutral:hover {
+  color: #117458;
+}
+
+.alt-neutral {
+  color: #1aa17c;
+}
+
+.btn-anti-neutral {
+  background: #4973a3 !important;
+  border-color: #4973a3 !important;
+  transition-property: background;
+}
+
+.btn-anti-neutral:hover {
+  background: #355477 !important;
+}
+
+.btn-neutral {
+  background: #1aa17c !important;
+  border-color: #1aa17c !important;
+  transition-property: background;
+}
+
+.btn-neutral:hover {
+  background: #117458 !important;
 }
 
 .navbar-laravel {

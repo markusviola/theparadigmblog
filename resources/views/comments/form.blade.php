@@ -9,7 +9,7 @@
                 {{ Auth::user() !== null ? 'Comment as ' . Auth::user()->username : 'You are not registered yet.' }}
         </div>
         <div class="col d-flex justify-content-end">
-            <button class="btn btn-primary" name="blog_post_id" value="{{ $post->id }}" type="submit">Post Comment</button>
+            <button class="btn text-white btn-anti-neutral" name="blog_post_id" value="{{ $post->id }}" type="submit">Post Comment</button>
         </div>
     </div>
     @csrf

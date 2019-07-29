@@ -4,11 +4,11 @@
     <div class="row justify-content-center">
         <div class="col-7">
             <br>
-            <h2>{{ $post->title }}</h2>
+            <h2 class="alt-anti-neutral">{{ $post->title }}</h2>
             <h5 class="text-muted mt-2">
                 Posted by 
                 @if ($post->user->isAdmin == 0)
-                    <a class="link-neutral" href="{{ route('profile', $post->user->url) }}">
+                    <a class="neutral" href="{{ route('profile', $post->user->url) }}">
                         {{ $post->user->username }}
                     </a>     
                 @else
