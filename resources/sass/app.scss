@@ -17,28 +17,29 @@ body {
 }
 
 .anti-neutral {
-    color: rgb(73, 115, 163);
+    color: rgb(73, 115, 163) !important;
 }
 
 .anti-neutral:hover {
     text-decoration: none;
-    color: rgb(43, 69, 98);
+    color: rgb(43, 69, 98) !important;
 }
 
 .alt-anti-neutral {
-    color: rgb(65, 104, 148);
+    color: rgb(65, 104, 148) !important;
 }
 
 .neutral {
-    color: #1aa17c;
+    color: #1aa17c !important;
 }
 
 .neutral:hover {
-    color: #117458;
+    text-decoration: none;
+    color: #117458 !important;
 }
 
 .alt-neutral {
-    color: #1aa17c;
+    color: #1aa17c !important;
 }
 
 .btn-anti-neutral {

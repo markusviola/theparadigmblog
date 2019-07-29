@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use App\User;
+
 
 class NonAdminAccess
 {
@@ -16,8 +18,8 @@ class NonAdminAccess
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() &&
-            Auth::user()->isAdmin == 1)
+        $user = User::where('url', $request->user_url)->first();
+        if ($user && $user->isAdmin == 1)
         {
             return redirect()->route('home', ['#non-admin-only']);
         }

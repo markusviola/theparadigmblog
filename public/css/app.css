@@ -16501,28 +16501,29 @@ body {
 }
 
 .anti-neutral {
-  color: #4973a3;
+  color: #4973a3 !important;
 }
 
 .anti-neutral:hover {
   text-decoration: none;
-  color: #2b4562;
+  color: #2b4562 !important;
 }
 
 .alt-anti-neutral {
-  color: #416894;
+  color: #416894 !important;
 }
 
 .neutral {
-  color: #1aa17c;
+  color: #1aa17c !important;
 }
 
 .neutral:hover {
-  color: #117458;
+  text-decoration: none;
+  color: #117458 !important;
 }
 
 .alt-neutral {
-  color: #1aa17c;
+  color: #1aa17c !important;
 }
 
 .btn-anti-neutral {
