@@ -1,7 +1,8 @@
 
 <hr class="mt-4">
 @include('comments.modals.delete')
-@foreach ($comments as $comment)
+<div id="comments">
+    @foreach ($comments as $comment)
         <div class="row">
             <div class="col-5">
                 <strong class="text-secondary">
@@ -39,5 +40,6 @@
                 </button>
             @endif
         </div>
-    <hr>
-@endforeach
+        <hr>
+    @endforeach
+</div>

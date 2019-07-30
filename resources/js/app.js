@@ -8,6 +8,7 @@ require('./bootstrap');
 require('./notification');
 require('./profile');
 require('./modal');
+require('./article');
 
 // window.Vue = require('vue');
 

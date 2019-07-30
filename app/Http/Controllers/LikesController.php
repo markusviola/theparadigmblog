@@ -27,7 +27,9 @@ class LikesController extends Controller
         $like->blog_post_id = $data['blogPostId'];
         $like->save();
         
-        return $like->id;
+        return response()->json([
+            'like_id' => $like->id
+        ]); 
     }
 
     /**

@@ -36917,7 +36917,9 @@ __webpack_require__(/*! ./notification */ "./resources/js/notification.js");
 
 __webpack_require__(/*! ./profile */ "./resources/js/profile.js");
 
-__webpack_require__(/*! ./modal */ "./resources/js/modal.js"); // window.Vue = require('vue');
+__webpack_require__(/*! ./modal */ "./resources/js/modal.js");
+
+__webpack_require__(/*! ./article */ "./resources/js/article.js"); // window.Vue = require('vue');
 
 /**
  * The following block of code may be used to automatically register your
@@ -36942,6 +36944,65 @@ __webpack_require__(/*! ./modal */ "./resources/js/modal.js"); // window.Vue = r
 
 $(function () {
   initNotifications();
+});
+
+/***/ }),
+
+/***/ "./resources/js/article.js":
+/*!*********************************!*\
+  !*** ./resources/js/article.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$("#like-form").submit(function (e) {
+  $('#like-btn').prop('disabled', true);
+  var likeInput = $(e.currentTarget).serializeArray();
+  var likeStatus = likeInput.find(function (a) {
+    return a.name == "likeStatus";
+  });
+  var likeId = likeInput.find(function (a) {
+    return a.name == "likeId";
+  });
+
+  if (likeStatus.value == 0) {
+    $.ajax({
+      type: "POST",
+      url: '/likes',
+      data: $(e.currentTarget).serialize(),
+      success: function success(response) {
+        var currLikeCount = $("#like-count").text();
+        $("#like-count").text(parseInt(currLikeCount) + 1);
+        $("#like-icon").removeClass("unliked-post");
+        $("#like-icon").addClass("liked-post");
+        $("#likeStatus").val(1);
+        $("#likeId").val(response.like_id);
+        $('#like-btn').prop('disabled', false);
+      },
+      error: function error() {
+        window.location = "/login#unauth-access";
+      }
+    });
+  } else {
+    $.ajax({
+      type: "DELETE",
+      url: '/likes/' + likeId.value,
+      data: $(e.currentTarget).serialize(),
+      success: function success() {
+        var currLikeCount = $("#like-count").text();
+        $("#like-count").text(parseInt(currLikeCount) - 1);
+        $("#like-icon").removeClass("liked-post");
+        $("#like-icon").addClass("unliked-post");
+        $("#likeStatus").val(0);
+        $('#like-btn').prop('disabled', false);
+      },
+      error: function error() {
+        window.location = "/login#unauth-access";
+      }
+    });
+  }
+
+  e.preventDefault();
 });
 
 /***/ }),
@@ -37098,67 +37159,18 @@ $("#banner-image").click(function (elem) {
     $("h2.upload-area")[0].click();
   }
 });
-$("#like-form").submit(function (e) {
-  $('#like-btn').prop('disabled', true);
-  var likeInput = $(e.currentTarget).serializeArray();
-  var likeStatus = likeInput.find(function (a) {
-    return a.name == "likeStatus";
-  });
-  var likeId = likeInput.find(function (a) {
-    return a.name == "likeId";
-  });
-
-  if (likeStatus.value == 0) {
-    $.ajax({
-      type: "POST",
-      url: '/likes',
-      data: $(e.currentTarget).serialize(),
-      success: function success(likeId) {
-        var currLikeCount = $("#like-count").text();
-        $("#like-count").text(parseInt(currLikeCount) + 1);
-        $("#like-icon").removeClass("unliked-post");
-        $("#like-icon").addClass("liked-post");
-        $("#likeStatus").val(1);
-        $("#likeId").val(likeId);
-        $('#like-btn').prop('disabled', false);
-      },
-      error: function error() {
-        window.location = "/login#unauth-access";
-      }
-    });
-  } else {
-    $.ajax({
-      type: "DELETE",
-      url: '/likes/' + likeId.value,
-      data: $(e.currentTarget).serialize(),
-      success: function success() {
-        var currLikeCount = $("#like-count").text();
-        $("#like-count").text(parseInt(currLikeCount) - 1);
-        $("#like-icon").removeClass("liked-post");
-        $("#like-icon").addClass("unliked-post");
-        $("#likeStatus").val(0);
-        $('#like-btn').prop('disabled', false);
-      },
-      error: function error() {
-        window.location = "/login#unauth-access";
-      }
-    });
-  }
-
-  e.preventDefault();
-});
 $("#blog-form").submit(function (e) {
   $.ajax({
     type: "PATCH",
     url: $(e.currentTarget).attr('action'),
     data: $(e.currentTarget).serialize(),
     success: function success(response) {
-      $("input.blog-title").data('current', response['blogTitle']);
-      $("textarea.blog-desc").data('current', response['blogDesc']);
+      $("input.blog-title").data('current', response.blogTitle);
+      $("textarea.blog-desc").data('current', response.blogDesc);
       notifyUser("Profile Updated!");
     },
     error: function error() {
-      notifyUser("Title & Description should be filled to save changes!");
+      notifyUser("Title or Description should not exceed more than 250 characters!");
     }
   });
   e.preventDefault();

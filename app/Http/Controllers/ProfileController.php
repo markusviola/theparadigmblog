@@ -45,21 +45,20 @@ class ProfileController extends Controller
         $user->blogTitle = $request->blogTitle;
         $user->blogDesc = $request->blogDesc;
         $user->save();
-
-        $data['blogTitle'] = $request->blogTitle;
-        $data['blogDesc'] = $request->blogDesc;
-        return $data;
+        return response()->json([
+            'blogTitle' => $request->blogTitle,
+            'blogDesc' => $request->blogDesc
+        ]);
     }
 
     public function updateHeaderImg(User $user)
     {   
         $data = $this->validateImage();
-
         $user->blogHeaderImg = $data['blogHeaderImg']->store('uploads', 'public');
         $user->save();
-        
-
-        return redirect()->route('profile', $user->url)->with('notify','Profile header updated!');
+        return redirect()
+            ->route('profile', $user->url)
+            ->with('notify','Profile header updated!');
     }
 
     private function validateImage()
