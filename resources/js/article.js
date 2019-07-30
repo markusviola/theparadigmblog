@@ -44,12 +44,11 @@ $("#like-form").submit((e) => {
 
 $("#comment-form").submit((e) => {
     $('#button-progress').show(230);
-    
     $.ajax({
         type:"POST",
         url: $(e.currentTarget).attr('action'),
         data: $(e.currentTarget).serialize(),
-        success: function(response) {
+        success: function() {
             reloadElement('#post-comments');
             $('#button-progress').hide(200);
         },
