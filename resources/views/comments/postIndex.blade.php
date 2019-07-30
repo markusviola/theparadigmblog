@@ -1,7 +1,7 @@
 
 <hr class="mt-4">
 @include('comments.modals.delete')
-<div id="comments">
+<div id="post-comments">
     @foreach ($comments as $comment)
         <div class="row">
             <div class="col-5">

@@ -39,6 +39,10 @@ $(() => {
     initNotifications();
 });
 
+reloadElement = (element) => {
+    $(element).load(`${location.href} ${element}>*`,'');
+}
+
 
 
 

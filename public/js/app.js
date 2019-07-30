@@ -36946,6 +36946,10 @@ $(function () {
   initNotifications();
 });
 
+reloadElement = function reloadElement(element) {
+  $(element).load("".concat(location.href, " ").concat(element, ">*"), '');
+};
+
 /***/ }),
 
 /***/ "./resources/js/article.js":
@@ -37002,6 +37006,25 @@ $("#like-form").submit(function (e) {
     });
   }
 
+  e.preventDefault();
+});
+$("#comment-form").submit(function (e) {
+  $.ajax({
+    type: "POST",
+    url: $(e.currentTarget).attr('action'),
+    data: $(e.currentTarget).serialize(),
+    success: function success(response) {
+      reloadElement('#post-comments'); // console.log(response);
+      // $().load(location.href + '#post-comments');
+      // $(commentList).fadeOut(500, function(){
+      //     commentList.html(response.success).fadeIn().delay(2000);
+      // });
+    },
+    error: function error(xhr, status, _error) {
+      var err = JSON.parse(xhr.responseText);
+      console.log(err.message); // notifyUser("Title or Description should not exceed more than 250 characters!");
+    }
+  });
   e.preventDefault();
 });
 

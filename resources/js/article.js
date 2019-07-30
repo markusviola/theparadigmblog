@@ -41,3 +41,28 @@ $("#like-form").submit((e) => {
     }
     e.preventDefault();
 })
+
+$("#comment-form").submit((e) => {
+    $.ajax({
+        type:"POST",
+        url: $(e.currentTarget).attr('action'),
+        data: $(e.currentTarget).serialize(),
+        success: function(response) {
+            reloadElement('#post-comments')
+            // console.log(response);
+            // $().load(location.href + '#post-comments');
+            
+            // $(commentList).fadeOut(500, function(){
+            //     commentList.html(response.success).fadeIn().delay(2000);
+
+            // });
+        },
+        error: function(xhr, status, error) {
+            var err = JSON.parse(xhr.responseText);
+            console.log(err.message);
+            // notifyUser("Title or Description should not exceed more than 250 characters!");
+        }
+    });
+    e.preventDefault();
+});
+

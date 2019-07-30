@@ -23,16 +23,18 @@ class CommentsController extends Controller
         return view('comments.index', compact('comments'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $data = $this->validateRequest();
         $comment = new Comment();
         $comment->user_id = Auth::user()->id;
-        $comment->blog_post_id = $data['blog_post_id'];
+        $comment->blog_post_id = $data['blogPostId'];
         $comment->body = $data['body'];
         $comment->save();
 
-        return back();
+        return response()->json([
+            'success' => true
+        ]);
     }
 
     public function destroy(Comment $comment)
@@ -49,11 +51,11 @@ class CommentsController extends Controller
         }
     }
 
-    // For validating the blog post fields
+    // For validating the comment fields
     private function validateRequest(){
         return request()->validate([
             'body'=> 'required',
-            'blog_post_id' => 'required'
+            'blogPostId'=> 'required'
         ]);
     }    
 }
