@@ -9,8 +9,16 @@
         <div class="col text-secondary">
                 {{ Auth::user() !== null ? 'Comment as ' . Auth::user()->username : 'You are not registered yet.' }}
         </div>
-        <div class="col d-flex justify-content-end">
-            <button class="btn text-white btn-anti-neutral" type="submit">Post Comment</button>
+        
+        <div id="comment-btn" class="col d-flex justify-content-end">
+            <button class="d-flex align-items-center btn text-white btn-anti-neutral" type="submit">
+                <div 
+                    id="button-progress"
+                    class="spinner-border spinner-border-sm text-white mr-2" 
+                    role="status">
+                </div>
+                <div class="">Post Comment</div>
+            </button>
         </div>
     </div>
     @csrf

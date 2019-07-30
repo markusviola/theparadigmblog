@@ -16500,6 +16500,10 @@ body {
   font-family: "Poppins", sans-serif !important;
 }
 
+#button-progress {
+  display: none;
+}
+
 .anti-neutral {
   color: #4973a3 !important;
 }
@@ -16655,7 +16659,7 @@ body {
 }
 
 .notify-layout {
-  position: absolute;
+  position: fixed;
   top: 70px;
   right: 20px;
   min-width: 350px;

@@ -43,24 +43,21 @@ $("#like-form").submit((e) => {
 })
 
 $("#comment-form").submit((e) => {
+    $('#button-progress').show(230);
+    
     $.ajax({
         type:"POST",
         url: $(e.currentTarget).attr('action'),
         data: $(e.currentTarget).serialize(),
         success: function(response) {
-            reloadElement('#post-comments')
-            // console.log(response);
-            // $().load(location.href + '#post-comments');
-            
-            // $(commentList).fadeOut(500, function(){
-            //     commentList.html(response.success).fadeIn().delay(2000);
-
-            // });
+            reloadElement('#post-comments');
+            $('#button-progress').hide(200);
         },
         error: function(xhr, status, error) {
             var err = JSON.parse(xhr.responseText);
             console.log(err.message);
-            // notifyUser("Title or Description should not exceed more than 250 characters!");
+            $('#button-progress').hide(200);
+            notifyUser("Please write your comment first");
         }
     });
     e.preventDefault();
