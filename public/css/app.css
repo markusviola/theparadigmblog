@@ -16505,7 +16505,7 @@ body {
 }
 
 .anti-neutral {
-  color: #4973a3 !important;
+  color: #4674a8 !important;
 }
 
 .anti-neutral:hover {
@@ -16628,7 +16628,7 @@ body {
 }
 
 .admin-text {
-  color: #d36051;
+  color: #d36051 !important;
 }
 
 .comment-post {

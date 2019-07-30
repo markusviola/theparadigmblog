@@ -37014,7 +37014,7 @@ $("#comment-form").submit(function (e) {
     type: "POST",
     url: $(e.currentTarget).attr('action'),
     data: $(e.currentTarget).serialize(),
-    success: function success(response) {
+    success: function success() {
       reloadElement('#post-comments');
       $('#button-progress').hide(200);
     },

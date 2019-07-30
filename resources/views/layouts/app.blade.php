@@ -33,7 +33,7 @@
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::user() !== null && Auth::user()->isAdmin == 1)
                             <div class="nav-link nav-divider"> | </div>    
-                            <div class="nav-link text-danger">Administrator</div>
+                            <div class="nav-link admin-text">Administrator</div>
                         @endif
                     </ul>
                     <ul class="navbar-nav ml-auto">
