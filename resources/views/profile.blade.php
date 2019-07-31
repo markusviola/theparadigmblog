@@ -97,10 +97,10 @@
                     @else
                         <div class="no-posts text-muted">
                             <div>
-                                <div class="mb-1">No articles posted yet.</div>
+                                <div class="mb-1 alt-neutral">No articles posted yet.</div>
                                 @if (Auth::check() && $userId == Auth::user()->id)
                                     <div>
-                                        Create your first post <a href="{{ route('posts.create') }}"><strong>HERE</strong></a>!
+                                        Create your first post <a class="neutral" href="{{ route('posts.create') }}"><strong>here</strong></a>!
                                     </div>     
                                 @endif
                             </div>
