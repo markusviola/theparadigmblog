@@ -70,8 +70,6 @@
                             <div class="col-md-6">
                                 <select id="isAdmin" class="form-control" name="isAdmin">
                                     <option value="" disabled>Select Access Permission</option>
-                                    {{-- <option value="1">Regular</option>
-                                    <option value="2">Administrator</option> --}}
                                     @foreach ($user->isAdminOptions() as $optionKey => $optionValue)
                                         <option value="{{ $optionKey }}" {{ $user->isAdmin == $optionValue ? 'selected' : '' }}>{{ $optionValue }}</option>
                                     @endforeach

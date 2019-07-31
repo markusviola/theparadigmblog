@@ -31,6 +31,7 @@
                         </td>
                         <td class="col-1 align-middle text-center"> 
                             <button class="trans-btn delete-modal" 
+                                onclick="prepareDeletion(this)" 
                                 data-toggle="modal" 
                                 data-target="#delete-confirm" 
                                 data-id="{{ $post->id }}" 

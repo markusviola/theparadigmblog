@@ -37095,27 +37095,27 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(".delete-modal").click(function (elem) {
-  console.log("WORKS");
-  var id = $(elem.currentTarget).data('id');
-  var type = $(elem.currentTarget).data('type');
-  var onPost = $(elem.currentTarget).data('on-post');
+prepareDeletion = function prepareDeletion(elem) {
+  var id = $(elem).data('id');
+  var type = $(elem).data('type');
+  var onPost = $(elem).data('on-post');
   var pageQuery = "?onPost=".concat(onPost == true ? 'true' : 'false');
+  console.log(type);
 
   switch (type) {
     case 'post':
-      $('#delete-confirmation').attr('action', '/posts/' + id + pageQuery);
+      $('#confirm-delete-post').attr('action', '/posts/' + id + pageQuery);
       break;
 
     case 'comment':
-      $('#delete-confirmation').attr('action', '/comments/' + id + pageQuery);
+      $('#confirm-delete-comment').attr('action', '/comments/' + id + pageQuery);
       break;
 
     default:
       console.log("Delete type not specified!");
       break;
   }
-});
+};
 
 /***/ }),
 

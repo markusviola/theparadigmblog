@@ -11,7 +11,7 @@
             Are you sure you want to proceed?
         </div>
         <div class="modal-footer">
-            <form id="delete-confirmation" method="POST">
+            <form id="confirm-delete-comment" method="POST">
                 @method('DELETE')
                 <button class="btn btn-link text-danger" type="submit" href="#">
                     <strong>Confirm</strong> 

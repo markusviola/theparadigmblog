@@ -7,9 +7,8 @@
     </div>
     <div class="row">
         <div class="col text-secondary">
-                {{ Auth::user() !== null ? 'Comment as ' . Auth::user()->username : 'You are not registered yet.' }}
+                {{ Auth::check() ? 'Comment as ' . Auth::user()->username : 'You are not registered yet.' }}
         </div>
-        
         <div id="comment-btn" class="col d-flex justify-content-end">
             <button class="d-flex align-items-center btn text-white btn-anti-neutral" type="submit">
                 <div 

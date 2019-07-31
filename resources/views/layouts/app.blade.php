@@ -31,7 +31,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        @if(Auth::user() !== null && Auth::user()->isAdmin == 1)
+                        @if(Auth::check() && Auth::user()->isAdmin == 1)
                             <div class="nav-link nav-divider"> | </div>    
                             <div class="nav-link admin-text">Administrator</div>
                         @endif
