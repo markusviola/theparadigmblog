@@ -4,14 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-7">
-            <div class="card shadow">
-                <div class="card-header text-center">
-                    <h5 class="alt-neutral">{{ __('Log In to Paradigm!') }}</h5>
-                    <span class="text-muted">Let people know what you think!</span>
-
-                </div>
-
+            <div class="card shadow neutral-round">
                 <div class="card-body">
+                    <div class="text-center">
+                        <h5 class="alt-neutral">{{ __('Log In to Paradigm!') }}</h5>
+                        <span class="text-muted">Let people know what you think!</span>
+                    </div>
+                    <hr>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

@@ -23,7 +23,7 @@
                 </div>
             @endif
         </div>
-        <div class="profile-card shadow">
+        <div class="profile-card neutral-round shadow">
             <div class="row justify-content-center">
                 <div class="col-11">
                     <form action="{{ route('profile.update', $userId) }}" name="blog-form" id="blog-form" method="POST">

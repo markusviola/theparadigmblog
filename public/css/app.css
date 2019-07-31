@@ -16733,6 +16733,10 @@ input[type=file] {
   background: #ddd;
 }
 
+.neutral-round {
+  border-radius: 10px !important;
+}
+
 .profile-card {
   padding-top: 40px;
   padding-bottom: 20px;
@@ -16741,7 +16745,6 @@ input[type=file] {
   grid-column: 2/3;
   grid-row: 3;
   background: white;
-  border-radius: 12px;
 }
 
 .no-posts {
