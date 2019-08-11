@@ -16,6 +16,10 @@
     padding-left: calc(100vw - 100%);
 }
 
+.divider {
+    height: 1px;
+}
+
 body {
     font-family: 'Poppins', sans-serif !important;
 }
@@ -78,7 +82,7 @@ body {
 }
 
 .clean-input {
-    outline: none; 
+    outline: none;
     border: 0px;
     width: 100%;
     display: block;
@@ -100,7 +104,7 @@ body {
 }
 
 .v-centered-table td {
-    display: flex; 
+    display: flex;
     align-items: center;
 }
 
@@ -180,9 +184,9 @@ body {
 }
 
 .notify-layout {
-    position: fixed; 
-    top: 70px; 
-    right: 20px; 
+    position: fixed;
+    top: 70px;
+    right: 20px;
     min-width: 350px;
     z-index: 3;
 }
@@ -195,7 +199,7 @@ body {
 .header-img {
     grid-column: 1;
     grid-row: 1;
-    min-width: 100%; 
+    min-width: 100%;
     max-height: 100%;
     object-fit: cover;
 }
@@ -203,7 +207,7 @@ body {
 .header-overlay {
     grid-column: 1;
     grid-row: 1;
-    min-width: 100%; 
+    min-width: 100%;
     max-height: 100%;
     background: rgb(0, 0, 0, 0.0);
     transition-property: background;
@@ -254,7 +258,7 @@ input[type="file"] {
 }
 
 .neutral-round {
-    border-radius: 10px !important; 
+    border-radius: 10px !important;
 }
 
 .profile-card {
@@ -267,12 +271,17 @@ input[type="file"] {
     background: white;
 }
 
+.preserve-breaks {
+    white-space: pre-line !important;
+    white-space: pre-wrap !important;
+}
+
 .no-posts {
-    width: 100%; 
-    height: 80px; 
-    display: flex; 
-    justify-content:center; 
-    align-items: center; 
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
     text-align: center
 }
 

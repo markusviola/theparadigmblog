@@ -10,7 +10,7 @@
                         <h5 class="alt-neutral">{{ __('Log In to Paradigm!') }}</h5>
                         <span class="text-muted">Let people know what you think!</span>
                     </div>
-                    <hr>
+                    <hr class="divider">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

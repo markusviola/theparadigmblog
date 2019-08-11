@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-11">
             <h1>User Control</h1>
-            <hr>
+            <hr class="divider">
             <div class="text-muted">User status can be toggled <strong>Active</strong> or <strong>Inactive</strong>.</div>
             <p>
             <table class="table v-centered-table">
@@ -27,9 +27,9 @@
                             <td class="col-2 justify-content-center">
                                 <form action="{{ route('users.update', $user->id) }}" method="POST">
                                     @method('PATCH')
-                                    <button class="user-status-btn btn btn-{{ $user->status == "Active" ? "primary" : "danger" }}" type="submit" name="status" value="{{ $user->status }}">{{ $user->status }}</button> 
+                                    <button class="user-status-btn btn btn-{{ $user->status == "Active" ? "primary" : "danger" }}" type="submit" name="status" value="{{ $user->status }}">{{ $user->status }}</button>
                                     @csrf
-                                </form>   
+                                </form>
                             </td>
                         </tr>
                     @endforeach

@@ -10,7 +10,7 @@
                         <h4 class="alt-neutral">{{ __('Join our community!') }}</h4>
                         <span class="text-muted">Start writing articles and inspire millions!</span>
                     </div>
-                    <hr class="mt-3 mb-3">
+                    <hr class="mt-3 mb-3 divider">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

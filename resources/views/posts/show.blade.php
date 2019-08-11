@@ -6,19 +6,22 @@
             <br>
             <h2 class="alt-anti-neutral">{{ $post->title }}</h2>
             <h5 class="text-muted mt-2">
-                Posted by 
+                Posted by
                 @if ($post->user->isAdmin == 0)
                     <a class="neutral" href="{{ route('profile', $post->user->url) }}">
                         {{ $post->user->username }}
-                    </a>     
+                    </a>
                 @else
                     {{ $post->user->username }}
                 @endif
-                on {{ $post->created_at }}</h5>
-            <hr>
+                    on {{ $post->created_at }}
+            </h5>
+
+            <hr class="divider">
+
             <br>
             <div class="text-justify long-text">{{ $post->body }}</div>
-            <hr class="mt-3">
+            <hr class="mt-3 divider">
             <div id="post-likes">
                 <form id="like-form">
                     <input id="likeStatus" type="hidden" name="likeStatus" value="{{ $like_status }}">

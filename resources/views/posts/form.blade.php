@@ -7,6 +7,6 @@
 <div>{{ $errors->first('body') }}</div>
 <div class="form-group">
     <label for="body">Content</label>
-    <textarea class="form-control" name="body" placeholder="Write your thoughts here..." id="body" cols="30" rows="20">{{ old('body') ?? $post->body  }}</textarea>
+    <textarea class="preserve-breaks form-control" name="body" placeholder="Write your thoughts here..." id="body" cols="30" rows="20">{{ old('body') ?? $post->body  }}</textarea>
 </div>
 @csrf

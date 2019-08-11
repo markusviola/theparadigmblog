@@ -1,13 +1,13 @@
 @extends('layouts/app')
 
 @section('content')
-    
+
     <div class="profile-wrapper">
         <div class="banner-image" id="banner-image">
             @if ($userHeaderImg)
-                <img 
-                    class="header-img" 
-                    alt="Responsive image" 
+                <img
+                    class="header-img"
+                    alt="Responsive image"
                     src="{{ asset('storage/'. $userHeaderImg) }}"
                 >
             @endif
@@ -29,35 +29,35 @@
                     <form action="{{ route('profile.update', $userId) }}" name="blog-form" id="blog-form" method="POST">
                         @method('PATCH')
                         <h1>
-                            <input 
-                                class="trans-elem blog-title clean-input alt-anti-neutral" 
-                                placeholder="{{ Auth::check() && $userId == Auth::user()->id 
-                                    ? 'Write a clever article title...' 
-                                    : ucfirst($userName)."'s Article Posts" 
-                                }}" 
+                            <input
+                                class="trans-elem blog-title clean-input alt-anti-neutral"
+                                placeholder="{{ Auth::check() && $userId == Auth::user()->id
+                                    ? 'Write a clever article title...'
+                                    : ucfirst($userName)."'s Article Posts"
+                                }}"
                                 type="text"
                                 id="blogTitle"
-                                name="blogTitle" 
+                                name="blogTitle"
                                 data-current="{{ $userTitle }}"
                                 value="{{ old('title') ?? $userTitle }}"
                             {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}>
                         </h1>
-                        <hr>
+                        <hr class="divider">
                         <h5>
-                            <textarea 
-                                class="trans-elem blog-desc clean-input no-scroll text-secondary text-justify" 
-                                name="blogDesc" placeholder="{{ Auth::check() && $userId == Auth::user()->id 
-                                    ? 'Write your thoughts here...' 
+                            <textarea
+                                class="trans-elem blog-desc clean-input no-scroll text-secondary text-justify"
+                                name="blogDesc" placeholder="{{ Auth::check() && $userId == Auth::user()->id
+                                    ? 'Write your thoughts here...'
                                     : $userName.' has not written anything here yet...'
-                                }}"  
-                                id="blogDesc" 
+                                }}"
+                                id="blogDesc"
                                 data-current="{{ $userDesc }}"
                                 rows="4"
                             {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}>{{ old('body') ?? $userDesc }}</textarea>
                         </h5>
                         @csrf
                     </form>
-                    <hr class="mb-4">
+                    <hr class="mb-4 divider">
                     <div class="row">
                         <div class="col-6 text-left">
                             <h4 class="text-secondary">Published Posts</h4>
@@ -81,18 +81,18 @@
                                     <a class="col-md-1 text-right trans-btn no-padding" href="{{ route('posts.edit', $post->id) }}">
                                         <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                                     </a>
-                                    <button class="col-md-1 text-right trans-btn delete-modal mr-1" 
-                                        data-toggle="modal" 
-                                        data-target="#delete-confirm" 
-                                        data-id="{{ $post->id }}" 
-                                        data-type="post" 
+                                    <button class="col-md-1 text-right trans-btn delete-modal mr-1"
+                                        data-toggle="modal"
+                                        data-target="#delete-confirm"
+                                        data-id="{{ $post->id }}"
+                                        data-type="post"
                                         data-on-post="false"
                                     >
                                         <i class="delete-post fas fa-minus-circle fa-lg"></i>
                                     </button>
                                 @endif
                             </div>
-                            <hr>
+                            <hr class="divider">
                         @endforeach
                     @else
                         <div class="no-posts text-muted">
@@ -101,7 +101,7 @@
                                 @if (Auth::check() && $userId == Auth::user()->id)
                                     <div>
                                         Create your first post <a class="neutral" href="{{ route('posts.create') }}"><strong>here</strong></a>!
-                                    </div>     
+                                    </div>
                                 @endif
                             </div>
                         </div>

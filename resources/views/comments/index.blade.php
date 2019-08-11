@@ -4,7 +4,7 @@
 <div class="row justify-content-center">
     <div class="col-11">
         <h1>Comment Control</h1>
-        <hr>
+        <hr class="divider">
         <div class="text-muted">Post comments can be <strong>deleted</strong>.
         <p>
         @include('comments.modals.delete')
@@ -27,17 +27,17 @@
                         <td class="col-2 align-middle">{{ $comment->user->username }}</td>
                         <td class="col-5 align-middle long-text">{{ mb_strimwidth($comment->body, 0, 75, "...")  }}</td>
                         <td class="col-2 align-middle">{{ $comment->created_at }}</td>
-                        <td class="col-1 align-middle text-center"> 
-                            <button class="trans-btn delete-modal" 
-                                data-toggle="modal" 
-                                data-target="#delete-confirm" 
-                                data-id="{{ $comment->id }}" 
-                                data-type="comment" 
-                                data-on-post="false" 
+                        <td class="col-1 align-middle text-center">
+                            <button class="trans-btn delete-modal"
+                                data-toggle="modal"
+                                data-target="#delete-confirm"
+                                data-id="{{ $comment->id }}"
+                                data-type="comment"
+                                data-on-post="false"
                             ><i class="delete-post fas fa-minus-circle fa-lg"></i>
                             </button>
                         </td>
-                    </tr>    
+                    </tr>
                 @endforeach
             </tbody>
         </table>

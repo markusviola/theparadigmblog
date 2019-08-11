@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-9">
             <h2 class="text-secondary">Recent Posts</h2>
-            <hr>
+            <hr class="divider">
             @if (sizeof($posts) > 0)
                 @foreach ($posts as $post)
                     @if ($post->user->isAdmin == 1)
-                        <div class="admin-text"><i class="fas fa-flag fa-sm mr-2"></i><strong>Announcement</strong></div>    
+                        <div class="admin-text"><i class="fas fa-flag fa-sm mr-2"></i><strong>Announcement</strong></div>
                     @endif
                     <h3><a class="anti-neutral" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
                     <div class="text-muted long-text">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</div>
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr>
+                    <hr class="divider">
                 @endforeach
             @else
                 <div class="no-posts text-muted mt-5">
@@ -43,7 +43,7 @@
                         <div class="mb-1"><h5 class="alt-neutral">No articles posted yet.</h5></div>
                         <div>
                             Create your first post <a class="neutral" href="{{ route('posts.create') }}"><strong>here</strong></a>!
-                        </div>     
+                        </div>
                     </div>
                 </div>
             @endif

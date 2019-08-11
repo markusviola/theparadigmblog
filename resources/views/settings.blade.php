@@ -17,7 +17,7 @@
                             <div class="col-4 text-muted"><strong>Email Address:</strong></div>
                             <div class="col-8">{{ Auth::user()->email }}</div>
                         </div>
-                        <hr>
+                        <hr class="divider">
                         <form action="{{ route('settings.update', Auth::user()->id) }}" method="POST">
                             @method('PATCH')
                             <div>{{ $errors->first('url') }}</div>
@@ -35,7 +35,7 @@
                                 <div class="col-4 text-muted"><strong>Confirm Password:</strong></div>
                                 <input class="col-8 form-control" type="password" name="confirmPass">
                             </div>
-                            <hr>
+                            <hr class="divider">
                             <div>{{ $errors->first('currentPass') }}</div>
                             <div class="row mb-5 form-group">
                                 <div class="col-4 text-muted"><strong>Current Password:</strong></div>
@@ -51,5 +51,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
