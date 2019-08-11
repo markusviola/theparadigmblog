@@ -11,10 +11,9 @@
             Are you sure you want to proceed?
         </div>
         <div class="modal-footer">
-            <form id="confirm-delete-comment" method="POST">
-                @method('DELETE')
+            <form id="confirm-delete-comment">
                 <button class="btn btn-link text-danger" type="submit" href="#">
-                    <strong>Confirm</strong> 
+                    <strong>Confirm</strong>
                 </button>
                 @csrf
             </form>

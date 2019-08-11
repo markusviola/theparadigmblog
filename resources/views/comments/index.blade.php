@@ -8,7 +8,7 @@
         <div class="text-muted">Post comments can be <strong>deleted</strong>.
         <p>
         @include('comments.modals.delete')
-        <table class="table">
+        <table id="admin-post-comments" class="table">
             <thead>
                 <tr class="d-flex">
                 <th class="col-1" scope="col">ID</th>
@@ -29,6 +29,7 @@
                         <td class="col-2 align-middle">{{ $comment->created_at }}</td>
                         <td class="col-1 align-middle text-center">
                             <button class="trans-btn delete-modal"
+                                onclick="prepareDeletion(this)"
                                 data-toggle="modal"
                                 data-target="#delete-confirm"
                                 data-id="{{ $comment->id }}"

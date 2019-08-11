@@ -32,8 +32,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::check() && Auth::user()->isAdmin == 1)
-                            <div class="nav-link nav-divider"> | </div>    
-                            <div class="nav-link admin-text">Administrator</div>
+                            <div class="nav-link nav-divider"> | </div>
+                            <div class="nav-link alt-neutral">Administrator</div>
                         @endif
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -89,7 +89,7 @@
         </main>
     </div>
 <script>
-    document.addEventListener("DOMContentLoaded", (event) => { 
+    document.addEventListener("DOMContentLoaded", (event) => {
         if ({{ session()->has("notify") }}) {
             notifyUser('{{ session()->get("notify") }}')
         }

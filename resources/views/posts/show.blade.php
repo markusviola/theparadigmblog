@@ -5,7 +5,7 @@
         <div class="col-8">
             <br>
             <h1 class="alt-anti-neutral">{{ $post->title }}</h1>
-            <h5 class="text-muted mt-2">
+            <h5 class="text-muted mt-3">
                 Posted by
                 @if ($post->user->isAdmin == 0)
                     <a class="neutral" href="{{ route('profile', $post->user->url) }}">
