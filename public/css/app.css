@@ -16757,7 +16757,6 @@ input[type=file] {
 
 .preserve-breaks {
   white-space: pre-line !important;
-  white-space: pre-wrap !important;
 }
 
 .no-posts {

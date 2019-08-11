@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-7">
+        <div class="col-8">
             <br>
-            <h2 class="alt-anti-neutral">{{ $post->title }}</h2>
+            <h1 class="alt-anti-neutral">{{ $post->title }}</h1>
             <h5 class="text-muted mt-2">
                 Posted by
                 @if ($post->user->isAdmin == 0)
@@ -19,8 +19,9 @@
 
             <hr class="divider">
 
-            <br>
-            <div class="text-justify long-text">{{ $post->body }}</div>
+            <div class="preserve-breaks text-justify long-text">
+               <p style="line-height: 2.0;">@include('tools.markdown')</p>
+            </div>
             <hr class="mt-3 divider">
             <div id="post-likes">
                 <form id="like-form">
