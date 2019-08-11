@@ -3,9 +3,9 @@ prepareDeletion = (elem) => {
     const id = $(elem).data('id');
     const type = $(elem).data('type');
     const onPost = $(elem).data('on-post');
-    const pageQuery = `?onPost=${(onPost == true ? 'true' : 'false')}`; 
+    const pageQuery = `?onPost=${(onPost == true ? 'true' : 'false')}`;
     console.log(type);
-    
+
     switch (type) {
         case 'post':
             $('#confirm-delete-post')
@@ -18,5 +18,5 @@ prepareDeletion = (elem) => {
         default:
             console.log("Delete type not specified!")
             break;
-    }     
+    }
 }

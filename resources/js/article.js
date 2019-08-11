@@ -62,3 +62,25 @@ $("#comment-form").submit((e) => {
     e.preventDefault();
 });
 
+$("#confirm-delete-comment").submit((e) => {
+    $('#delete-confirm').modal('hide');
+    $.ajax({
+        type:"DELETE",
+        url: $(e.currentTarget).attr('action'),
+        data: $(e.currentTarget).serialize(),
+        success: function(response) {
+            if (response.onPost) {
+                reloadElement('#post-comments');
+            } else {
+                reloadElement('#admin-post-comments');
+            }
+            notifyUser("Comment deleted successfully");
+        },
+        error: function(xhr, status, error) {
+            var err = JSON.parse(xhr.responseText);
+            console.log(err.message);
+            notifyUser("Unable to delete comment.");
+        }
+    });
+    e.preventDefault();
+});
