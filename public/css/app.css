@@ -16500,6 +16500,10 @@ readers do not read off random characters that represent icons */
   padding-left: calc(100vw - 100%);
 }
 
+.divider {
+  height: 1px;
+}
+
 body {
   font-family: "Poppins", sans-serif !important;
 }
@@ -16749,6 +16753,11 @@ input[type=file] {
   grid-column: 2/3;
   grid-row: 3;
   background: white;
+}
+
+.preserve-breaks {
+  white-space: pre-line !important;
+  white-space: pre-wrap !important;
 }
 
 .no-posts {
