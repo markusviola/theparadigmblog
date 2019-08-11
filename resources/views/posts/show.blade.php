@@ -20,7 +20,7 @@
             <hr class="divider">
 
             <div class="preserve-breaks text-justify long-text">
-               <p style="line-height: 2.0;">@include('tools.markdown')</p>
+               @include('tools.markdown')
             </div>
             <hr class="mt-3 divider">
             <div id="post-likes">

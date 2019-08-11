@@ -12,7 +12,7 @@
                 @method('PATCH')
                 @include('posts.form')
                 <div class="row justify-content-center pt-3">
-                    <button class="btn btn-link alt-neutral" type="submit">Update Post</button>
+                    <button class="btn btn-anti-neutral text-white" type="submit">Update Post</button>
                 </div>
             </form>
         </div>
