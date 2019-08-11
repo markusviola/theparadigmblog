@@ -23,7 +23,7 @@ class CommentsController extends Controller
         return view('comments.index', compact('comments'));
     }
 
-    public function store(Request $request)
+    public function store()
     {
         $data = $this->validateRequest();
         $comment = new Comment();
@@ -39,15 +39,15 @@ class CommentsController extends Controller
 
     public function destroy(Comment $comment)
     {
+        $onPost = true;
         if(Auth::user()->isAdmin) {
             $comment->delete($comment);
             if (request()->query('onPost') == 'false') {
-                return redirect()
-                    ->route('comments.index')
-                    ->with('notify','Comment deleted!');
-            } else return redirect()
-                    ->back()
-                    ->with('notify','Comment deleted!');
+                $onPost = false;
+            }
+            return response()->json([
+                'onPost' => $onPost
+            ]);
         }
     }
 
@@ -57,5 +57,5 @@ class CommentsController extends Controller
             'body'=> 'required',
             'blogPostId'=> 'required'
         ]);
-    }    
+    }
 }
