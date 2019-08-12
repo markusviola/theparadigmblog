@@ -88,9 +88,15 @@
             </div>
         </nav>
         @include('tools.toast')
-        <main class="paradigm container{{ Request::path() == 'profile/'.$url ? '-fluid no-padding' : ' py-4'}}">
-            @yield('content')
-        </main>
+        @if (Request::path() == 'profile/'.$url || Request::path() == 'posts/create' || ends_with(Request::path(), 'edit'))
+            <main class="paradigm container-fluid no-padding">
+                @yield('content')
+            </main>
+        @else
+            <main class="paradigm container py-4">
+                @yield('content')
+            </main>
+        @endif
     </div>
 <script>
     document.addEventListener("DOMContentLoaded", (event) => {

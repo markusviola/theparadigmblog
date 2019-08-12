@@ -1,19 +1,25 @@
 <div>{{ $errors->first('title') }}</div>
 <div class="form-group">
-    <label for="title">{{ Auth::user()->isAdmin == 1 ? "Announcement" : "Post" }} Title</label>
-    <input class="form-control" type="text" placeholder="Make a good title..." name="title" value="{{ old('title') ?? $post->title  }}">
+    <input
+        class="form-control my-4"
+        type="text"
+        id="title"
+        placeholder="Make a good title..."
+        name="title" value="{{ old('title') ?? $post->title  }}"
+        onkeyup="mirrorTitle(this)"
+    >
 </div>
 
 <div>{{ $errors->first('body') }}</div>
 <div class="form-group">
-    <label for="body">Content</label>
     <textarea
+        onkeyup="mirrorMarkDown(this)"
         class="preserve-breaks form-control"
-        name="body"
         placeholder="Write your thoughts here..."
+        name="body"
         id="body"
         cols="30"
-        rows="20"
-    >{{ old('body') ?? $post->body  }}</textarea>
+        rows="29"
+    >{{ old('body') ?? $post->body }}</textarea>
 </div>
 @csrf

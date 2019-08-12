@@ -16,9 +16,9 @@
                 @endif
                     on {{ $post->created_at }}
             </h5>
-            <hr class="divider">
-            <div class="preserve-breaks text-justify long-text">
-               @include('tools.markdown')
+            <hr class="divider mb-5">
+            <div id="post-markdown" class="preserve-breaks text-justify long-text">
+                {{-- markdown gets injected here --}}
             </div>
             <hr class="mt-3 divider">
             <div id="post-likes">
@@ -39,4 +39,10 @@
             @include('comments.postIndex')
         </div>
     </div>
+    <script>
+        $(() => {
+            var postContent = {!! json_encode($post->body) !!};
+            renderMarkDown(postContent, "post-markdown");
+        })
+    </script>
 @endsection

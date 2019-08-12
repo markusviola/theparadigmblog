@@ -87,11 +87,11 @@ class BlogPostsController extends Controller
             $like_id = 0;
             $like_status = 0;
         }
-        return view('posts.show', 
+        return view('posts.show',
             compact(
-                'post', 
-                'comments', 
-                'like_status', 
+                'post',
+                'comments',
+                'like_status',
                 'like_id'
             ));
     }
