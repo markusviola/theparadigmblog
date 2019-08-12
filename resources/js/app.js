@@ -10,6 +10,7 @@ require('./profile');
 require('./modal');
 require('./article');
 
+
 // window.Vue = require('vue');
 
 /**
@@ -35,13 +36,17 @@ require('./article');
 //     el: '#app',
 // });
 
+
 $(() => {
+    initProfile();
+    initArticle();
     initNotifications();
 });
 
 reloadElement = (element) => {
     $(element).load(`${location.href} ${element}>*`,'');
 }
+
 
 
 

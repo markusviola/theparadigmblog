@@ -16,9 +16,7 @@
                 @endif
                     on {{ $post->created_at }}
             </h5>
-
             <hr class="divider">
-
             <div class="preserve-breaks text-justify long-text">
                @include('tools.markdown')
             </div>

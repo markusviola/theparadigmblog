@@ -12,7 +12,7 @@
                         <div class="admin-text"><i class="fas fa-flag fa-sm mr-2"></i><strong>Announcement</strong></div>
                     @endif
                     <h3><a class="anti-neutral" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
-                    <div class="text-muted long-text">{{ mb_strimwidth($post->body, 0, 190, "...")  }}</div>
+                    <div class="text-muted long-text">{{ preg_replace('/[^a-zA-Z0-9.?!\s]/', '', mb_strimwidth($post->body, 0, 190, "...")) }}</div>
                     <p>
                     <div class="row align-content-center">
                         <div class="col-md-6 text-muted">Posted by {{ $post->user->username }} on {{ $post->created_at }}</div>

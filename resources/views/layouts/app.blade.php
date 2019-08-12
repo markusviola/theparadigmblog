@@ -10,7 +10,8 @@
     <title>{{ config('app.name', 'The Paradigm Blog') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text&display=swap" rel="stylesheet">
@@ -34,6 +35,9 @@
                         @if(Auth::check() && Auth::user()->isAdmin == 1)
                             <div class="nav-link nav-divider"> | </div>
                             <div class="nav-link alt-neutral">Administrator</div>
+                        @else
+                            <div class="nav-link nav-divider"> | </div>
+                            <div class="nav-link alt-neutral">linking creative minds.</div>
                         @endif
                     </ul>
                     <ul class="navbar-nav ml-auto">

@@ -20,6 +20,11 @@
     height: 1px;
 }
 
+pre {
+    white-space: pre-wrap;
+    word-break: keep-all
+}
+
 body {
     font-family: 'Poppins', sans-serif !important;
 }
@@ -274,6 +279,25 @@ input[type="file"] {
 .preserve-breaks {
     white-space: pre-line !important;
     line-height: 1.8;
+}
+
+.preserve-breaks > hr {
+    margin-top: -25px;
+    margin-bottom: 0;
+    height: 1px;
+}
+
+.preserve-breaks > pre {
+    margin-top: -30px;
+}
+
+.preserve-breaks > ul {
+    margin-top: -30px;
+    margin-bottom: 0px;
+}
+
+.preserve-breaks > ul > li {
+    margin-top: -15px;
 }
 
 .no-posts {

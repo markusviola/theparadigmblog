@@ -36943,6 +36943,8 @@ __webpack_require__(/*! ./article */ "./resources/js/article.js"); // window.Vue
 
 
 $(function () {
+  initProfile();
+  initArticle();
   initNotifications();
 });
 
@@ -36959,97 +36961,100 @@ reloadElement = function reloadElement(element) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$("#like-form").submit(function (e) {
-  $('#like-btn').prop('disabled', true);
-  var likeInput = $(e.currentTarget).serializeArray();
-  var likeStatus = likeInput.find(function (a) {
-    return a.name == "likeStatus";
-  });
-  var likeId = likeInput.find(function (a) {
-    return a.name == "likeId";
-  });
+initArticle = function initArticle() {
+  $("#like-form").submit(function (e) {
+    $('#like-btn').prop('disabled', true);
+    var likeInput = $(e.currentTarget).serializeArray();
+    var likeStatus = likeInput.find(function (a) {
+      return a.name == "likeStatus";
+    });
+    var likeId = likeInput.find(function (a) {
+      return a.name == "likeId";
+    });
 
-  if (likeStatus.value == 0) {
+    if (likeStatus.value == 0) {
+      $.ajax({
+        type: "POST",
+        url: '/likes',
+        data: $(e.currentTarget).serialize(),
+        success: function success(response) {
+          var currLikeCount = $("#like-count").text();
+          $("#like-count").text(parseInt(currLikeCount) + 1);
+          $("#like-icon").removeClass("unliked-post");
+          $("#like-icon").addClass("liked-post");
+          $("#likeStatus").val(1);
+          $("#likeId").val(response.like_id);
+          $('#like-btn').prop('disabled', false);
+        },
+        error: function error() {
+          window.location = "/login#unauth-access";
+        }
+      });
+    } else {
+      $.ajax({
+        type: "DELETE",
+        url: '/likes/' + likeId.value,
+        data: $(e.currentTarget).serialize(),
+        success: function success() {
+          var currLikeCount = $("#like-count").text();
+          $("#like-count").text(parseInt(currLikeCount) - 1);
+          $("#like-icon").removeClass("liked-post");
+          $("#like-icon").addClass("unliked-post");
+          $("#likeStatus").val(0);
+          $('#like-btn').prop('disabled', false);
+        },
+        error: function error() {
+          window.location = "/login#unauth-access";
+        }
+      });
+    }
+
+    e.preventDefault();
+  });
+  $("#comment-form").submit(function (e) {
+    $('#button-progress').show(230);
     $.ajax({
       type: "POST",
-      url: '/likes',
-      data: $(e.currentTarget).serialize(),
-      success: function success(response) {
-        var currLikeCount = $("#like-count").text();
-        $("#like-count").text(parseInt(currLikeCount) + 1);
-        $("#like-icon").removeClass("unliked-post");
-        $("#like-icon").addClass("liked-post");
-        $("#likeStatus").val(1);
-        $("#likeId").val(response.like_id);
-        $('#like-btn').prop('disabled', false);
-      },
-      error: function error() {
-        window.location = "/login#unauth-access";
-      }
-    });
-  } else {
-    $.ajax({
-      type: "DELETE",
-      url: '/likes/' + likeId.value,
+      url: $(e.currentTarget).attr('action'),
       data: $(e.currentTarget).serialize(),
       success: function success() {
-        var currLikeCount = $("#like-count").text();
-        $("#like-count").text(parseInt(currLikeCount) - 1);
-        $("#like-icon").removeClass("liked-post");
-        $("#like-icon").addClass("unliked-post");
-        $("#likeStatus").val(0);
-        $('#like-btn').prop('disabled', false);
+        reloadElement('#post-comments');
+        $('#comment-body').val('');
+        $('#button-progress').hide(200);
       },
-      error: function error() {
-        window.location = "/login#unauth-access";
+      error: function error(xhr, status, _error) {
+        var err = JSON.parse(xhr.responseText);
+        console.log(err.message);
+        $('#button-progress').hide(200);
+        notifyUser("Please write your comment first");
       }
     });
-  }
-
-  e.preventDefault();
-});
-$("#comment-form").submit(function (e) {
-  $('#button-progress').show(230);
-  $.ajax({
-    type: "POST",
-    url: $(e.currentTarget).attr('action'),
-    data: $(e.currentTarget).serialize(),
-    success: function success() {
-      reloadElement('#post-comments');
-      $('#button-progress').hide(200);
-    },
-    error: function error(xhr, status, _error) {
-      var err = JSON.parse(xhr.responseText);
-      console.log(err.message);
-      $('#button-progress').hide(200);
-      notifyUser("Please write your comment first");
-    }
+    e.preventDefault();
   });
-  e.preventDefault();
-});
-$("#confirm-delete-comment").submit(function (e) {
-  $('#delete-confirm').modal('hide');
-  $.ajax({
-    type: "DELETE",
-    url: $(e.currentTarget).attr('action'),
-    data: $(e.currentTarget).serialize(),
-    success: function success(response) {
-      if (response.onPost) {
-        reloadElement('#post-comments');
-      } else {
-        reloadElement('#admin-post-comments');
+  $("#confirm-delete-comment").submit(function (e) {
+    $('#delete-confirm').modal('hide');
+    $.ajax({
+      type: "DELETE",
+      url: $(e.currentTarget).attr('action'),
+      data: $(e.currentTarget).serialize(),
+      success: function success(response) {
+        if (response.onPost) {
+          reloadElement('#post-comments');
+        } else {
+          reloadElement('#admin-post-comments');
+        }
+
+        notifyUser("Comment deleted successfully");
+      },
+      error: function error(xhr, status, _error2) {
+        var err = JSON.parse(xhr.responseText);
+        console.log(err.message);
+        notifyUser("Unable to delete comment.");
       }
-
-      notifyUser("Comment deleted successfully");
-    },
-    error: function error(xhr, status, _error2) {
-      var err = JSON.parse(xhr.responseText);
-      console.log(err.message);
-      notifyUser("Unable to delete comment.");
-    }
+    });
+    e.preventDefault();
   });
-  e.preventDefault();
-});
+};
 
 /***/ }),
 
@@ -37190,37 +37195,41 @@ notifyUser = function notifyUser(message) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$("input.blog-title").focusout(function (elem) {
-  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
-    $("#blog-form").submit();
-  }
-});
-$("textarea.blog-desc").focusout(function (elem) {
-  if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
-    $("#blog-form").submit();
-  }
-});
-$("#banner-image").click(function (elem) {
-  if (elem.target.tagName === 'IMG' || elem.target.tagName === 'DIV') {
-    $("h2.upload-area")[0].click();
-  }
-});
-$("#blog-form").submit(function (e) {
-  $.ajax({
-    type: "PATCH",
-    url: $(e.currentTarget).attr('action'),
-    data: $(e.currentTarget).serialize(),
-    success: function success(response) {
-      $("input.blog-title").data('current', response.blogTitle);
-      $("textarea.blog-desc").data('current', response.blogDesc);
-      notifyUser("Profile Updated!");
-    },
-    error: function error() {
-      notifyUser("Title or Description should not exceed more than 250 characters!");
+initProfile = function initProfile() {
+  $("input.blog-title").focusout(function (elem) {
+    console.log(elem);
+
+    if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
+      $("#blog-form").submit();
     }
   });
-  e.preventDefault();
-});
+  $("textarea.blog-desc").focusout(function (elem) {
+    if ($(elem.currentTarget).val().trim() != $(elem.currentTarget).data('current')) {
+      $("#blog-form").submit();
+    }
+  });
+  $("#banner-image").click(function (elem) {
+    if (elem.target.tagName === 'IMG' || elem.target.tagName === 'DIV') {
+      $("h2.upload-area")[0].click();
+    }
+  });
+  $("#blog-form").submit(function (e) {
+    $.ajax({
+      type: "PATCH",
+      url: $(e.currentTarget).attr('action'),
+      data: $(e.currentTarget).serialize(),
+      success: function success(response) {
+        $("input.blog-title").data('current', response.blogTitle);
+        $("textarea.blog-desc").data('current', response.blogDesc);
+        notifyUser("Profile Updated!");
+      },
+      error: function error() {
+        notifyUser("Title or Description should not exceed more than 250 characters!");
+      }
+    });
+    e.preventDefault();
+  });
+};
 
 /***/ }),
 
