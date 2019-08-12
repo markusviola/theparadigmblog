@@ -45686,6 +45686,11 @@ initArticle = function initArticle() {
     }
   };
 
+  checkChanges = function checkChanges() {
+    $("#title").keyup();
+    $("#body").keyup();
+  };
+
   adjustCardHeight = function adjustCardHeight() {
     var height = $('#writing-card').height() * 0.75;
     $('#output-markdown').height(height);
@@ -45885,6 +45890,10 @@ prepareDeletion = function prepareDeletion(elem) {
 
 initNotifications = function initNotifications() {
   switch (window.location.hash) {
+    case "#active-only":
+      notifyUser("This account cannot be accessed!");
+      break;
+
     case "#unauth-access":
       notifyUser("Please log in to your account!");
       break;
