@@ -11,7 +11,6 @@ initArticle = () => {
     }
 
     mirrorMarkDown = (elem) => {
-
         renderMarkDown($(elem).val(), "output-markdown");
     }
 
@@ -21,8 +20,11 @@ initArticle = () => {
         } else {
             renderMarkDown("Your title goes here!", "output-title");
         }
+    }
 
-
+    checkChanges = () => {
+        $("#title").keyup();
+        $("#body").keyup();
     }
 
     adjustCardHeight = () => {
