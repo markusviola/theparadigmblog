@@ -12,8 +12,8 @@
 @import "@fortawesome/fontawesome-free/scss/brands.scss";
 
 // Prevents layout repositioning when scrollbar shows.
-#app {
-    padding-left: calc(100vw - 100%);
+html {
+    overflow-y: scroll;
 }
 
 .divider {

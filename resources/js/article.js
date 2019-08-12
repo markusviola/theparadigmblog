@@ -1,4 +1,35 @@
 initArticle = () => {
+
+    var md = require('markdown-it')({
+        html: true,
+        linkify: true,
+        typographer: true
+    });
+
+    renderMarkDown = (message, elemName) => {
+        $(`#${elemName}`).html(md.render(message));
+    }
+
+    mirrorMarkDown = (elem) => {
+
+        renderMarkDown($(elem).val(), "output-markdown");
+    }
+
+    mirrorTitle = (elem) => {
+        if($(elem).val()) {
+            renderMarkDown($(elem).val(), "output-title");
+        } else {
+            renderMarkDown("Your title goes here!", "output-title");
+        }
+
+
+    }
+
+    adjustCardHeight = () => {
+        let height = $('#writing-card').height()*0.75;
+        $('#output-markdown').height(height);
+    }
+
     $("#like-form").submit((e) => {
         $('#like-btn').prop('disabled', true);
         const likeInput = $(e.currentTarget).serializeArray();
@@ -87,4 +118,5 @@ initArticle = () => {
         e.preventDefault();
     });
 }
+
 
