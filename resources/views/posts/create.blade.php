@@ -14,7 +14,6 @@
                             <button class="btn btn-anti-neutral text-white h-50 align-self-center" type="submit">Submit Post</button>
                         </div>
                         <hr class="divider">
-
                         {{-- Uses a form view for blog post operations --}}
                         @include('posts.form')
                     </form>
@@ -27,7 +26,7 @@
                     <h1 class="alt-neutral align-self-center m-0">Output</h1>
                     <hr class="divider">
                     <div class="px-2">
-                        <h2 id="output-title" class="alt-anti-neutral pl-1">Your title goes here!</h2>
+                        <h1 id="output-title" class="alt-anti-neutral pl-1">Your title goes here!</h1>
                         <div
                             id="output-markdown"
                             class="preserve-breaks text-justify long-text mt-4 pt-4 pr-3 mx-1 border-top border-bottom w-100 overflow-auto">
@@ -40,7 +39,6 @@
     <script>
         $(() => {
             adjustCardHeight();
-            checkChanges();
         })
     </script>
 @endsection
