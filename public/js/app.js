@@ -45682,7 +45682,7 @@ initArticle = function initArticle() {
     if ($(elem).val()) {
       renderMarkDown($(elem).val(), "output-title");
     } else {
-      renderMarkDown("Your title goes here!", "output-title");
+      renderMarkDown("Make a good title...", "output-title");
     }
   };
 

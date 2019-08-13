@@ -9,8 +9,12 @@
                     {{-- Form method creating a blog post --}}
                     <form action="{{ route('posts.store') }}" method="POST">
                         <div class="d-flex justify-content-between">
-
-                            <h1 class="alt-neutral align-self-center m-0">Create {{ Auth::user()->isAdmin == 1 ? "an Announcement" : "a Post" }}</h1>
+                            <div class="d-flex">
+                                <i class="alt-neutral align-self-center fas fa-feather fa-2x ml-2 mr-2"></i>
+                                <h1 class="alt-neutral align-self-center m-0">
+                                    Create {{ Auth::user()->isAdmin == 1 ? "an Announcement" : "a Post" }}
+                                </h1>
+                            </div>
                             <button class="btn btn-anti-neutral text-white h-50 align-self-center" type="submit">Submit Post</button>
                         </div>
                         <hr class="divider">
@@ -24,10 +28,15 @@
         <div id="output-card" class="col-5">
             <div class="card shadow neutral-round h-100">
                 <div class="card-body">
-                    <h1 class="alt-neutral align-self-center m-0">Output</h1>
+                    <div class="d-flex">
+                        <i class="alt-neutral align-self-center fas fa-poll-h fa-2x ml-2 mr-3"></i>
+                        <h1 class="alt-neutral align-self-center m-0">
+                            Markdown Output
+                        </h1>
+                    </div>
                     <hr class="divider">
                     <div class="px-2">
-                        <h2 id="output-title" class="alt-anti-neutral pl-1">Your title goes here!</h2>
+                        <h2 id="output-title" class="alt-anti-neutral pl-1">Make a good title...</h2>
                         <div
                             id="output-markdown"
                             class="preserve-breaks text-justify long-text mt-4 pt-4 pr-3 mx-1 border-top border-bottom w-100 overflow-auto">
