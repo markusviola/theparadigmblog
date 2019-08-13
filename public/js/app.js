@@ -45788,6 +45788,40 @@ initArticle = function initArticle() {
     });
     e.preventDefault();
   });
+  $("#confirm-delete-post").submit(function (e) {
+    $('#post-deletion-modal').modal('hide');
+    var deleteHash = "#deleted-post";
+    var postControlPage = '/posts';
+    var profilePage = '/profile';
+    $.ajax({
+      type: "DELETE",
+      url: $(e.currentTarget).attr('action'),
+      data: $(e.currentTarget).serialize(),
+      success: function success(response) {
+        if (response.onPost) {
+          if (response.isAdmin) {
+            window.location.href = "".concat(postControlPage).concat(deleteHash);
+          } else {
+            window.location.href = "".concat(profilePage, "/").concat(response.url).concat(deleteHash);
+          }
+        } else {
+          if (response.isAdmin) {
+            reloadElement('#admin-posts');
+          } else {
+            reloadElement('#profile-posts');
+          }
+
+          notifyUser("Article deleted!");
+        }
+      },
+      error: function error(xhr, status, _error3) {
+        var err = JSON.parse(xhr.responseText);
+        console.log(err.message);
+        notifyUser("Unable to delete comment.");
+      }
+    });
+    e.preventDefault();
+  });
 };
 
 /***/ }),
@@ -45912,6 +45946,10 @@ initNotifications = function initNotifications() {
 
     case "#non-admin-only":
       notifyUser("This feature is for non-admin users only!");
+      break;
+
+    case "#deleted-post":
+      notifyUser("Article deleted!");
       break;
 
     default:

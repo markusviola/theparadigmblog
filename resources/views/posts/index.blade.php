@@ -8,7 +8,7 @@
         <div class="text-muted">Article posts can be <strong>edited</strong> or be <strong>deleted</strong>.
         <p>
         @include('posts.modals.delete')
-        <table class="table">
+        <table id="admin-posts" class="table">
             <thead>
                 <tr class="d-flex">
                 <th class="col-1" scope="col">ID</th>

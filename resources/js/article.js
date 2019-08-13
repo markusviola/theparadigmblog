@@ -119,6 +119,41 @@ initArticle = () => {
         });
         e.preventDefault();
     });
+
+    $("#confirm-delete-post").submit((e) => {
+        $('#post-deletion-modal').modal('hide');
+        let deleteHash = "#deleted-post"
+        let postControlPage = '/posts';
+        let profilePage = '/profile'
+        $.ajax({
+            type:"DELETE",
+            url: $(e.currentTarget).attr('action'),
+            data: $(e.currentTarget).serialize(),
+            success: function(response) {
+                if (response.onPost) {
+                    if (response.isAdmin) {
+                        window.location.href = `${postControlPage}${deleteHash}`
+                    } else {
+                        window.location.href = `${profilePage}/${response.url}${deleteHash}`
+                    }
+                } else {
+                    if (response.isAdmin) {
+                        reloadElement('#admin-posts');
+                    } else {
+                        reloadElement('#profile-posts');
+                    }
+                    notifyUser("Article deleted!");
+                }
+            },
+            error: function(xhr, status, error) {
+                var err = JSON.parse(xhr.responseText);
+                console.log(err.message);
+                notifyUser("Unable to delete comment.");
+            }
+        });
+        e.preventDefault();
+    });
+
 }
 
 

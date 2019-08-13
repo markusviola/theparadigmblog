@@ -66,35 +66,37 @@
                     @if (sizeof($posts) > 0)
                         @include('posts.modals.delete')
                         <br>
-                        @foreach ($posts as $post)
-                            <h3><a class="neutral" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
-                            <strong class="text-muted long-text">{{ preg_replace('/[^a-zA-Z0-9.?!\s]/', '', mb_strimwidth($post->body, 0, 190, "...")) }}</strong>
-                            <p>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="text-muted">Posted on {{ $post->created_at }} </div>
+                        <div id="profile-posts">
+                            @foreach ($posts as $post)
+                                <h3><a class="neutral" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
+                                <strong class="text-muted long-text">{{ preg_replace('/[^a-zA-Z0-9.?!\s]/', '', mb_strimwidth($post->body, 0, 190, "...")) }}</strong>
+                                <p>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="text-muted">Posted on {{ $post->created_at }} </div>
+                                    </div>
+                                    <div class="col-md text-muted text-right mr-1">
+                                        Updated on {{ $post->updated_at }}
+                                    </div>
+                                    @if (Auth::check() && $userId == Auth::user()->id)
+                                        <a class="col-md-1 text-right trans-btn no-padding" href="{{ route('posts.edit', $post->id) }}">
+                                            <i class="edit-post fas fa-pencil-alt fa-lg"></i>
+                                        </a>
+                                        <button class="col-md-1 text-right trans-btn delete-modal mr-1"
+                                            onclick="prepareDeletion(this)"
+                                            data-toggle="modal"
+                                            data-target="#post-deletion-modal"
+                                            data-id="{{ $post->id }}"
+                                            data-type="post"
+                                            data-on-post="false"
+                                        >
+                                            <i class="delete-post fas fa-minus-circle fa-lg"></i>
+                                        </button>
+                                    @endif
                                 </div>
-                                <div class="col-md text-muted text-right mr-1">
-                                    Updated on {{ $post->updated_at }}
-                                </div>
-                                @if (Auth::check() && $userId == Auth::user()->id)
-                                    <a class="col-md-1 text-right trans-btn no-padding" href="{{ route('posts.edit', $post->id) }}">
-                                        <i class="edit-post fas fa-pencil-alt fa-lg"></i>
-                                    </a>
-                                    <button class="col-md-1 text-right trans-btn delete-modal mr-1"
-                                        onclick="prepareDeletion(this)"
-                                        data-toggle="modal"
-                                        data-target="#post-deletion-modal"
-                                        data-id="{{ $post->id }}"
-                                        data-type="post"
-                                        data-on-post="false"
-                                    >
-                                        <i class="delete-post fas fa-minus-circle fa-lg"></i>
-                                    </button>
-                                @endif
-                            </div>
-                            <hr class="divider">
-                        @endforeach
+                                <hr class="divider">
+                            @endforeach
+                        </div>
                     @else
                         <div class="no-posts text-muted">
                             <div>

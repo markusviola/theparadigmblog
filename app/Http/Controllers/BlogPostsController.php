@@ -54,7 +54,6 @@ class BlogPostsController extends Controller
         $post->title = $data['title'];
         $post->body = $data['body'];
         $post->save();
-        $posts = BlogPost::all()->sortBy('created_at');
         if (Auth::user()->isAdmin == 1) {
             return redirect()->route('home');
         } else return redirect()
@@ -131,12 +130,16 @@ class BlogPostsController extends Controller
      */
     public function destroy(BlogPost $post)
     {
+        $onPost = true;
         $post->delete($post);
-
-        if(Auth::user()->isAdmin == 1)
-            return redirect()->route('posts.index')->with('notify','Article deleted!');
-        else
-            return redirect()->route('profile', Auth::user()->url)->with('notify','Article deleted!');
+        if (request()->query('onPost') == 'false') {
+            $onPost = false;
+        }
+        return response()->json([
+            'onPost' => $onPost,
+            'isAdmin' => auth()->user()->isAdmin,
+            'url' => $post->user->url
+        ]);
     }
 
     // For validating the blog post fields
