@@ -17,30 +17,29 @@ class SettingsController extends Controller
 
     public function update(Request $request, User $setting)
     {
-        $withPass = false;
-        if (!is_null($request->newPass) && !is_null($request->confirmPass)) {
-            $withPass = true;
+        if (!is_null($request->newPassword) && !is_null($request->confirmPassword)) {
             $this->validate($request, [
-                'newPass' => 'min:8',
-                'confirmPass' => 'same:newPass',
+                'newPassword' => 'min:8',
+                'confirmPassword' => 'same:newPassword',
                 'url' => 'required|max:25|unique:users,url,'.Auth::user()->id,
-                'currentPass' => 'required',
+                'currentPassword' => 'required',
             ]);
         } else {
             $this->validate($request, [
                 'url' => 'required|max:25|unique:users,url,'.Auth::user()->id,
-                'currentPass' => 'required',
-            ]);          
+                'currentPassword' => 'required',
+            ]);
         }
-        
+
         $data = $request->all();
-        if (!is_null($data['newPass'])) 
-            $setting->password = Hash::make($data['newPass']);
-        if ($data['url'] != $setting->url) 
+        if (!is_null($data['newPassword']))
+            $setting->password = Hash::make($data['newPassword']);
+        if ($data['url'] != $setting->url)
             $setting->url = $data['url'];
         $setting->save();
 
-        return redirect()->route('settings.index')->with('notify','Account settings updated!');
-        
+        return redirect()
+            ->route('settings.index')
+            ->with('notify','Account settings updated!');
     }
 }
