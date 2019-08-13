@@ -65,17 +65,18 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->isAdmin == 1)
-                                        <a class="dropdown-item text-secondary" href="{{ route('users.index') }}">Manage Users</a>
-                                        <a class="dropdown-item text-secondary" href="{{ route('posts.index') }}">Manage Posts</a>
-                                        <a class="dropdown-item text-secondary" href="{{ route('comments.index') }}">Manage Comments</a>
+                                        <a class="neutral-menu dropdown-item text-secondary" href="{{ route('users.index') }}">Manage Users</a>
+                                        <a class="neutral-menu dropdown-item text-secondary" href="{{ route('posts.index') }}">Manage Posts</a>
+                                        <a class="neutral-menu dropdown-item text-secondary" href="{{ route('comments.index') }}">Manage Comments</a>
                                     @else
-                                        <a class="dropdown-item text-secondary" href="{{ route('profile', Auth::user()->url) }}">Profile</a>
-                                        <a class="dropdown-item text-secondary" href="{{ route('settings.index') }}">Settings</a>
+                                        <a class="neutral-menu dropdown-item text-secondary" href="{{ route('profile', Auth::user()->url) }}">Profile</a>
+                                        <a class="neutral-menu dropdown-item text-secondary" href="{{ route('settings.index') }}">Settings</a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <div class="dropdown-divider"></div>
+                                    <a class="neutral-menu dropdown-item alt-neutral" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        <strong>{{ __('Logout') }}</strong>
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
