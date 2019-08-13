@@ -98,7 +98,7 @@ initArticle = () => {
     });
 
     $("#confirm-delete-comment").submit((e) => {
-        $('#delete-confirm').modal('hide');
+        $('#comment-deletion-modal').modal('hide');
         $.ajax({
             type:"DELETE",
             url: $(e.currentTarget).attr('action'),

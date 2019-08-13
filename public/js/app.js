@@ -45766,7 +45766,7 @@ initArticle = function initArticle() {
     e.preventDefault();
   });
   $("#confirm-delete-comment").submit(function (e) {
-    $('#delete-confirm').modal('hide');
+    $('#comment-deletion-modal').modal('hide');
     $.ajax({
       type: "DELETE",
       url: $(e.currentTarget).attr('action'),

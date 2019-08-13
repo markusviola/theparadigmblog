@@ -33,7 +33,7 @@
                             <button class="trans-btn delete-modal"
                                 onclick="prepareDeletion(this)"
                                 data-toggle="modal"
-                                data-target="#delete-confirm"
+                                data-target="#post-deletion-modal"
                                 data-id="{{ $post->id }}"
                                 data-type="post"
                                 data-on-post="false"

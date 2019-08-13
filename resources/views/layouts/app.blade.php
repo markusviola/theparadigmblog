@@ -76,7 +76,7 @@
                                     <a class="neutral-menu dropdown-item alt-neutral" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <strong>{{ __('Logout') }}</strong>
+                                        {{ __('Logout') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

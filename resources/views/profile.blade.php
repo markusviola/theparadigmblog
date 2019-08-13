@@ -82,8 +82,9 @@
                                         <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                                     </a>
                                     <button class="col-md-1 text-right trans-btn delete-modal mr-1"
+                                        onclick="prepareDeletion(this)"
                                         data-toggle="modal"
-                                        data-target="#delete-confirm"
+                                        data-target="#post-deletion-modal"
                                         data-id="{{ $post->id }}"
                                         data-type="post"
                                         data-on-post="false"

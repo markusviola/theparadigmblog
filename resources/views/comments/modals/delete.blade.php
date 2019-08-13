@@ -1,4 +1,4 @@
-<div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog">
+<div class="modal fade" id="comment-deletion-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">

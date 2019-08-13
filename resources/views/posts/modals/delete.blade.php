@@ -1,4 +1,4 @@
-<div class="modal fade" id="delete-confirm" tabindex="-1" role="dialog">
+<div class="modal fade" id="post-deletion-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -14,7 +14,7 @@
             <form id="confirm-delete-post" method="POST">
                 @method('DELETE')
                 <button class="btn btn-link text-danger" type="submit" href="#">
-                    <strong>Confirm</strong> 
+                    <strong>Confirm</strong>
                 </button>
                 @csrf
             </form>

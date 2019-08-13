@@ -5,17 +5,35 @@
         <div class="col-8">
             <br>
             <h1 class="alt-anti-neutral">{{ $post->title }}</h1>
-            <h5 class="text-muted mt-3">
-                Posted by
-                @if ($post->user->isAdmin == 0)
-                    <a class="neutral" href="{{ route('profile', $post->user->url) }}">
+            <div class="row">
+                <h5 class="col-md text-muted mt-3 mb-0">
+                    Posted by
+                    @if ($post->user->isAdmin == 0)
+                        <a class="neutral" href="{{ route('profile', $post->user->url) }}">
+                            {{ $post->user->username }}
+                        </a>
+                    @else
                         {{ $post->user->username }}
+                    @endif
+                        on {{ $post->created_at }}
+                </h5>
+                @if (Auth::check() && $post->user->id == Auth::user()->id || Auth::user()->isAdmin)
+                    @include('posts.modals.delete')
+                    <a class="mt-3 col-md-1 align-self-center text-right trans-btn no-padding" href="{{ route('posts.edit', $post->id) }}">
+                        <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                     </a>
-                @else
-                    {{ $post->user->username }}
+                    <button class="mt-3 col-md-1 text-right trans-btn delete-modal mr-1"
+                        data-toggle="modal"
+                        data-target="#post-deletion-modal"
+                        data-id="{{ $post->id }}"
+                        data-type="post"
+                        data-on-post="true"
+                    >
+                        <i class="delete-post fas fa-minus-circle fa-lg"></i>
+                    </button>
                 @endif
-                    on {{ $post->created_at }}
-            </h5>
+            </div>
+
             <hr class="divider mb-5">
             <div id="post-markdown" class="preserve-breaks text-justify long-text">
                 {{-- markdown gets injected here --}}

@@ -16513,6 +16513,12 @@ body {
   font-family: "Poppins", sans-serif !important;
 }
 
+.modal-open {
+  overflow: scroll;
+  width: 100%;
+  padding-right: 0 !important;
+}
+
 #button-progress {
   display: none;
 }

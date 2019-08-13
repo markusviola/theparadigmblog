@@ -29,6 +29,14 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
+.modal-open {
+    // position: fixed;
+    overflow: scroll;
+    width: 100%;
+    padding-right: 0 !important;
+}
+
+
 #button-progress {
     display: none;
 }
