@@ -97,7 +97,9 @@
                             </div>
 
                             <div class="row justify-content-center">
-                                <button class="btn btn-anti-neutral text-white mb-1">Update Information</button>
+                                <button class="btn btn-anti-neutral text-white mb-1">
+                                    Update Information
+                                </button>
                             </div>
 
                             @csrf
