@@ -6,16 +6,21 @@
             <div class="card shadow neutral-round">
                 <div class="card-body pb-1">
 
-                    {{-- Form method creating a blog post --}}
-                    <form action="{{ route('posts.store') }}" method="POST">
+                    {{-- Form method creating/editing a blog post --}}
+                    <form action="{{ $isCreateMode ? route('posts.store') : route('posts.update', $post->id) }}" method="POST">
+                        @if (!$isCreateMode)
+                            @method('PATCH')
+                        @endif
                         <div class="d-flex justify-content-between">
                             <div class="d-flex">
                                 <i class="alt-neutral align-self-center fas fa-feather fa-2x ml-2 mr-2"></i>
                                 <h1 class="alt-neutral align-self-center m-0">
-                                    Create {{ Auth::user()->isAdmin == 1 ? "an Announcement" : "a Post" }}
+                                    {{ $isCreateMode ? 'Create' : 'Edit' }} {{ Auth::user()->isAdmin == 1 ? " Announcement" : " Post" }}
                                 </h1>
                             </div>
-                            <button class="btn btn-anti-neutral text-white h-50 align-self-center" type="submit">Submit Post</button>
+                            <button class="btn btn-anti-neutral text-white h-50 align-self-center" type="submit">
+                                {{ $isCreateMode ? 'Submit' : 'Update' }} Post
+                            </button>
                         </div>
                         <hr class="divider">
 

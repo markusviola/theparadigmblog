@@ -37,7 +37,8 @@ class BlogPostsController extends Controller
     public function create()
     {
         $post = new BlogPost();
-        return view('posts.create', compact('post'));
+        $isCreateMode = true;
+        return view('posts.upsert', compact('post', 'isCreateMode'));
     }
 
     /**
@@ -103,7 +104,8 @@ class BlogPostsController extends Controller
      */
     public function edit(BlogPost $post)
     {
-        return view('posts.edit', compact('post'));
+        $isCreateMode = false;
+        return view('posts.upsert', compact('post', 'isCreateMode'));
     }
 
     /**

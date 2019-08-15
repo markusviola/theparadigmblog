@@ -32,7 +32,7 @@
                             <input
                                 class="trans-elem blog-title clean-input alt-anti-neutral"
                                 placeholder="{{ Auth::check() && $userId == Auth::user()->id
-                                    ? 'Write a clever article title...'
+                                    ? 'Write a clever profile title...'
                                     : ucfirst($userName)."'s Article Posts"
                                 }}"
                                 type="text"
@@ -47,7 +47,7 @@
                             <textarea
                                 class="trans-elem blog-desc clean-input no-scroll text-secondary text-justify"
                                 name="blogDesc" placeholder="{{ Auth::check() && $userId == Auth::user()->id
-                                    ? 'Write your thoughts here...'
+                                    ? 'Appeal yourself to the readers...'
                                     : $userName.' has not written anything here yet...'
                                 }}"
                                 id="blogDesc"
