@@ -35,7 +35,7 @@
             </div>
 
             <hr class="divider mb-5">
-            <div id="post-markdown" class="preserve-breaks text-justify long-text">
+            <div id="post-markdown" class="preserve-breaks text-justify long-text text-dark">
                 {{-- markdown gets injected here --}}
             </div>
             <hr class="mt-3 divider">
