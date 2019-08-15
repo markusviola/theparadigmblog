@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light navbar-laravel shadow-sm sticky-top">
             <div class="container">
                 <a class="navbar-brand text-dark" href="{{ url('/') }}">
                     The Paradigm Articles
@@ -78,7 +78,7 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
                                     </form>
                                 </div>

@@ -3,13 +3,13 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-11">
-        <h1>Comment Control</h1>
+        <h1 class="alt-anti-neutral">Comment Control</h1>
         <hr class="divider">
         <div class="text-muted">Post comments can be <strong>deleted</strong>.
         <p>
         @include('comments.modals.delete')
         <table id="admin-post-comments" class="table">
-            <thead>
+            <thead class="alt-anti-neutral">
                 <tr class="d-flex">
                 <th class="col-1" scope="col">ID</th>
                 <th class="col-1 article-id" scope="col">Article ID</th>
@@ -21,7 +21,7 @@
             </thead>
             <tbody>
                 @foreach ($comments as $comment)
-                    <tr class="d-flex">
+                    <tr class="d-flex text-dark">
                         <th class="col-1 align-middle" scope="row">{{ $comment->id }}</th>
                         <td class="col-1 article-id align-middle">{{ $comment->blog_post_id }}</td>
                         <td class="col-2 align-middle">{{ $comment->user->username }}</td>

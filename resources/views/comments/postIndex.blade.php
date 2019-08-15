@@ -27,7 +27,7 @@
         </div>
         <div class="row">
             <div class="preserve-breaks col-{{ Auth::check() && Auth::user()->isAdmin == 1 ? '11' : 'auto' }}
-                 text-justify mt-2 long-text align-content-center">{{ $comment->body }}
+                 text-justify mt-2 long-text align-content-center text-dark">{{ $comment->body }}
             </div>
             @if(Auth::check() && Auth::user()->isAdmin == 1)
                 <button class="col-1 trans-btn delete-modal row align-content-center mx-0 px-0"
