@@ -3,13 +3,13 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-11">
-        <h1>Article Post Control</h1>
+        <h1 class="alt-anti-neutral">Article Post Control</h1>
         <hr class="divider">
         <div class="text-muted">Article posts can be <strong>edited</strong> or be <strong>deleted</strong>.
         <p>
         @include('posts.modals.delete')
         <table id="admin-posts" class="table">
-            <thead>
+            <thead class="alt-anti-neutral">
                 <tr class="d-flex">
                 <th class="col-1" scope="col">ID</th>
                 <th class="col-5" scope="col">Title</th>
@@ -21,9 +21,11 @@
             </thead>
             <tbody>
                 @foreach ($posts as $post)
-                    <tr class="d-flex">
+                    <tr class="d-flex text-dark">
                         <th class="col-1 align-middle" scope="row">{{ $post->id }}</th>
-                        <td class="col-5 align-middle"><a style="color: black;" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></td>
+                        <td class="col-5 align-middle">
+                            <a class="text-dark" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
+                        </td>
                         <td class="col-2 align-middle">{{ $post->created_at }}</td>
                         <td class="col-2 align-middle">{{ $post->updated_at }}</td>
                         <td class="col-1 align-middle text-center">
