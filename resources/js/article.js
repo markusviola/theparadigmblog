@@ -88,10 +88,12 @@ initArticle = () => {
                 $('#button-progress').hide(200);
             },
             error: function(xhr, status, error) {
-                var err = JSON.parse(xhr.responseText);
-                console.log(err.message);
+                const errStatus = JSON.parse(xhr.status);
+                const unAuth = '#unauth-access';
+                if (errStatus == 401) {
+                    window.location.href = `/login${unAuth}`;
+                } else notifyUser("Please write your comment first");
                 $('#button-progress').hide(200);
-                notifyUser("Please write your comment first");
             }
         });
         e.preventDefault();

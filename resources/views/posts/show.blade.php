@@ -17,7 +17,7 @@
                     @endif
                         on {{ $post->created_at }}
                 </h5>
-                @if (Auth::check() && $post->user->id == Auth::user()->id || Auth::user()->isAdmin)
+                @if (Auth::check() && ($post->user->id == Auth::user()->id || Auth::user()->isAdmin))
                     @include('posts.modals.delete')
                     <a class="mt-3 col-md-1 align-self-center text-right trans-btn no-padding" href="{{ route('posts.edit', $post->id) }}">
                         <i class="edit-post fas fa-pencil-alt fa-lg"></i>

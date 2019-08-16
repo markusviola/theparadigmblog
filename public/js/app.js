@@ -45757,10 +45757,14 @@ initArticle = function initArticle() {
         $('#button-progress').hide(200);
       },
       error: function error(xhr, status, _error) {
-        var err = JSON.parse(xhr.responseText);
-        console.log(err.message);
+        var errStatus = JSON.parse(xhr.status);
+        var unAuth = '#unauth-access';
+
+        if (errStatus == 401) {
+          window.location.href = "/login".concat(unAuth);
+        } else notifyUser("Please write your comment first");
+
         $('#button-progress').hide(200);
-        notifyUser("Please write your comment first");
       }
     });
     e.preventDefault();
