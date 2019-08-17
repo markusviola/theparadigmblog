@@ -28,3 +28,8 @@
     min-width: percentage($minW/100);
     max-height: percentage($maxH/100);
 }
+
+// @mixin bg-n-border($bgColor, $borderColor) {
+//     background: $bgColor;
+//     border-color: $borderColor;
+// }

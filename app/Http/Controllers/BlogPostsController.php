@@ -28,7 +28,10 @@ class BlogPostsController extends Controller
     public function index()
     {
         // Lazy loading for posts.
-        $posts = BlogPost::all();
+        $posts = BlogPost::with([])
+            ->latest()
+            ->paginate(2);
+
         return view('posts.index',
             compact('posts'));
     }

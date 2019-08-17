@@ -26,8 +26,8 @@ class HomeController extends Controller
     {
         // Eager loading for home posts.
         $posts = BlogPost::with(['user','likes','comments'])
-            ->get()
-            ->reverse();
+            ->latest()
+            ->paginate(1);
 
         return view('home', compact('posts'));
 

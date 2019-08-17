@@ -23,10 +23,14 @@
                 @foreach ($users as $user)
                     <tr class="d-flex text-dark">
                         <th class="col-1 d-flex align-items-center">{{ $user->id }}</th>
-                        <td class="col-3">{{ $user->username }}</td>
-                        <td class="col-4">{{ $user->email }}</td>
-                        <td class="col-2">{{ $user->created_at }}</td>
-                        <td class="col-2 justify-content-center">
+                        <td class="col-3 d-flex align-items-center">
+                            <a class="neutral" href="{{ route('profile', $user->url) }}">
+                                {{ $user->username }}
+                            </a>
+                        </td>
+                        <td class="col-4 d-flex align-items-center">{{ $user->email }}</td>
+                        <td class="col-2 d-flex align-items-center">{{ $user->created_at }}</td>
+                        <td class="col-2 d-flex align-items-center justify-content-center">
                             <form action="{{ route('users.update', $user->id) }}" method="POST">
                                 @method('PATCH')
                                 <button
@@ -44,6 +48,11 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center my-3">
+                {{ $users->links() }}
+            </div>
+        </div>
     </div>
 </div>
 @endsection

@@ -24,14 +24,14 @@
             <tbody>
                 @foreach ($posts as $post)
                     <tr class="d-flex text-dark">
-                        <th class="col-1 align-middle" scope="row">{{ $post->id }}</th>
-                        <td class="col-5 align-middle">
+                        <th class="col-1 d-flex align-items-center" scope="row">{{ $post->id }}</th>
+                        <td class="col-5 d-flex align-items-center">
                             <a class="text-dark"
                                 href="{{ route('posts.show', $post->id) }}"
                             >{{ $post->title }}</a>
                         </td>
-                        <td class="col-2 align-middle">{{ $post->created_at }}</td>
-                        <td class="col-2 align-middle">{{ $post->updated_at }}</td>
+                        <td class="col-2 d-flex align-items-center">{{ $post->created_at }}</td>
+                        <td class="col-2 d-flex align-items-center">{{ $post->updated_at }}</td>
                         <td class="col-1 align-middle text-center">
                             <a class="btn-trans"  href="{{ route('posts.edit', $post->id) }}">
                                 <i class="edit-post fas fa-pencil-alt fa-lg"></i>
@@ -52,6 +52,11 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center my-3">
+                {{ $posts->links() }}
+            </div>
+        </div>
     </div>
 </div>
 @endsection

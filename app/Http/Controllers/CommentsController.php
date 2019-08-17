@@ -28,7 +28,9 @@ class CommentsController extends Controller
     public function index()
     {
         // Lazy loading for comments.
-        $comments = Comment::all();
+        $comments = Comment::with([])
+            ->latest()
+            ->paginate(2);
 
         return view('comments.index',
             compact('comments'));

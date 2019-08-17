@@ -22,11 +22,15 @@
             <tbody>
                 @foreach ($comments as $comment)
                     <tr class="d-flex text-dark">
-                        <th class="col-1 align-middle" scope="row">{{ $comment->id }}</th>
-                        <td class="col-1 text-center px-0 align-middle">{{ $comment->blog_post_id }}</td>
-                        <td class="col-2 align-middle">{{ $comment->user->username }}</td>
-                        <td class="col-5 align-middle long-text">{{ mb_strimwidth($comment->body, 0, 75, "...")  }}</td>
-                        <td class="col-2 align-middle">{{ $comment->created_at }}</td>
+                        <th class="col-1 d-flex align-items-center" scope="row">{{ $comment->id }}</th>
+                        <td class="col-1 px-0 d-flex justify-content-center align-items-center">{{ $comment->blog_post_id }}</td>
+                        <td class="col-2 d-flex align-items-center">
+                            <a class="neutral" href="{{ route('profile', $comment->user->url) }}">
+                                {{ $comment->user->username }}
+                            </a>
+                        </td>
+                        <td class="col-5 d-flex align-items-center long-text">{{ mb_strimwidth($comment->body, 0, 75, "...")  }}</td>
+                        <td class="col-2 d-flex align-items-center">{{ $comment->created_at }}</td>
                         <td class="col-1 align-middle text-center">
                             <button class="btn-trans delete-modal"
                                 onclick="prepareDeletion(this)"
@@ -42,6 +46,11 @@
                 @endforeach
             </tbody>
         </table>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center my-3">
+                {{ $comments->links() }}
+            </div>
+        </div>
     </div>
 </div>
 @endsection

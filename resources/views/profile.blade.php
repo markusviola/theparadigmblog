@@ -114,6 +114,11 @@
                                 </div>
                                 <hr class="divider">
                             @endforeach
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-center mt-4">
+                                    {{ $posts->links() }}
+                                </div>
+                            </div>
                         @else
                             <div class="no-posts text-muted">
                                 <div>

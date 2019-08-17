@@ -20,7 +20,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::where('isAdmin', false)->get();
+        $users = User::where('isAdmin', false)
+            ->latest()
+            ->paginate(2);
 
         return view('users.index', compact('users'));
     }
@@ -81,7 +83,7 @@ class UsersController extends Controller
 
         $user->status = !array_search($currentStatus, with(new User)->statusOptions());
         $user->save();
-        
+
         return redirect()->route('users.index')->with('notify','User status changed!');
     }
 
@@ -96,5 +98,5 @@ class UsersController extends Controller
         //
     }
 
-    
+
 }

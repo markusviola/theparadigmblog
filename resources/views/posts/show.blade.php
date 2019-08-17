@@ -19,7 +19,8 @@
                 </h5>
                 @if (Auth::check() && ($post->user->id == Auth::user()->id || Auth::user()->isAdmin))
                     @include('posts.modals.delete')
-                    <a class="mt-3 col-md-1 align-self-center text-right btn-trans px-0" href="{{ route('posts.edit', $post->id) }}">
+                    <a class="mt-3 col-md-1 align-self-center text-right btn-trans px-0"
+                        href="{{ route('posts.edit', $post->id) }}">
                         <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                     </a>
                     <button class="mt-3 col-md-1 text-right btn-trans delete-modal mr-1"

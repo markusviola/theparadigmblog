@@ -36,10 +36,9 @@ class ProfileController extends Controller
         $userDesc = $user->blogDesc;
         $userHeaderImg = $user->blogHeaderImg;
 
-        $posts = BlogPost::where(
-            'user_id',
-            $user->id
-        )->get()->reverse();
+        $posts = BlogPost::where('user_id', $user->id)
+            ->latest()
+            ->paginate(4);
 
         return view('profile', compact(
             'posts',

@@ -16538,6 +16538,16 @@ input[type=file] {
   color: #4674a8 !important;
 }
 
+.rev-neutral {
+  background: #1aa17c !important;
+  border-color: #1aa17c !important;
+}
+
+.rev-anti-neutral {
+  background: #4674a8 !important;
+  border-color: #1aa17c !important;
+}
+
 .delete-post {
   color: #ED6A5A !important;
   transition-property: color;

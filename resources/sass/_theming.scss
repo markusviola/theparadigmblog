@@ -28,6 +28,16 @@
     color: $secondary !important;
 }
 
+.rev-neutral {
+    background: $primary !important;
+    border-color: $primary !important;
+}
+
+.rev-anti-neutral {
+    background: $secondary !important;
+    border-color: $primary !important;
+}
+
 .delete-post {
     color: $deleteLight !important;
     transition-property: color;
