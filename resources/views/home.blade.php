@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="div" style="width: 19vw; height: 50vh; position: fixed; right: 3rem; top: 10rem; background: lightgray;"></div>
         <div class="col-9">
             <h2 class="text-secondary">Recent Posts</h2>
             <hr class="divider">

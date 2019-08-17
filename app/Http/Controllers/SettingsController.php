@@ -39,7 +39,6 @@ class SettingsController extends Controller
     public function update(User $setting)
     {
         $isUrlOnly = true;
-
         // Validates case to case basis inputs.
         if (!is_null(request()->newPassword) &&
             !is_null(request()->confirmPassword)) {
