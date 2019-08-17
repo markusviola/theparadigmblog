@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace TheParadigmArticles\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
@@ -15,10 +15,10 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        \App\Events\SampleEvent::class => [
-            \App\Listeners\SampleListener1::class,
-            \App\Listeners\SampleListener2::class,
-            \App\Listeners\SampleListener3::class,
+        \TheParadigmArticles\Events\SampleEvent::class => [
+            \TheParadigmArticles\Listeners\SampleListener1::class,
+            \TheParadigmArticles\Listeners\SampleListener2::class,
+            \TheParadigmArticles\Listeners\SampleListener3::class,
         ],
     ];
 

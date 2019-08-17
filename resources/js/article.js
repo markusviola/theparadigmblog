@@ -150,7 +150,7 @@ initArticle = () => {
             error: function(xhr, status, error) {
                 var err = JSON.parse(xhr.responseText);
                 console.log(err.message);
-                notifyUser("Unable to delete comment.");
+                notifyUser("Unable to delete post.");
             }
         });
         e.preventDefault();

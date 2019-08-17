@@ -28,23 +28,27 @@
                         <form action="{{ route('settings.update', Auth::user()->id) }}" method="POST">
                             @method('PATCH')
 
-                            <div class="row mb-2 form-group">
-                                <div class="col-4 alt-anti-neutral"><strong>URL:</strong></div>
-                                <div class="col-8 p-0">
-                                    <input
-                                        class="form-control @error('url') is-invalid @enderror"
-                                        type="text"
-                                        placeholder="Enter your desired URL..."
-                                        name="url"
-                                        value="{{ old('url') ?? Auth::user()->url  }}"
-                                    >
-                                    @error('url')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                            @if (Auth::user()->isAdmin)
+                                <input type="hidden" name="url" value="{{ Auth::user()->url }}">
+                            @else
+                                <div class="row mb-2 form-group">
+                                    <div class="col-4 alt-anti-neutral"><strong>URL:</strong></div>
+                                    <div class="col-8 p-0">
+                                        <input
+                                            class="form-control @error('url') is-invalid @enderror"
+                                            type="text"
+                                            placeholder="Enter your desired URL..."
+                                            name="url"
+                                            value="{{ old('url') ?? Auth::user()->url  }}"
+                                        >
+                                        @error('url')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
                             <div class="row mb-2 form-group">
                                 <div class="col-4 alt-anti-neutral"><strong>New Password:</strong></div>

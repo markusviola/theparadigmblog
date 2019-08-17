@@ -2,7 +2,7 @@
 <hr class="mt-4 divider">
 @include('comments.modals.delete')
 <div id="post-comments">
-    @foreach ($comments as $comment)
+    @foreach ($post->comments->reverse() as $comment)
         <div class="row">
             <div class="col-5">
                 <strong class="text-secondary">

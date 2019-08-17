@@ -14,7 +14,12 @@
             @if (Auth::check() && $userId == Auth::user()->id)
                 <div class="header-overlay"></div>
                 <div class="banner-upload-text">
-                    <form action="{{ route('profile.updateHeaderImg', $userId) }}" name="upload-form" id="upload-form" method="POST" enctype="multipart/form-data">
+                    <form
+                        action="{{ route('profile.updateHeaderImg', $userId) }}"
+                        name="upload-form" id="upload-form"
+                        method="POST"
+                        enctype="multipart/form-data"
+                    >
                         @method('PATCH')
                         <label for="file-upload"><h2 class="upload-area">Upload a Header Photo</h2></label>
                         <input id="file-upload" type="file" name="blogHeaderImg" onchange="form.submit()"/>
@@ -26,7 +31,12 @@
         <div class="profile-card neutral-round shadow">
             <div class="row justify-content-center">
                 <div class="col-11">
-                    <form action="{{ route('profile.update', $userId) }}" name="blog-form" id="blog-form" method="POST">
+                    <form
+                        action="{{ route('profile.update', $userId) }}"
+                        name="blog-form"
+                        id="blog-form"
+                        method="POST"
+                    >
                         @method('PATCH')
                         <h1>
                             <input
@@ -53,7 +63,9 @@
                                 id="blogDesc"
                                 data-current="{{ $userDesc }}"
                                 rows="4"
-                            {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}>{{ old('body') ?? $userDesc }}</textarea>
+                            {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}>
+                                {{ old('body') ?? $userDesc }}
+                            </textarea>
                         </h5>
                         @csrf
                     </form>
@@ -63,13 +75,17 @@
                             <h4 class="text-secondary">Published Posts</h4>
                         </div>
                     </div>
-                    @if (sizeof($posts) > 0)
-                        @include('posts.modals.delete')
-                        <br>
-                        <div id="profile-posts">
+                    @include('posts.modals.delete')
+                    <div id="profile-posts">
+                        @if (sizeof($posts) > 0)
+                            <br>
                             @foreach ($posts as $post)
-                                <h3><a class="neutral" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h3>
-                                <strong class="text-muted long-text">{{ preg_replace('/[^a-zA-Z0-9.?!\s]/', '', mb_strimwidth($post->body, 0, 190, "...")) }}</strong>
+                                <h3>
+                                    <a class="neutral" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
+                                </h3>
+                                <strong class="text-muted long-text">
+                                    {{ preg_replace('/[^a-zA-Z0-9.?!\s]/', '', mb_strimwidth($post->body, 0, 190, "...")) }}
+                                </strong>
                                 <p>
                                 <div class="row">
                                     <div class="col-md-5">
@@ -79,7 +95,10 @@
                                         Updated on {{ $post->updated_at }}
                                     </div>
                                     @if (Auth::check() && $userId == Auth::user()->id)
-                                        <a class="col-md-1 text-right trans-btn no-padding" href="{{ route('posts.edit', $post->id) }}">
+                                        <a
+                                            class="col-md-1 text-right trans-btn no-padding"
+                                            href="{{ route('posts.edit', $post->id) }}"
+                                        >
                                             <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                                         </a>
                                         <button class="col-md-1 text-right trans-btn delete-modal mr-1"
@@ -96,19 +115,23 @@
                                 </div>
                                 <hr class="divider">
                             @endforeach
-                        </div>
-                    @else
-                        <div class="no-posts text-muted">
-                            <div>
-                                <div class="mb-1 alt-neutral">No articles posted yet.</div>
-                                @if (Auth::check() && $userId == Auth::user()->id)
-                                    <div>
-                                        Create your first post <a class="neutral" href="{{ route('posts.create') }}"><strong>here</strong></a>!
-                                    </div>
-                                @endif
+                        @else
+                            <div class="no-posts text-muted">
+                                <div>
+                                    <div class="mb-1 alt-neutral">No articles posted yet.</div>
+                                    @if (Auth::check() && $userId == Auth::user()->id)
+                                        <div>
+                                            Create your first post
+                                            <a
+                                                class="neutral"
+                                                href="{{ route('posts.create') }}"
+                                            ><strong>here</strong></a>!
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                    @endif
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>

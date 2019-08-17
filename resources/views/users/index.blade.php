@@ -5,7 +5,9 @@
         <div class="col-11">
             <h1 class="alt-anti-neutral">User Control</h1>
             <hr class="divider">
-            <div class="text-muted">User status can be toggled <strong>Active</strong> or <strong>Inactive</strong>.</div>
+            <div class="text-muted">
+                User status can be toggled <strong>Active</strong> or <strong>Inactive</strong>.
+            </div>
             <p>
             <table class="table v-centered-table">
                 <thead class="alt-anti-neutral">
@@ -28,7 +30,8 @@
                                 <form action="{{ route('users.update', $user->id) }}" method="POST">
                                     @method('PATCH')
                                     <button
-                                        class="user-status-btn btn btn-{{ $user->status == "Active" ? "neutral" : "danger" }} text-white"
+                                        class="user-status-btn btn
+                                            btn-{{ $user->status == "Active" ? "neutral" : "danger" }} text-white"
                                         type="submit"
                                         name="status"
                                         value="{{ $user->status }}"

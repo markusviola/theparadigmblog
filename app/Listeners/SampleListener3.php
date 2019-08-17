@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Listeners;
+namespace TheParadigmArticles\Listeners;
 
-use App\Events\SampleEvent;
+use TheParadigmArticles\Events\SampleEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 

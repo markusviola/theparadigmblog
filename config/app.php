@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'The Paradigm Articles'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        TheParadigmArticles\Providers\AppServiceProvider::class,
+        TheParadigmArticles\Providers\AuthServiceProvider::class,
+        // TheParadigmArticles\Providers\BroadcastServiceProvider::class,
+        TheParadigmArticles\Providers\EventServiceProvider::class,
+        TheParadigmArticles\Providers\RouteServiceProvider::class,
 
     ],
 

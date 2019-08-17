@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace TheParadigmArticles\Http\Controllers;
 
-use App\Like;
-use Illuminate\Http\Request;
+use TheParadigmArticles\Like;
 use Illuminate\Support\Facades\Auth;
 
 class LikesController extends Controller
@@ -13,38 +12,43 @@ class LikesController extends Controller
         parent::__construct();
         $this->middleware('auth');
     }
+
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
+     * Insertion of like in database.
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         $data = $this->validateRequest();
         $like = new Like();
         $like->user_id = Auth::user()->id;
         $like->blog_post_id = $data['blogPostId'];
         $like->save();
-        
+
         return response()->json([
             'like_id' => $like->id
-        ]); 
+        ]);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Removing a like from database.
      *
-     * @param  \App\Like  $like
+     * @param  \TheParadigmArticles\Like  $like
      * @return \Illuminate\Http\Response
      */
     public function destroy(Like $like)
     {
         $like->delete($like);
-        return 1;
+        return response()->json([
+            'like_id' => null
+        ]);
     }
 
-    // For validating the blog post fields
+    /**
+     * For validating the request fields
+     * @param \Illuminate\Http\Request
+     * @return array
+     */
     private function validateRequest() {
         return request()->validate([
             'blogPostId'=> 'required|numeric'

@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace TheParadigmArticles\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\BlogPost;
-use App\Like;
+use TheParadigmArticles\BlogPost;
+use TheParadigmArticles\Like;
 
 class HomeController extends Controller
 {
@@ -19,13 +18,18 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Shows the home post list.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $posts = BlogPost::all()->reverse();
+    {
+        // Eager loading for home posts.
+        $posts = BlogPost::with(['user','likes','comments'])
+            ->get()
+            ->reverse();
+
         return view('home', compact('posts'));
+
     }
 }

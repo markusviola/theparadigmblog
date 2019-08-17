@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace TheParadigmArticles\Http\Controllers;
 
-use App\Comment;
-use Illuminate\Http\Request;
+use TheParadigmArticles\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
-
+    /**
+     * Create a new controller instance.
+     * Restricted to all guests.
+     * Only admin can access index.
+     * @return void
+     */
     public function __construct()
     {
         parent::__construct();
@@ -16,13 +20,25 @@ class CommentsController extends Controller
         $this->middleware('admin')->only(['index']);
     }
 
+    /**
+     * Shows list of posts.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
+        // Lazy loading for comments.
         $comments = Comment::all();
 
-        return view('comments.index', compact('comments'));
+        return view('comments.index',
+            compact('comments'));
     }
 
+    /**
+     * Store a newly created comments in database.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function store()
     {
         $data = $this->validateRequest();
@@ -37,8 +53,15 @@ class CommentsController extends Controller
         ]);
     }
 
+    /**
+     * Remove a comment from database.
+     *
+     * @param  \TheParadigmArticles\Comment  $comment
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(Comment $comment)
     {
+        // Checks if the request is from the article post.
         $onPost = true;
         if(Auth::user()->isAdmin) {
             $comment->delete($comment);
@@ -51,7 +74,11 @@ class CommentsController extends Controller
         }
     }
 
-    // For validating the comment fields
+    /**
+     * For validating the request fields
+     * @param \Illuminate\Http\Request
+     * @return array
+     */
     private function validateRequest(){
         return request()->validate([
             'body'=> 'required',

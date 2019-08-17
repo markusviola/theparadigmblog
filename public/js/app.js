@@ -45821,7 +45821,7 @@ initArticle = function initArticle() {
       error: function error(xhr, status, _error3) {
         var err = JSON.parse(xhr.responseText);
         console.log(err.message);
-        notifyUser("Unable to delete comment.");
+        notifyUser("Unable to delete post.");
       }
     });
     e.preventDefault();
@@ -45955,6 +45955,12 @@ initNotifications = function initNotifications() {
     case "#deleted-post":
       notifyUser("Article deleted!");
       break;
+
+    case "#temp-unhandled":
+      notifyUser("Something went wrong.");
+
+    case "#unavailable":
+      notifyUser("Temporarily unavailable.");
 
     default:
       console.log("OK");

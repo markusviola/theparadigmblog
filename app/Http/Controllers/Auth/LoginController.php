@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace TheParadigmArticles\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use TheParadigmArticles\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -31,7 +31,6 @@ class LoginController extends Controller
     // Overriding login function from AuthenticatesUsers
     public function login(Request $request)
     {
-
         $this->validateLogin($request);
          // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
@@ -68,7 +67,7 @@ class LoginController extends Controller
 
     /**
      * Create a new controller instance.
-     *
+     * Only for guests except loggin out.
      * @return void
      */
     public function __construct()
@@ -77,7 +76,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // To override the authentication from email to username.
+    /**
+     * For overriding loggin in with username
+     * instead of email as default.
+     * @return string
+     */
     public function username()
     {
         return 'username';

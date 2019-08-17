@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace TheParadigmArticles\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace TheParadigmArticles\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Controllers\Controller;
+use TheParadigmArticles\User;
+use TheParadigmArticles\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -32,7 +33,7 @@ class RegisterController extends Controller
 
     /**
      * Create a new controller instance.
-     *
+     * Only for guests.
      * @return void
      */
     public function __construct()
@@ -41,6 +42,10 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * Returns registration view with empty User.
+     * @return \Illuminate\Http\Response
+     */
     public function showRegistrationForm()
     {
         $user = new User();
@@ -59,6 +64,7 @@ class RegisterController extends Controller
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'isAdmin' => ['required', 'boolean']
         ]);
     }
 
@@ -66,7 +72,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \TheParadigmArticles\User
      */
     protected function create(array $data)
     {

@@ -21,6 +21,10 @@ initNotifications = () => {
         case "#deleted-post":
                 notifyUser("Article deleted!");
             break;
+        case "#temp-unhandled":
+                notifyUser("Something went wrong.");
+        case "#unavailable":
+                notifyUser("Temporarily unavailable.")
         default:
             console.log("OK");
     }

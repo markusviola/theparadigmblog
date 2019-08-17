@@ -1,21 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace TheParadigmArticles\Http\Controllers;
 
-use App\BlogPost;
-use App\Comment;
-use App\Like;
-use Illuminate\Http\Request;
+use TheParadigmArticles\BlogPost;
 use Illuminate\Support\Facades\Auth;
 
 class BlogPostsController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Create a new controller instance.
+     * Restricted to all guests except show.
+     * Only admin can access index.
+     * @return void
      */
-
     public function __construct()
     {
         parent::__construct();
@@ -23,28 +20,38 @@ class BlogPostsController extends Controller
         $this->middleware('admin')->only(['index']);
     }
 
+    /**
+     * Shows list of posts.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
+        // Lazy loading for posts.
         $posts = BlogPost::all();
-        return view('posts.index', compact('posts'));
+        return view('posts.index',
+            compact('posts'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new post.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        $post = new BlogPost();
+        // Create & Edit shares the same
+        // blade so this determines it.
         $isCreateMode = true;
-        return view('posts.upsert', compact('post', 'isCreateMode'));
+        $post = new BlogPost();
+
+        return view('posts.upsert',
+            compact('post', 'isCreateMode'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created post in database.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store()
@@ -55,6 +62,9 @@ class BlogPostsController extends Controller
         $post->title = $data['title'];
         $post->body = $data['body'];
         $post->save();
+
+        // If admin requests, it goes to home,
+        // otherwise, redirects to user profile.
         if (Auth::user()->isAdmin == 1) {
             return redirect()->route('home');
         } else return redirect()
@@ -63,14 +73,14 @@ class BlogPostsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Displays the article post resource.
      *
-     * @param  \App\BlogPost  $blogPost
+     * @param  \TheParadigmArticles\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
     public function show(BlogPost $post)
     {
-        $comments = Comment::where('blog_post_id', $post->id)->get()->reverse();
+        // Prepares like data for post owner.
         $user_like = null;
         if (Auth::user() != null) {
             foreach ($post->likes as $like) {
@@ -80,6 +90,7 @@ class BlogPostsController extends Controller
                 }
             }
         }
+        // Setting like ID & like status.
         if ($user_like != null) {
             $like_id = $user_like->id;
             $like_status = 1;
@@ -90,61 +101,77 @@ class BlogPostsController extends Controller
         return view('posts.show',
             compact(
                 'post',
-                'comments',
                 'like_status',
                 'like_id'
             ));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing post article.
      *
-     * @param  \App\BlogPost  $post
+     * @param  \TheParadigmArticles\BlogPost  $post
      * @return \Illuminate\Http\Response
      */
     public function edit(BlogPost $post)
     {
+        // Create & Edit shares the same
+        // blade so this determines it.
         $isCreateMode = false;
-        return view('posts.upsert', compact('post', 'isCreateMode'));
+
+        return view('posts.upsert',
+            compact('post', 'isCreateMode'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the article post in database.
      *
-     * @param  \App\BlogPost  $blogPost
+     * @param  \TheParadigmArticles\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
     public function update(BlogPost $post)
     {
         $post->update($this->validateRequest());
 
+        // Redirects to post list if admin,
+        // otherwise, to user profile.
         if(Auth::user()->isAdmin == 1)
-            return redirect()->route('posts.index')->with('notify','Article updated!');
+            return redirect()
+                ->route('posts.index')
+                ->with('notify','Article updated!');
         else
-            return redirect()->route('profile', Auth::user()->url)->with('notify','Article updated!');
+            return redirect()
+                ->route('profile', Auth::user()->url)
+                ->with('notify','Article updated!');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove a post from database.
      *
-     * @param  \App\BlogPost  $blogPost
+     * @param  \TheParadigmArticles\BlogPost  $blogPost
      * @return \Illuminate\Http\Response
      */
     public function destroy(BlogPost $post)
     {
         $onPost = true;
         $post->delete($post);
+
+        // Checks if the request is from the article post.
         if (request()->query('onPost') == 'false') {
             $onPost = false;
         }
         return response()->json([
             'onPost' => $onPost,
-            'isAdmin' => auth()->user()->isAdmin,
+            'isAdmin' => Auth::user()->isAdmin,
             'url' => $post->user->url
         ]);
+
     }
 
-    // For validating the blog post fields
+    /**
+     * For validating the request fields
+     * @param \Illuminate\Http\Request
+     * @return array
+     */
     private function validateRequest() {
         return request()->validate([
             'title' => 'required|max:100',
