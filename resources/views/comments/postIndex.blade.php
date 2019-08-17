@@ -30,7 +30,7 @@
                  text-justify mt-2 long-text align-content-center text-dark">{{ $comment->body }}
             </div>
             @if(Auth::check() && Auth::user()->isAdmin == 1)
-                <button class="col-1 trans-btn delete-modal row align-content-center mx-0 px-0"
+                <button class="col-1 btn-trans delete-modal row align-content-center mx-0 px-0"
                     onclick="prepareDeletion(this)"
                     data-toggle="modal"
                     data-target="#comment-deletion-modal"

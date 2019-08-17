@@ -1,0 +1,136 @@
+// Text, Links & Buttons
+
+// PENDING OPTIMIZATION:
+// Have yet to modify Bootstrap Sass
+// !important OVERLOAD!
+
+.neutral {
+    color: $primary !important;
+    &:hover {
+        text-decoration: none;
+        color: $primaryDark !important;
+    }
+}
+
+.anti-neutral {
+    color: $secondary !important;
+    &:hover {
+        text-decoration: none;
+        color: $secondaryDark !important;
+    }
+}
+
+.alt-neutral {
+    color: $primary !important;
+}
+
+.alt-anti-neutral {
+    color: $secondary !important;
+}
+
+.delete-post {
+    color: $deleteLight !important;
+    transition-property: color;
+    &:hover {
+        color: $deleteDark !important;
+    }
+}
+
+.delete-post-alt {
+    color: $light !important;
+    transition-property: color;
+    &:hover {
+        color: $dark !important;
+    }
+}
+
+.like-post {
+    color: $likeActive !important;
+}
+
+.liked-post {
+    color: $likeActive !important;
+    transition-property: color;
+    &:hover {
+        color: $likeInactive !important;
+    }
+}
+
+.unliked-post {
+    color: $likeInactive !important;
+    transition-property: color;
+    &:hover {
+        color: $likeActive !important;
+    }
+}
+
+.edit-post {
+    color: $editLight !important;
+    transition-property: color;
+    &:hover {
+        color: $editDark !important;
+    }
+    &:focus {
+        outline: 0 !important;
+    }
+}
+
+.admin-text {
+    color: $adminLight !important;
+}
+
+.comment-post {
+    color: $commentLight !important;
+}
+
+.clean-input {
+    outline: none;
+    border: 0px;
+    width: 100%;
+    display: block;
+}
+
+.trans-elem {
+    background: transparent;
+}
+
+.btn-anti-neutral {
+    background: $secondary !important;
+    border-color: $secondary !important;
+    transition-property: background;
+    &:hover {
+        background: $secondaryDark !important;
+    }
+}
+
+.btn-neutral {
+    background: $primary !important;
+    border-color: $primary !important;
+    transition-property: background;
+    &:hover {
+        background: $primaryDark !important;
+    }
+}
+
+.btn-trans {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    &:focus {
+        outline: 0 !important;
+    }
+}
+
+.btn-user-status {
+    width: 100px;
+    border-radius: 25px !important;
+}
+
+.neutral-round {
+    border-radius: 10px !important;
+}
+
+.neutral-menu:active {
+    background: $light !important;
+}

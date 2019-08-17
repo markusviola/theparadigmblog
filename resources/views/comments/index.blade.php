@@ -12,7 +12,7 @@
             <thead class="alt-anti-neutral">
                 <tr class="d-flex">
                 <th class="col-1" scope="col">ID</th>
-                <th class="col-1 article-id" scope="col">Article ID</th>
+                <th class="col-1 px-0" scope="col">Article ID</th>
                 <th class="col-2" scope="col">User</th>
                 <th class="col-5" scope="col">Comment</th>
                 <th class="col-2" scope="col">Date Created</th>
@@ -23,12 +23,12 @@
                 @foreach ($comments as $comment)
                     <tr class="d-flex text-dark">
                         <th class="col-1 align-middle" scope="row">{{ $comment->id }}</th>
-                        <td class="col-1 text-center article-id align-middle">{{ $comment->blog_post_id }}</td>
+                        <td class="col-1 text-center px-0 align-middle">{{ $comment->blog_post_id }}</td>
                         <td class="col-2 align-middle">{{ $comment->user->username }}</td>
                         <td class="col-5 align-middle long-text">{{ mb_strimwidth($comment->body, 0, 75, "...")  }}</td>
                         <td class="col-2 align-middle">{{ $comment->created_at }}</td>
                         <td class="col-1 align-middle text-center">
-                            <button class="trans-btn delete-modal"
+                            <button class="btn-trans delete-modal"
                                 onclick="prepareDeletion(this)"
                                 data-toggle="modal"
                                 data-target="#comment-deletion-modal"

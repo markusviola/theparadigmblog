@@ -26,8 +26,8 @@
                         <div class="col-md-6 text-muted">
                             Posted by {{ $post->user->username }} on {{ $post->created_at }}
                         </div>
-                        <div class="col-md-6 row no-padding pr-2 text-muted">
-                            <div class="col-md-5 offset-md-2 no-padding">
+                        <div class="col-md-6 row px-0 pr-2 text-muted">
+                            <div class="col-md-5 offset-md-2 px-0">
                                 <div class="d-flex float-right">
                                     <div class="row align-content-center">
                                         <i class="col-auto like-post fas fa-heart fa-lg mr-2"></i>
@@ -35,7 +35,7 @@
                                     <div><strong>{{ $post->likes->count() }}</strong> likes</div>
                                 </div>
                             </div>
-                            <div class="col-md-5 no-padding">
+                            <div class="col-md-5 px-0">
                                 <div class="d-flex float-right">
                                     <div class="row align-content-center">
                                         <i class="col-auto comment-post fas fa-comment fa-lg mr-2"></i>

@@ -19,10 +19,10 @@
                 </h5>
                 @if (Auth::check() && ($post->user->id == Auth::user()->id || Auth::user()->isAdmin))
                     @include('posts.modals.delete')
-                    <a class="mt-3 col-md-1 align-self-center text-right trans-btn no-padding" href="{{ route('posts.edit', $post->id) }}">
+                    <a class="mt-3 col-md-1 align-self-center text-right btn-trans px-0" href="{{ route('posts.edit', $post->id) }}">
                         <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                     </a>
-                    <button class="mt-3 col-md-1 text-right trans-btn delete-modal mr-1"
+                    <button class="mt-3 col-md-1 text-right btn-trans delete-modal mr-1"
                         data-toggle="modal"
                         data-target="#post-deletion-modal"
                         data-id="{{ $post->id }}"
@@ -46,7 +46,7 @@
                     <input type="hidden" name="blogPostId" value="{{ $post->id }}">
                     <div class="d-flex flex-row-reverse mt-3 mr-2">
                         <div>Liked by <strong id="like-count">{{ $post->likes->count() }}</strong></div>
-                        <button id="like-btn" class="trans-btn row align-content-center">
+                        <button id="like-btn" class="btn-trans row align-content-center">
                             <i id="like-icon" class="col-auto {{ $like_status == 1 ? 'liked-post' : 'unliked-post'}} fas fa-heart fa-lg mr-1"></i>
                         </button>
                     </div>

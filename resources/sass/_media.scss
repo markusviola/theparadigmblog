@@ -1,0 +1,9 @@
+@media(min-width: 960px) {
+    .profile-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 960px 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 1em;
+        grid-auto-rows: minmax(150px, auto);
+    }
+}

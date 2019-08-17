@@ -63,9 +63,8 @@
                                 id="blogDesc"
                                 data-current="{{ $userDesc }}"
                                 rows="4"
-                            {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}>
-                                {{ old('body') ?? $userDesc }}
-                            </textarea>
+                            {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}
+                            >{{ old('body') ?? $userDesc }}</textarea>
                         </h5>
                         @csrf
                     </form>
@@ -96,12 +95,12 @@
                                     </div>
                                     @if (Auth::check() && $userId == Auth::user()->id)
                                         <a
-                                            class="col-md-1 text-right trans-btn no-padding"
+                                            class="col-md-1 text-right btn-trans px-0"
                                             href="{{ route('posts.edit', $post->id) }}"
                                         >
                                             <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                                         </a>
-                                        <button class="col-md-1 text-right trans-btn delete-modal mr-1"
+                                        <button class="col-md-1 text-right btn-trans delete-modal mr-1"
                                             onclick="prepareDeletion(this)"
                                             data-toggle="modal"
                                             data-target="#post-deletion-modal"

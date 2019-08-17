@@ -33,12 +33,12 @@
                         <td class="col-2 align-middle">{{ $post->created_at }}</td>
                         <td class="col-2 align-middle">{{ $post->updated_at }}</td>
                         <td class="col-1 align-middle text-center">
-                            <a class="trans-btn"  href="{{ route('posts.edit', $post->id) }}">
+                            <a class="btn-trans"  href="{{ route('posts.edit', $post->id) }}">
                                 <i class="edit-post fas fa-pencil-alt fa-lg"></i>
                             </a>
                         </td>
                         <td class="col-1 align-middle text-center">
-                            <button class="trans-btn delete-modal"
+                            <button class="btn-trans delete-modal"
                                 onclick="prepareDeletion(this)"
                                 data-toggle="modal"
                                 data-target="#post-deletion-modal"

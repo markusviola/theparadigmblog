@@ -1,0 +1,17 @@
+// Prevents layout repositioning when scrollbar shows.
+html {
+    overflow-y: scroll;
+}
+
+body {
+    font-family: $font-family !important;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-break: keep-all
+}
+
+input[type="file"] {
+    display: none;
+}

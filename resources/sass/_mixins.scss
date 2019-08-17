@@ -1,0 +1,30 @@
+
+@mixin paddingX($left, $right) {
+    padding-left: $left !important;
+    padding-right: $right !important;
+}
+
+@mixin paddingY($top, $bottom) {
+    padding-top: $top !important;
+    padding-bottom: $bottom !important;
+}
+
+@mixin marginX($left, $right) {
+    margin-left: $left !important;
+    margin-right: $right !important;
+}
+
+@mixin marginY($top, $bottom) {
+    margin-top: $top !important;
+    margin-bottom: $bottom !important;
+}
+
+@mixin setTransition($prop, $time) {
+    transition-property: $prop;
+    transition-duration: $time;
+}
+
+@mixin minW-maxH($minW: 100, $maxH: 100) {
+    min-width: percentage($minW/100);
+    max-height: percentage($maxH/100);
+}

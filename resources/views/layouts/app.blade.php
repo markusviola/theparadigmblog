@@ -137,7 +137,7 @@
         {{-- Page Content Injection --}}
         @include('tools.toast')
         @if (Request::path() == 'profile/'.$url || Request::path() == 'posts/create' || ends_with(Request::path(), 'edit'))
-            <main class="paradigm container-fluid no-padding">
+            <main class="paradigm container-fluid px-0">
                 @yield('content')
             </main>
         @else
