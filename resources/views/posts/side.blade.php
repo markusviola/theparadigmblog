@@ -14,7 +14,7 @@
                             class="form-control"
                             type="text"
                             id="search"
-                            placeholder="Enter a title or a username..."
+                            placeholder="Enter a post title..."
                             name="search"
                         >
                     </div>
