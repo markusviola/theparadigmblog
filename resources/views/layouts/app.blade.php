@@ -136,7 +136,7 @@
         </nav>
         {{-- Page Content Injection --}}
         @include('tools.toast')
-        @if (Request::path() == 'profile/'.$url || Request::path() == 'posts/create' || ends_with(Request::path(), 'edit'))
+        {{-- @if (Request::path() == 'profile/'.$url || Request::path() == 'posts/create' || ends_with(Request::path(), 'edit'))
             <main class="paradigm container-fluid px-0">
                 @yield('content')
             </main>
@@ -144,7 +144,10 @@
             <main class="paradigm container py-4">
                 @yield('content')
             </main>
-        @endif
+        @endif --}}
+        <main class="paradigm container py-4">
+            @yield('content')
+        </main>
     </div>
 <script>
     document.addEventListener("DOMContentLoaded", (event) => {
