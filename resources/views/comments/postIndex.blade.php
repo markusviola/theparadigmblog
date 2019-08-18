@@ -26,7 +26,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="preserve-breaks col-{{ Auth::check() && Auth::user()->isAdmin == 1 ? '11' : 'auto' }}
+            <div class="preserve-breaks col-{{ Auth::check() && (Auth::user()->isAdmin == 1 ||
+                 Auth::user()->id == $comment->user->id) ? '11' : 'auto' }}
                  text-justify mt-2 long-text align-content-center text-dark">{{ $comment->body }}
             </div>
             @if(Auth::check() && (Auth::user()->isAdmin == 1 || Auth::user()->id == $comment->user->id))

@@ -40,7 +40,7 @@ class ProfileController extends Controller
 
             $posts = BlogPost::where('user_id', $user->id)
                 ->latest()
-                ->paginate(10);
+                ->paginate(4);
 
             return view('profile', compact(
                 'posts',
