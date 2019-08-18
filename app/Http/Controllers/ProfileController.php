@@ -30,25 +30,29 @@ class ProfileController extends Controller
         // Retrieving only necessary data from user.
         $url = $request->user_url;
         $user = User::whereUrl($url)->first();
-        $userId = $user->id;
-        $userName = $user->username;
-        $userTitle = $user->blogTitle;
-        $userDesc = $user->blogDesc;
-        $userHeaderImg = $user->blogHeaderImg;
 
-        $posts = BlogPost::where('user_id', $user->id)
-            ->latest()
-            ->paginate(10);
+        if ($user) {
+            $userId = $user->id;
+            $userName = $user->username;
+            $userTitle = $user->blogTitle;
+            $userDesc = $user->blogDesc;
+            $userHeaderImg = $user->blogHeaderImg;
 
-        return view('profile', compact(
-            'posts',
-            'url',
-            'userId',
-            'userName',
-            'userTitle',
-            'userDesc',
-            'userHeaderImg'
-        ));
+            $posts = BlogPost::where('user_id', $user->id)
+                ->latest()
+                ->paginate(10);
+
+            return view('profile', compact(
+                'posts',
+                'url',
+                'userId',
+                'userName',
+                'userTitle',
+                'userDesc',
+                'userHeaderImg'
+            ));
+
+        } else abort(404);
     }
 
     /**
