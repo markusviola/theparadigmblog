@@ -30,7 +30,7 @@ class CommentsController extends Controller
         // Lazy loading for comments.
         $comments = Comment::with([])
             ->latest()
-            ->paginate(2);
+            ->paginate(10);
 
         return view('comments.index',
             compact('comments'));

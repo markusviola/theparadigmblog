@@ -15,6 +15,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/search', 'HomeController@search')->name('search');
 Route::get('profile/{user_url}', 'ProfileController@index')->name('profile');
 Route::patch('profile/{user}', 'ProfileController@update')->name('profile.update');
 Route::patch('profile/{user}/upload', 'ProfileController@updateHeaderImg')->name('profile.updateHeaderImg');

@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        @include('posts.side')
         <div class="col-9">
             <h2 class="text-secondary">Recent Posts</h2>
             <hr class="divider">
@@ -15,7 +16,7 @@
                     @endif
                     <h3>
                         <a class="anti-neutral" href="{{ route('posts.show', $post->id) }}">
-                            {{ $post->title }}
+                            {{ mb_strimwidth($post->title, 0, 100, "...") }}
                         </a>
                     </h3>
                     <div class="text-muted long-text">
@@ -55,14 +56,24 @@
             @else
                 <div class="no-posts text-muted mt-5">
                     <div>
-                        <div class="mb-1"><h5 class="alt-neutral">No articles posted yet.</h5></div>
-                        <div>
-                            Create your first post
-                            <a
-                                class="neutral"
-                                href="{{ route('posts.create') }}"
-                            ><strong>here</strong></a>!
-                        </div>
+                        @if ($isSearch)
+                            <div class="mb-1 d-flex align-items-center">
+                                <i class="alt-neutral fas fa-search fa-lg mr-2"></i>
+                                <h5 class="alt-neutral m-0">We can't find what you're looking for</h5>
+                            </div>
+                            <div>
+                                Try to search again?
+                            </div>
+                        @else
+                            <div class="mb-1"><h5 class="alt-neutral">No articles posted yet.</h5></div>
+                            <div>
+                                Create your first post
+                                <a
+                                    class="neutral"
+                                    href="{{ route('posts.create') }}"
+                                ><strong>here</strong></a>!
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endif

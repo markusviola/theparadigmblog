@@ -30,7 +30,7 @@ class BlogPostsController extends Controller
         // Lazy loading for posts.
         $posts = BlogPost::with([])
             ->latest()
-            ->paginate(2);
+            ->paginate(10);
 
         return view('posts.index',
             compact('posts'));

@@ -3,7 +3,6 @@
 namespace TheParadigmArticles\Http\Controllers;
 
 use TheParadigmArticles\BlogPost;
-use TheParadigmArticles\Like;
 
 class HomeController extends Controller
 {
@@ -20,6 +19,7 @@ class HomeController extends Controller
     /**
      * Shows the home post list.
      *
+     * @param  \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -27,9 +27,70 @@ class HomeController extends Controller
         // Eager loading for home posts.
         $posts = BlogPost::with(['user','likes','comments'])
             ->latest()
-            ->paginate(1);
+            ->paginate(10);
+        $isSearch = false;
+        $hotPosts = $this->getHotTopics();
+        return view('home', compact('posts', 'isSearch', 'hotPosts'));
+    }
 
-        return view('home', compact('posts'));
+    /**
+     * Searches and displays post by title
+     * @param  \Illuminate\Http\Request
+     * @return \Illuminate\Http\Response
+     */
+    public function search()
+    {
+        $isSearch = true;
+        $searchTerm = request()->search;
+
+        if (request()->has('searchAnnounce') &&
+            !request()->has('searchArticle')) {
+
+            // Search with announcement only filter
+            $posts = BlogPost::whereHas(
+                'user', function ($query) {
+                    $query->where('isAdmin', '=', 1);
+                })
+                ->where('title','LIKE','%'.$searchTerm.'%');
+
+        } else if (request()->has('searchArticle') &&
+            !request()->has('searchAnnounce')) {
+
+            // Search with article only filter
+            $posts = BlogPost::whereHas(
+                'user', function ($query) {
+                    $query->where('isAdmin', '=', 0);
+                })
+                ->where('title','LIKE','%'.$searchTerm.'%');
+
+        } else {
+            // Search in all items
+            $posts = BlogPost::with(['user','likes','comments'])
+                ->where('title','LIKE','%'.$searchTerm.'%');
+
+        }
+
+        $posts = $posts->latest()->paginate(10);
+        $hotPosts = $this->getHotTopics();
+        return view('home', compact('posts', 'hotPosts', 'isSearch'));
 
     }
+
+    /**
+     * Searches for the top five hot
+     * topics by likes and comments.
+     *
+     * @return array
+     */
+    private function getHotTopics() {
+        // Uses count of likes & comments to filter
+        $hotPosts = BlogPost::withCount(['likes','comments'])
+            ->orderBy('likes_count', 'DESC')
+            ->orderBy('comments_count', 'DESC')
+            ->take(5)
+            ->get();
+
+        return $hotPosts;
+    }
+
 }

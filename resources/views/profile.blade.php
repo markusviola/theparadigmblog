@@ -80,7 +80,8 @@
                             <br>
                             @foreach ($posts as $post)
                                 <h3>
-                                    <a class="neutral" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
+                                    <a class="neutral" href="{{ route('posts.show', $post->id) }}"
+                                    >{{ mb_strimwidth($post->title, 0, 100, "...") }}</a>
                                 </h3>
                                 <strong class="text-muted long-text">
                                     {{ preg_replace('/[^a-zA-Z0-9.?!\s]/', '', mb_strimwidth($post->body, 0, 190, "...")) }}
