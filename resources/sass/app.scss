@@ -86,12 +86,15 @@
     }
 }
 
+// Yet to be Sassed. Deadline!
+
 .side-wrapper {
     position: fixed;
     width: 20vw;
     min-height: 60vh;
     right: 2.5rem;
     top: 9rem;
+    z-index: 3;
 }
 
 .side-card {
