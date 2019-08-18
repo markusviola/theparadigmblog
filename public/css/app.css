@@ -16811,7 +16811,7 @@ input[type=file] {
   top: 70px;
   right: 20px;
   min-width: 350px;
-  z-index: 3;
+  z-index: 4;
 }
 
 .long-text {
