@@ -60,6 +60,11 @@ class User extends Authenticatable
         return $this->hasMany(Like::class);
     }
 
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
     public function getStatusAttribute($attribute){
 
         return $this->statusOptions()[$attribute];

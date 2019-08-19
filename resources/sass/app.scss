@@ -14,7 +14,7 @@
 @import 'global';
 @import 'bootstrap_mods';
 @import 'mixins';
-@import 'media';
+
 @import 'theming';
 
 .header-img {
@@ -87,6 +87,11 @@
 }
 
 // Yet to be Sassed. Deadline!
+
+
+.global-chatbox {
+    visibility: hidden;
+}
 
 .side-card {
     width: 100%;
@@ -164,3 +169,4 @@
 }
 
 
+@import 'media';

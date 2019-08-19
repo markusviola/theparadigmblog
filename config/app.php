@@ -171,7 +171,7 @@ return [
          */
         TheParadigmArticles\Providers\AppServiceProvider::class,
         TheParadigmArticles\Providers\AuthServiceProvider::class,
-        // TheParadigmArticles\Providers\BroadcastServiceProvider::class,
+        TheParadigmArticles\Providers\BroadcastServiceProvider::class,
         TheParadigmArticles\Providers\EventServiceProvider::class,
         TheParadigmArticles\Providers\RouteServiceProvider::class,
 
