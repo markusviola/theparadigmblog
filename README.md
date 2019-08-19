@@ -1,5 +1,7 @@
 ## The Paradigm Articles (WIP)
 
+**Warning: Unresponsive CSS, does not support mobile displays just yet.**
+
 Hello, here I present my currently in development project. This was supposed to be just a skill test for us IT interns in our company, but ever since I read and studied about Laravel I decided to study it little by little, concurrently, as I'm also busy doing other projects.
 
 My first commit was 4 months ago, but I think my overall development for this one is almost more than 1 and a half month already. I've been having fun with this lately, so I'm looking forward to improving the site even more. 
