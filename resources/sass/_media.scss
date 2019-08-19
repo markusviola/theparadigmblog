@@ -15,4 +15,13 @@
         top: 9rem;
         z-index: 3;
     }
+
+    .global-chatbox {
+        position: fixed;
+        height: 32rem;
+        width: 17vw;
+        bottom: 0;
+        right: 4rem;
+        visibility: visible;
+    }
 }

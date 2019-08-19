@@ -25,4 +25,8 @@ Route::resource('comments','CommentsController');
 Route::resource('settings', 'SettingsController');
 Route::resource('likes', 'LikesController');
 
+Route::get('/chat','ChatController@index');
+Route::get('/messages','ChatController@fetchMessages');
+Route::post('/messages','ChatController@sendMessage');
+
 
