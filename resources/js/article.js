@@ -27,6 +27,10 @@ initArticle = () => {
         $("#body").keyup();
     }
 
+    reloadElement = (element) => {
+        $(element).load(`${location.href} ${element}>*`,'');
+    }
+
     adjustCardHeight = () => {
         let height = $('#writing-card').height()*0.75;
         $('#output-markdown').height(height);

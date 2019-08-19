@@ -36,7 +36,6 @@ Vue.component('chat', require('./components/ChatComponent.vue').default);
  */
 
 
-
 $(() => {
     var app = new Vue({
         el: '#app',
@@ -47,9 +46,6 @@ $(() => {
     initNotifications();
 });
 
-reloadElement = (element) => {
-    $(element).load(`${location.href} ${element}>*`,'');
-}
 
 
 

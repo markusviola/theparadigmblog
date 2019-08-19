@@ -65,7 +65,9 @@ class CommentsController extends Controller
     {
         // Checks if the request is from the article post.
         $onPost = true;
-        if(Auth::user()->isAdmin) {
+        if (Auth::user()->isAdmin ||
+            Auth::user()->id == $comment->user->id)
+        {
             $comment->delete($comment);
             if (request()->query('onPost') == 'false') {
                 $onPost = false;

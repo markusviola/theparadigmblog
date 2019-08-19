@@ -68563,10 +68563,6 @@ $(function () {
   initNotifications();
 });
 
-reloadElement = function reloadElement(element) {
-  $(element).load("".concat(location.href, " ").concat(element, ">*"), '');
-};
-
 /***/ }),
 
 /***/ "./resources/js/article.js":
@@ -68602,6 +68598,10 @@ initArticle = function initArticle() {
   checkChanges = function checkChanges() {
     $("#title").keyup();
     $("#body").keyup();
+  };
+
+  reloadElement = function reloadElement(element) {
+    $(element).load("".concat(location.href, " ").concat(element, ">*"), '');
   };
 
   adjustCardHeight = function adjustCardHeight() {
