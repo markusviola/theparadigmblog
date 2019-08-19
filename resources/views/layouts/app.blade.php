@@ -50,11 +50,15 @@
 
                     <ul class="navbar-nav mr-auto">
                         @if(Auth::check() && Auth::user()->isAdmin == 1)
-                            <div class="nav-link nav-divider"> | </div>
-                            <div class="nav-link alt-neutral">Administrator</div>
+                            <div class="d-flex">
+                                <div class="nav-link nav-divider"> | </div>
+                                <div class="nav-link alt-neutral ml-1">Administrator</div>
+                            </div>
                         @else
-                            <div class="nav-link nav-divider"> | </div>
-                            <div class="nav-link alt-neutral">linking creative minds.</div>
+                            <div class="d-flex">
+                                <div class="nav-link nav-divider"> | </div>
+                                <div class="nav-link alt-neutral ml-1">linking creative minds.</div>
+                            </div>
                         @endif
                     </ul>
 
@@ -64,10 +68,12 @@
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         @guest
-                            <div class="nav-link nav-divider"> | </div>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Sign In') }}</a>
-                            </li>
+                            <div class="d-flex">
+                                <div class="nav-link nav-divider"> | </div>
+                                <li class="nav-item ml-1">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Sign In') }}</a>
+                                </li>
+                            </div>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Sign Up') }}</a>
@@ -80,55 +86,58 @@
                                     href="{{ route('posts.create') }}"
                                 >{{ Auth::user()->isAdmin == 1 ? "Announce!" : "Create Post" }}</a>
                             </li>
-                            <div class="nav-link nav-divider"> | </div>
 
-                            {{-- Dropdown Menu --}}
-                            <li class="nav-item dropdown">
+                            <div class="d-flex">
+                                <div class="nav-link nav-divider"> | </div>
 
-                                <a
-                                    id="navbarDropdown"
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    v-pre
-                                >{{ Auth::user()->username }} <span class="caret"></span>
-                                </a>
+                                {{-- Dropdown Menu --}}
+                                <li class="nav-item dropdown ml-1">
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                                    @if(Auth::user()->isAdmin == 1)
-                                        <h6 class="dropdown-header alt-neutral"><strong>Manage</strong></h6>
-                                        <a class="neutral-menu dropdown-item text-secondary"
-                                            href="{{ route('users.index') }}">Users</a>
-                                        <a class="neutral-menu dropdown-item text-secondary"
-                                            href="{{ route('posts.index') }}">Article Posts</a>
-                                        <a class="neutral-menu dropdown-item text-secondary"
-                                            href="{{ route('comments.index') }}">Comments</a>
-                                        <div class="dropdown-divider"></div>
-                                    @else
-                                        <a class="neutral-menu dropdown-item text-secondary"
-                                            href="{{ route('profile', Auth::user()->url) }}">Profile</a>
-                                    @endif
-
-                                    <a class="neutral-menu dropdown-item text-secondary"
-                                        href="{{ route('settings.index') }}">Settings</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="neutral-menu dropdown-item alt-neutral"
-                                        href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                    <a
+                                        id="navbarDropdown"
+                                        class="nav-link dropdown-toggle"
+                                        href="#"
+                                        role="button"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                        v-pre
+                                    >{{ Auth::user()->username }} <span class="caret"></span>
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                    </form>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                </div>
-                            </li>
+                                        @if(Auth::user()->isAdmin == 1)
+                                            <h6 class="dropdown-header alt-neutral"><strong>Manage</strong></h6>
+                                            <a class="neutral-menu dropdown-item text-secondary"
+                                                href="{{ route('users.index') }}">Users</a>
+                                            <a class="neutral-menu dropdown-item text-secondary"
+                                                href="{{ route('posts.index') }}">Article Posts</a>
+                                            <a class="neutral-menu dropdown-item text-secondary"
+                                                href="{{ route('comments.index') }}">Comments</a>
+                                            <div class="dropdown-divider"></div>
+                                        @else
+                                            <a class="neutral-menu dropdown-item text-secondary"
+                                                href="{{ route('profile', Auth::user()->url) }}">Profile</a>
+                                        @endif
+
+                                        <a class="neutral-menu dropdown-item text-secondary"
+                                            href="{{ route('settings.index') }}">Settings</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="neutral-menu dropdown-item alt-neutral"
+                                            href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+
+                                    </div>
+                                </li>
+                            </div>
                         @endguest
                     </ul>
                 </div>

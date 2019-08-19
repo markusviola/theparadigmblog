@@ -1,5 +1,5 @@
-<div class="side-wrapper">
-    <div class="card shadow side-card neutral-round">
+<div class="side-wrapper mb-3">
+    <div class="card shadow-sm side-card neutral-round bg-light">
         <div class="search-header d-flex align-items-center justify-content-between">
             <strong class="text-white ml-3">Search Posts</strong>
             <i class="text-white fas fa-search fa-lg mr-3"></i>

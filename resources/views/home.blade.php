@@ -7,6 +7,9 @@
         <div class="col-9">
             <h2 class="text-secondary">Recent Posts</h2>
             <hr class="divider">
+            <small class="form-text text-muted mb-4">
+                Still does not fully support mobile display yet.
+            </small>
             @if (sizeof($posts) > 0)
                 @foreach ($posts as $post)
                     @if ($post->user->isAdmin == 1)

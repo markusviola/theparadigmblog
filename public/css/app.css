@@ -16510,6 +16510,15 @@ input[type=file] {
     grid-gap: 1em;
     grid-auto-rows: minmax(150px, auto);
   }
+
+  .side-wrapper {
+    position: fixed;
+    width: 20vw;
+    min-height: 60vh;
+    left: 4rem;
+    top: 9rem;
+    z-index: 3;
+  }
 }
 
 .neutral {
@@ -16744,15 +16753,6 @@ input[type=file] {
 
 .preserve-breaks > ul > li {
   margin-top: -15px;
-}
-
-.side-wrapper {
-  position: fixed;
-  width: 20vw;
-  min-height: 60vh;
-  right: 2.5rem;
-  top: 9rem;
-  z-index: 3;
 }
 
 .side-card {
