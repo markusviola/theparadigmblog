@@ -27,7 +27,7 @@ From here I'm gonna try to comprehensively elaborate the features that the websi
 
 **Current Features**
 
-- **Public Chat [NEW*]** - Initially implemented a chat feature with websockets & pushers. Temporarily, made available only at home page & disappears in mobile mode. **(For registered users only.)**
+- **Public Chat [NEW]** - Initially implemented a chat feature with websockets & pushers. Temporarily, made available only at home page & disappears in mobile mode. **(For registered users only.)**
 - **Login & Registration** (Made easier by Laravel with a few tweaks to make it my own.)
 - **Home Page** - displays the list of articles
 - **Side Bar (?)** - intially implemented in the home page, with search bar & hot topic list.
