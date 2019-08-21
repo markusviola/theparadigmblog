@@ -3,6 +3,7 @@
 namespace TheParadigmArticles\Http\Controllers;
 
 use TheParadigmArticles\BlogPost;
+use TheParadigmArticles\User;
 
 class HomeController extends Controller
 {
@@ -30,7 +31,9 @@ class HomeController extends Controller
             ->paginate(10);
         $isSearch = false;
         $hotPosts = $this->getHotTopics();
-        return view('home', compact('posts', 'isSearch', 'hotPosts'));
+        $emptyUser = new User();
+        return view('home',
+            compact('posts', 'isSearch', 'hotPosts', 'emptyUser'));
     }
 
     /**

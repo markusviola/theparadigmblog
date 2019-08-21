@@ -1944,6 +1944,9 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         _this3.newMessage = '';
+      })["catch"](function (err) {
+        var unAuth = '#unauth-access';
+        window.location.href = "/login".concat(unAuth);
       });
     },
     sendTypingEvent: function sendTypingEvent() {
