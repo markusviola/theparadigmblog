@@ -8,7 +8,6 @@
                         <span><strong>{{ users.length }}</strong> online</span>
                         <i class="fas fa-circle fa-sm alt-neutral ml-2"></i>
                     </div>
-
                 </div>
             </div>
             <div class="card-body p-0" style="height: 100%;">
@@ -99,6 +98,10 @@ import { clearTimeout } from 'timers';
                         });
                     }
                     this.newMessage = ''
+                })
+                .catch(err => {
+                    const unAuth = '#unauth-access';
+                    window.location.href = `/login${unAuth}`;
                 })
             },
             sendTypingEvent() {
