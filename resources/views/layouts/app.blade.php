@@ -157,10 +157,12 @@
             </main>
         @endif
     </div>
-<script>
+<script type="application/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
-        if ({{ session()->has("notify") }}) {
-            notifyUser('{{ session()->get("notify") }}')
+        let checkSession = '{!! session()->has("notify") !!}';
+        // console.log(checkSession);
+        if (checkSession) {
+            notifyUser('{{ session()->get("notify") }}');
         }
     });
 </script>

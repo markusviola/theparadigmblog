@@ -58,7 +58,7 @@
             @include('comments.postIndex')
         </div>
     </div>
-    <script>
+    <script type="application/javascript">
         $(() => {
             var postContent = {!! json_encode($post->body) !!};
             renderMarkDown(postContent, "post-markdown");
