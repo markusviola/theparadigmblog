@@ -1877,6 +1877,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user'],
@@ -1885,11 +1886,13 @@ __webpack_require__.r(__webpack_exports__);
       messages: [],
       newMessage: '',
       users: [],
+      isLoggedIn: true,
       activeUser: false,
       typingTimer: false
     };
   },
   mounted: function mounted() {
+    console.log(this.user);
     console.log('Chat component running successfully.');
   },
   created: function created() {
@@ -1944,6 +1947,9 @@ __webpack_require__.r(__webpack_exports__);
         }
 
         _this3.newMessage = '';
+      })["catch"](function (err) {
+        var unAuth = '#unauth-access';
+        window.location.href = "/login".concat(unAuth);
       });
     },
     sendTypingEvent: function sendTypingEvent() {
@@ -56291,7 +56297,7 @@ var render = function() {
             _c("div", { staticClass: "d-flex align-items-center" }, [
               _c("span", [
                 _c("strong", [_vm._v(_vm._s(_vm.users.length))]),
-                _vm._v(" online")
+                _vm._v(" online\n                    ")
               ]),
               _vm._v(" "),
               _c("i", { staticClass: "fas fa-circle fa-sm alt-neutral ml-2" })
@@ -56340,7 +56346,9 @@ var render = function() {
         attrs: {
           type: "text",
           name: "message",
-          placeholder: "Enter your message"
+          placeholder: _vm.user.id
+            ? "Say hello to everyone!"
+            : "Log in and say hello!"
         },
         domProps: { value: _vm.newMessage },
         on: {

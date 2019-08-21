@@ -81,9 +81,9 @@
                 </div>
             @endif
         </div>
-        @if (Auth::check())
-            <chat :user="{{ Auth::user() }}"></chat>
-        @endif
+        <chat
+            :user="{{ Auth::user() ?? $emptyUser }}"
+        ></chat>
     </div>
 </div>
 @endsection

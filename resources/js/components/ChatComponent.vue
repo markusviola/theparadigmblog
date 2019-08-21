@@ -5,10 +5,11 @@
                 <div class="d-flex justify-content-between align-items-center text-secondary">
                     <span>Public Chat</span>
                     <div class="d-flex align-items-center">
-                        <span><strong>{{ users.length }}</strong> online</span>
+                        <span>
+                            <strong>{{ users.length }}</strong> online
+                        </span>
                         <i class="fas fa-circle fa-sm alt-neutral ml-2"></i>
                     </div>
-
                 </div>
             </div>
             <div class="card-body p-0" style="height: 100%;">
@@ -28,7 +29,7 @@
                 v-model="newMessage"
                 type="text"
                 name="message"
-                placeholder="Enter your message"
+                :placeholder="user.id ? 'Say hello to everyone!' : 'Log in and say hello!'"
                 class="form-control rounded-0"
             >
         </div>
@@ -44,11 +45,13 @@ import { clearTimeout } from 'timers';
                 messages: [],
                 newMessage: '',
                 users: [],
+                isLoggedIn: true,
                 activeUser: false,
                 typingTimer: false,
             }
         },
         mounted() {
+            console.log(this.user);
             console.log('Chat component running successfully.');
         },
         created() {
@@ -99,6 +102,10 @@ import { clearTimeout } from 'timers';
                         });
                     }
                     this.newMessage = ''
+                })
+                .catch(err => {
+                    const unAuth = '#unauth-access';
+                    window.location.href = `/login${unAuth}`;
                 })
             },
             sendTypingEvent() {
