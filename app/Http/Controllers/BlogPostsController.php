@@ -69,10 +69,10 @@ class BlogPostsController extends Controller
         // If admin requests, it goes to home,
         // otherwise, redirects to user profile.
         if (Auth::user()->isAdmin == 1) {
-            return redirect()->route('home');
+            return redirect()->route('home', '#post-create');
         } else return redirect()
-            ->route('profile', Auth::user()->url)
-            ->with('notify','Article published!');
+            ->route('profile',
+                [Auth::user()->url, '#post-create']);
     }
 
     /**
@@ -139,12 +139,10 @@ class BlogPostsController extends Controller
         // otherwise, to user profile.
         if(Auth::user()->isAdmin == 1)
             return redirect()
-                ->route('posts.index')
-                ->with('notify','Article updated!');
-        else
-            return redirect()
-                ->route('profile', Auth::user()->url)
-                ->with('notify','Article updated!');
+                ->route('posts.index', '#post-update');
+        else return redirect()
+                ->route('profile',
+                [Auth::user()->url, '#post-update']);
     }
 
     /**

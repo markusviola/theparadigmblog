@@ -54,12 +54,10 @@ class SettingsController extends Controller
             $setting->save();
 
             return redirect()
-                ->route('settings.index')
-                ->with('notify','Account settings updated!');
+                ->route('settings.index', '#settings-update');
         } else {
             return redirect()
-                ->route('settings.index')
-                ->with('notify','Provided wrong password!');
+                ->route('settings.index', '#wrong-password');
         }
     }
 

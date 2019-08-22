@@ -28,7 +28,7 @@ initProfile = () => {
             success: function(response) {
                 $("input.blog-title").data('current', response.blogTitle);
                 $("textarea.blog-desc").data('current', response.blogDesc);
-                notifyUser("Profile Updated!");
+                notifyUser("Profile updated!");
             },
             error: function() {
                 notifyUser("Title or Description should not exceed more than 250 characters!");

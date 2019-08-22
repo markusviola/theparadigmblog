@@ -88,8 +88,8 @@ class ProfileController extends Controller
         $user->save();
 
         return redirect()
-            ->route('profile', $user->url)
-            ->with('notify','Profile header updated!');
+            ->route('profile',
+            [$user->url,'#profile-update']);
     }
 
     /**

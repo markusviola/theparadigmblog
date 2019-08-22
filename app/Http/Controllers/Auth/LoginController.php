@@ -53,8 +53,7 @@ class LoginController extends Controller
                 $this->incrementLoginAttempts($request);
                 return redirect()
                     ->route('login', ['#active-only'])
-                    ->withInput($request->only($this->username(), 'remember'))
-                    ->withErrors(['status' => 'You must be active to login.']);
+                    ->withInput($request->only($this->username(), 'remember'));
             }
         }
          // If the login attempt was unsuccessful we will increment the number of attempts

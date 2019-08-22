@@ -128,7 +128,7 @@ initArticle = () => {
 
     $("#confirm-delete-post").submit((e) => {
         $('#post-deletion-modal').modal('hide');
-        let deleteHash = "#deleted-post"
+        let deleteHash = "#post-delete"
         let postControlPage = '/posts';
         let profilePage = '/profile'
         $.ajax({

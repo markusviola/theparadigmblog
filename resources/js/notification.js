@@ -18,15 +18,35 @@ initNotifications = () => {
         case "#non-admin-only":
                 notifyUser("This feature is for non-admin users only!");
             break;
-        case "#deleted-post":
+        case "#post-create":
+                notifyUser("Article published!");
+            break;
+        case "#post-update":
+                notifyUser("Article updated!");
+            break;
+        case "#post-delete":
                 notifyUser("Article deleted!");
+            break;
+        case "#profile-update":
+                notifyUser("Profile updated!");
+            break;
+        case "#settings-update":
+                notifyUser("Account settings updated!");
+            break;
+        case "#wrong-password":
+                notifyUser("Provided wrong password!");
+            break;
+        case "#toggle-user":
+                notifyUser("User status changed!");
             break;
         case "#temp-unhandled":
                 notifyUser("Something went wrong.");
+            break;
         case "#unavailable":
-                notifyUser("Temporarily unavailable.")
+                notifyUser("Temporarily unavailable.");
+            break;
         default:
-            console.log("OK");
+            console.log("The Paradigm Articles");
     }
 }
 
