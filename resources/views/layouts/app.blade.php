@@ -160,7 +160,6 @@
 <script type="application/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
         let checkSession = '{!! session()->has("notify") !!}';
-        // console.log(checkSession);
         if (checkSession) {
             notifyUser('{{ session()->get("notify") }}');
         }

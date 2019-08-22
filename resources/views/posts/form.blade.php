@@ -24,7 +24,7 @@
         id="body"
         cols="30"
         rows="29"
-    >{{ old('body') ?? $post->body }}</textarea>
+    >{{ old('body') ?? $post->body ?? view('posts.template')->render() }}</textarea>
     @error('body')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
