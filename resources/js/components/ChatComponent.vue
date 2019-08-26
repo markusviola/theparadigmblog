@@ -3,10 +3,10 @@
         <div class="card neutral-round shadow-sm">
             <div class="card-header">
                 <div class="d-flex justify-content-between align-items-center text-secondary">
-                    <span>Public Chat</span>
+                    <span class="chat-title">Public Chat</span>
                     <div class="d-flex align-items-center">
                         <span>
-                            <strong>{{ users.length }}</strong> online
+                            <strong class="text-right">{{ users.length }}</strong> online
                         </span>
                         <i class="fas fa-circle fa-sm alt-neutral ml-2"></i>
                     </div>

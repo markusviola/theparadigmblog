@@ -16846,9 +16846,9 @@ input[type=file] {
   .global-chatbox {
     position: fixed;
     height: 32rem;
-    width: 17vw;
+    width: 20rem;
     bottom: 0;
-    right: 4rem;
+    right: 8em;
     visibility: visible;
   }
 }
@@ -16879,6 +16879,17 @@ input[type=file] {
     display: flex;
     justify-content: flex-end;
     margin-top: 0.25rem;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1720px) {
+  .feed-wrapper {
+    width: 50rem !important;
+  }
+
+  .global-chatbox {
+    width: 18rem;
+    right: 3em;
   }
 }
 

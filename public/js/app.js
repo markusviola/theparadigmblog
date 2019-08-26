@@ -56292,11 +56292,13 @@ var render = function() {
               "d-flex justify-content-between align-items-center text-secondary"
           },
           [
-            _c("span", [_vm._v("Public Chat")]),
+            _c("span", { staticClass: "chat-title" }, [_vm._v("Public Chat")]),
             _vm._v(" "),
             _c("div", { staticClass: "d-flex align-items-center" }, [
               _c("span", [
-                _c("strong", [_vm._v(_vm._s(_vm.users.length))]),
+                _c("strong", { staticClass: "text-right" }, [
+                  _vm._v(_vm._s(_vm.users.length))
+                ]),
                 _vm._v(" online\n                    ")
               ]),
               _vm._v(" "),
