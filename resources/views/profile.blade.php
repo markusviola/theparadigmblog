@@ -56,7 +56,8 @@
                         <h5>
                             <textarea
                                 class="trans-elem blog-desc clean-input no-scroll text-secondary text-justify"
-                                name="blogDesc" placeholder="{{ Auth::check() && $userId == Auth::user()->id
+                                name="blogDesc"
+                                placeholder="{{ Auth::check() && $userId == Auth::user()->id
                                     ? 'Appeal yourself to the readers...'
                                     : $userName.' has not written anything here yet...'
                                 }}"

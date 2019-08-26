@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         @include('posts.side')
-        <div class="col-9">
+        <div class="col-md-9">
             <h2 class="text-secondary">Recent Posts</h2>
             <hr class="divider">
             <small class="form-text text-muted mb-4">
@@ -52,7 +52,7 @@
                     <hr class="divider">
                 @endforeach
                 <div class="row">
-                    <div class="col-12 d-flex justify-content-center my-3">
+                    <div class="col-md-12 d-flex justify-content-center my-3">
                         {{ $posts->links() }}
                     </div>
                 </div>

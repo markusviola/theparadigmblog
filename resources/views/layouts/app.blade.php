@@ -145,7 +145,7 @@
         </nav>
 
         {{-- Page Content Injection --}}
-
+        <div class="sample-box"></div>
         @include('tools.toast')
         @if (Request::path() == 'profile/'.$url || Request::path() == 'posts/create' || ends_with(Request::path(), 'edit'))
             <main class="paradigm container-fluid px-0">
