@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container feed-wrapper">
     <div class="row justify-content-center">
         @include('posts.side')
         <div class="col-md-9">
@@ -27,24 +27,30 @@
                     </div>
                     <p>
                     <div class="row align-content-center">
-                        <div class="col-md-6 text-muted">
+                        <div class="col-md-7 text-muted">
                             Posted by {{ $post->user->username }} on {{ $post->created_at }}
                         </div>
-                        <div class="col-md-6 row px-0 pr-2 text-muted">
-                            <div class="col-md-5 offset-md-2 px-0">
+                        <div class="col-md-5 row px-0 pr-2 text-muted">
+                            <div class="col-md-6 px-0">
                                 <div class="d-flex float-right">
                                     <div class="row align-content-center">
                                         <i class="col-auto like-post fas fa-heart fa-lg mr-2"></i>
                                     </div>
-                                    <div><strong>{{ $post->likes->count() }}</strong> likes</div>
+                                    <div class="d-flex justify-content-between">
+                                        <strong class="pr-1">{{ $post->likes->count() }}</strong>
+                                        <div class="home-stats">likes</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-5 px-0">
+                            <div class="col-md-6 px-0">
                                 <div class="d-flex float-right">
                                     <div class="row align-content-center">
                                         <i class="col-auto comment-post fas fa-comment fa-lg mr-2"></i>
                                     </div>
-                                    <div><strong>{{ $post->comments->count() }}</strong> comments</div>
+                                    <div class="d-flex">
+                                        <strong class="pr-1">{{ $post->comments->count() }}</strong>
+                                        <div class="home-stats">comments</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
