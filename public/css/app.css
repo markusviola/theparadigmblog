@@ -16882,13 +16882,17 @@ input[type=file] {
   }
 }
 
-@media (min-width: 960px) and (max-width: 1720px) {
+@media (max-width: 1720px) {
   .feed-wrapper {
     width: 50rem !important;
   }
 
+  .home-stats {
+    display: none;
+  }
+
   .global-chatbox {
-    width: 18rem;
+    width: 17rem;
     right: 3em;
   }
 }
