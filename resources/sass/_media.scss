@@ -10,9 +10,9 @@
     .side-wrapper {
         position: fixed;
         width: 20vw;
-        min-height: 60vh;
-        left: 4rem;
-        top: 9rem;
+        height: 77vh;
+        left: 5vw;
+        top: 14vh;
         z-index: 3;
     }
 
@@ -25,3 +25,33 @@
         visibility: visible;
     }
 }
+
+@media(max-width: 1370px) {
+    .checklist {
+        display: block;
+    }
+
+    .search-header {
+        margin-left: -1rem;
+        width: 90%;
+    }
+
+    .topic-header {
+        margin-left: -1rem;
+        width: 90%;
+    }
+}
+
+@media(min-width: 960px) and (max-width: 1220px) {
+    .topic-items {
+        display: block;
+        text-align: right;
+
+        .topic-author-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0.25rem;
+        }
+    }
+}
+
