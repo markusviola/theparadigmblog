@@ -50,6 +50,7 @@
                                 name="blogTitle"
                                 data-current="{{ $userTitle }}"
                                 value="{{ old('title') ?? $userTitle }}"
+                                spellcheck="false"
                             {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}>
                         </h1>
                         <hr class="divider">
@@ -64,6 +65,7 @@
                                 id="blogDesc"
                                 data-current="{{ $userDesc }}"
                                 rows="4"
+                                spellcheck="false"
                             {{ Auth::check() && $userId == Auth::user()->id ? '' : 'disabled'}}
                             >{{ old('body') ?? $userDesc }}</textarea>
                         </h5>
