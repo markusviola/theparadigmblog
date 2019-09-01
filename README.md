@@ -27,7 +27,7 @@ From here I'm gonna try to comprehensively elaborate the features that the websi
 
 **Current Features**
 
-- **Public Chat [NEW]** - Initially implemented a chat feature with websockets & pushers. Temporarily, made available only at home page & disappears in mobile mode. **(For registered users only.)**
+- **Public Chat [NEW]** - Initially implemented a chat feature with websockets & pushers. Temporarily, made available only at home page & disappears in mobile mode. 
 - **Login & Registration** (Made easier by Laravel with a few tweaks to make it my own.)
 - **Home Page** - displays the list of articles
 - **Side Bar (?)** - intially implemented in the home page, with search bar & hot topic list.
@@ -49,7 +49,7 @@ That's pretty much all I can remember, I'll make sure to update this MD file fro
 **Upcoming Features**
 
 - **JSON Web Tokens (JWT)** - will apply this with some SSL implementation.
-- **Chat System** - I'm gonna replicate Facebook's messenger for this. Websockets!
+
 - **Push Notifications** - For announcements, or if a user likes or comments to your posts.
 - **Post Tagging** - I should've done this much earlier, but better late than never. 
 - **Friend Tagging** - If push notifications are applied, this will follow already.
@@ -63,4 +63,5 @@ That's pretty much all I can remember, I'll make sure to update this MD file fro
 - **Designing** - improved Sass, layouting, and responsiveness. 
 - **So much more...**
 
-
+**Next Feature**
+- **User-to-User Chat System** - I'm gonna replicate Facebook's messenger for this!
