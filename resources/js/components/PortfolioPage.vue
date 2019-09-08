@@ -211,7 +211,7 @@
                             The system also supports payment history statistics to monitor your profit.
                         </div>
                         <div class="mb-3">
-                            <a class="alt-neutral" href="https://github.com/markusviola/theparadigmblog"><i class="fab fa-github fa-lg mr-2"></i>Git Repository</a>
+                            <a class="alt-neutral" href="https://github.com/markusviola/space-control"><i class="fab fa-github fa-lg mr-2"></i>Git Repository</a>
                         </div>
                         <span class="font-weight-bold">Technologies</span>
                         <hr class="mt-0">
