@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        Hello World
+        <portolio-page></portolio-page>
     </div>
 <script type="application/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {

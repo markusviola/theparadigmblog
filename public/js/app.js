@@ -1960,6 +1960,271 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PortfolioPage.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PortfolioPage.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {},
+  methods: {
+    redirectTo: function redirectTo(link) {
+      location.href = link;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -56382,6 +56647,655 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PortfolioPage.vue?vue&type=template&id=4706401c&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PortfolioPage.vue?vue&type=template&id=4706401c& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "container mt-5 mb-5" }, [
+      _c("h3", { staticClass: "text-secondary font-weight-bold" }, [
+        _vm._v("Projects")
+      ]),
+      _vm._v(" "),
+      _c("hr", { staticClass: " mb-5" }),
+      _vm._v(" "),
+      _c("h4", { staticClass: "mb-4 alt-neutral font-weight-bold" }, [
+        _vm._v("< Work >")
+      ]),
+      _vm._v(" "),
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mb-5" }, [
+        _vm._m(2),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-md-5 neutral-button rev-neutral shadow h-100 d-flex justify-content-center align-items-center",
+            staticStyle: {
+              "min-height": "14rem",
+              "border-radius": "0px 65px 65px 0px"
+            },
+            on: {
+              click: function($event) {
+                return _vm.redirectTo("https://www.openberry.ac/")
+              }
+            }
+          },
+          [_vm._m(3)]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mb-5" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-md-5 neutral-button rev-neutral shadow h-100 d-flex justify-content-center align-items-center",
+            staticStyle: {
+              "min-height": "14rem",
+              "border-radius": "65px 0px 0px 65px"
+            },
+            on: {
+              click: function($event) {
+                return _vm.redirectTo(
+                  "https://play.google.com/store/apps/details?id=centric.noteefied.com.centric&hl=en_US"
+                )
+              }
+            }
+          },
+          [_vm._m(4)]
+        ),
+        _vm._v(" "),
+        _vm._m(5)
+      ]),
+      _vm._v(" "),
+      _c("h4", { staticClass: "mb-4 alt-neutral font-weight-bold" }, [
+        _vm._v("< Personal >")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mb-5" }, [
+        _vm._m(6),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-md-5 neutral-button rev-neutral shadow h-100 d-flex justify-content-center align-items-center",
+            staticStyle: {
+              "min-height": "14rem",
+              "border-radius": "0px 65px 65px 0px"
+            },
+            on: {
+              click: function($event) {
+                return _vm.redirectTo(
+                  "http://ec2-18-222-233-77.us-east-2.compute.amazonaws.com/"
+                )
+              }
+            }
+          },
+          [_vm._m(7)]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mb-5" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "col-md-5 neutral-button rev-neutral shadow h-100 d-flex justify-content-center align-items-center",
+            staticStyle: {
+              "min-height": "14rem",
+              "border-radius": "65px 0px 0px 65px"
+            },
+            on: {
+              click: function($event) {
+                return _vm.redirectTo("http://markusviola.me")
+              }
+            }
+          },
+          [_vm._m(8)]
+        ),
+        _vm._v(" "),
+        _vm._m(9)
+      ])
+    ]),
+    _vm._v(" "),
+    _c("hr"),
+    _vm._v(" "),
+    _vm._m(10)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "py-3",
+        staticStyle: {
+          width: "100%",
+          height: "80vh",
+          background: "#201e1f",
+          color: "#d4d3d3"
+        }
+      },
+      [
+        _c("div", { staticClass: "row font-weight-bold w-100" }, [
+          _c(
+            "div",
+            {
+              staticClass:
+                "col-md-1 col-sm-6 offset-md-10 offset-sm-0 neutral-direction text-center"
+            },
+            [_vm._v("\n                Projects\n            ")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-1 col-sm-6 neutral-direction text-center" },
+            [_vm._v("\n                Contact\n            ")]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "container w-100 h-100 d-flex justify-content-start align-items-center"
+          },
+          [
+            _c("div", [
+              _c("div", { staticStyle: { "font-size": "4rem" } }, [
+                _c("span", { staticClass: "alt-neutral" }, [_vm._v("<")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("Hi,")]),
+                _vm._v(" "),
+                _c("span", [_vm._v("it's Markus.")]),
+                _vm._v(" "),
+                _c("span", { staticClass: "alt-neutral" }, [_vm._v("/>")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mb-3", staticStyle: { color: "#abaaaa" } },
+                [_vm._v("web • mobile • systems")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "w-75 text-justify",
+                  staticStyle: { color: "#abaaaa" }
+                },
+                [
+                  _c("div", [
+                    _vm._v(
+                      "\n                        aside from his high interest in both automation & machine learning, he is also inclined in learning new technologies which made him pursue decentralized development.\n                    "
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mb-5" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "col-md-5 rev-neutral shadow h-100 d-flex justify-content-center align-items-center",
+          staticStyle: {
+            "min-height": "14rem",
+            "border-radius": "65px 0px 0px 65px"
+          }
+        },
+        [
+          _c("div", { staticClass: "text-light text-left" }, [
+            _c("h2", [
+              _vm._v(
+                "\n                        WIP > Babel\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-right" }, [
+              _vm._v("Undo the language barrier.")
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "col-md-7 shadow h-100 bg-light border text-secondary",
+          staticStyle: {
+            "min-height": "14rem",
+            "border-radius": "0px 65px 5px 0px"
+          }
+        },
+        [
+          _c("div", { staticClass: "py-3" }, [
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("Definition")
+            ]),
+            _vm._v(" "),
+            _c("hr", { staticClass: "mt-0" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+              _vm._v(
+                "\n                        An e-Learning platform for Japan-based international companies, enabling employees\n                        to learn japanese through online activity sessions & learing curve monitoring from certified japanese teachers.\n                    "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-3" }, [
+              _c("span", { staticClass: "text-muted" }, [
+                _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
+                _vm._v("Git Repository - Private")
+              ])
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("Technologies • Backend Role")
+            ]),
+            _vm._v(" "),
+            _c("hr", { staticClass: "mt-0" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Node.js")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Express.js")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [
+                  _vm._v("AWS EC2 • S3 • RDS")
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "col-md-7 shadow h-100 bg-light border text-secondary",
+        staticStyle: {
+          "min-height": "14rem",
+          "border-radius": "5px 0px 0px 65px"
+        }
+      },
+      [
+        _c("div", { staticClass: "py-3" }, [
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Definition")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "mt-0" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+            _vm._v(
+              "\n                        An Ethereum framework-based tutorial market platform for blockchain technology enthusiasts providing\n                        stepping stones in mastering decentralized development through actual blockchain apps.\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("span", { staticClass: "text-muted" }, [
+              _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
+              _vm._v("Git Repository - Private")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Technologies • Full Stack Role")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "mt-0" }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "text-justify font-weight-bold pl-5 pr-3" },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Solidity")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Ethereum")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("IPFS")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Vuex")])
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-light text-left" }, [
+      _c("h2", [
+        _vm._v("\n                        OpenBerry\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-right" }, [
+        _vm._v("learn decentralized development.")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-light text-left" }, [
+      _c("h2", [
+        _vm._v(
+          "\n                        Centric Solution\n                    "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-right" }, [
+        _vm._v("a service assuring second chances.")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "col-md-7 shadow h-100 bg-light border text-secondary",
+        staticStyle: {
+          "min-height": "14rem",
+          "border-radius": "0px 65px 5px 0px"
+        }
+      },
+      [
+        _c("div", { staticClass: "py-3" }, [
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Definition")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "mt-0" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+            _vm._v(
+              "\n                        A transitional care mobile application that lets you coordinate and monitor terminal patients\n                        remotely and efficiently.\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c("span", { staticClass: "text-muted" }, [
+              _c("i", { staticClass: "fas fa-code-branch fa-lg mr-2" }),
+              _vm._v("SVN Repository")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Technologies • Mobile & Backend Role")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "mt-0" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-auto" }, [_vm._v("Kotlin")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("C#")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("ASP.NET Core")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("S3 AWS")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("MS SQL Server")])
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "col-md-7 shadow h-100 bg-light border text-secondary",
+        staticStyle: {
+          "min-height": "14rem",
+          "border-radius": "5px 0px 0px 65px"
+        }
+      },
+      [
+        _c("div", { staticClass: "py-3" }, [
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Definition")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "mt-0" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+            _vm._v(
+              "\n                        An article writing web application that allows users to post and manage articles. The system also supports\n                        profile customization and chatting, to establish an SNS-like environment.\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c(
+              "a",
+              {
+                staticClass: "alt-neutral",
+                attrs: {
+                  href: "https://github.com/markusviola/theparadigmblog"
+                }
+              },
+              [
+                _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
+                _vm._v("Git Repository")
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Technologies")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "mt-0" }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "text-justify font-weight-bold pl-5 pr-3" },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-auto" }, [_vm._v("PHP")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Laravel")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Echo")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("Pusher")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-light text-left" }, [
+      _c("h2", [
+        _vm._v(
+          "\n                        The Paradigm Articles\n                    "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-right" }, [
+        _vm._v("linking creative minds.")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-light text-left" }, [
+      _c("h2", [
+        _vm._v("\n                        Space Control\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-right" }, [
+        _vm._v("monetize your spaces efficiently.")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "col-md-7 shadow h-100 bg-light border text-secondary",
+        staticStyle: {
+          "min-height": "14rem",
+          "border-radius": "0px 65px 5px 0px"
+        }
+      },
+      [
+        _c("div", { staticClass: "py-3" }, [
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Definition")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "mt-0" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+            _vm._v(
+              "\n                        A space reservation system that allows the in-charge to manage client requests more efficently through forms & chat.\n                        The system also supports payment history statistics to monitor your profit.\n                    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-3" }, [
+            _c(
+              "a",
+              {
+                staticClass: "alt-neutral",
+                attrs: {
+                  href: "https://github.com/markusviola/theparadigmblog"
+                }
+              },
+              [
+                _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
+                _vm._v("Git Repository")
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Technologies")
+          ]),
+          _vm._v(" "),
+          _c("hr", { staticClass: "mt-0" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-auto" }, [_vm._v("PHP")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("Laravel")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("Echo")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("AWS EC2 • RDS")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "px-4 d-flex justify-content-center align-items-center",
+        staticStyle: {
+          width: "100%",
+          height: "4vh",
+          background: "#201e1f",
+          color: "#d4d3d3"
+        }
+      },
+      [
+        _c("div", [
+          _vm._v("© 2019 Markus Viola • "),
+          _c("span", { staticClass: "font-italic" }, [
+            _vm._v("a dog that barks is not cooked well.")
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -68555,6 +69469,7 @@ Vue.use(vue_chat_scroll__WEBPACK_IMPORTED_MODULE_0___default.a);
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
+Vue.component('portolio-page', __webpack_require__(/*! ./components/PortfolioPage.vue */ "./resources/js/components/PortfolioPage.vue")["default"]);
 Vue.component('chat', __webpack_require__(/*! ./components/ChatComponent.vue */ "./resources/js/components/ChatComponent.vue")["default"]); // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
@@ -68880,6 +69795,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatComponent_vue_vue_type_template_id_80d584ac___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ChatComponent_vue_vue_type_template_id_80d584ac___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PortfolioPage.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/PortfolioPage.vue ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PortfolioPage_vue_vue_type_template_id_4706401c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PortfolioPage.vue?vue&type=template&id=4706401c& */ "./resources/js/components/PortfolioPage.vue?vue&type=template&id=4706401c&");
+/* harmony import */ var _PortfolioPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PortfolioPage.vue?vue&type=script&lang=js& */ "./resources/js/components/PortfolioPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PortfolioPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PortfolioPage_vue_vue_type_template_id_4706401c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PortfolioPage_vue_vue_type_template_id_4706401c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PortfolioPage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/PortfolioPage.vue?vue&type=script&lang=js&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/PortfolioPage.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PortfolioPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PortfolioPage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/PortfolioPage.vue?vue&type=template&id=4706401c&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/PortfolioPage.vue?vue&type=template&id=4706401c& ***!
+  \**********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioPage_vue_vue_type_template_id_4706401c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PortfolioPage.vue?vue&type=template&id=4706401c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PortfolioPage.vue?vue&type=template&id=4706401c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioPage_vue_vue_type_template_id_4706401c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PortfolioPage_vue_vue_type_template_id_4706401c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

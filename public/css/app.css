@@ -16897,3 +16897,21 @@ input[type=file] {
   }
 }
 
+.neutral-direction {
+  cursor: pointer;
+  transition-property: color;
+}
+
+.neutral-direction:hover {
+  color: #1aa17c !important;
+}
+
+.neutral-button {
+  cursor: pointer;
+  transition-property: background;
+}
+
+.neutral-button:hover {
+  background: #117458 !important;
+}
+
