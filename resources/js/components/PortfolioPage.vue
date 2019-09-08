@@ -177,7 +177,7 @@
                     </div>
                 </div>
                 <div
-                    @click="redirectTo('http://ec2-18-222-233-77.us-east-2.compute.amazonaws.com/')"
+                    @click="redirectTo('http://markusviola.me')"
                     class="col-md-5 neutral-button rev-neutral shadow h-100 d-flex justify-content-center align-items-center"
                     style="min-height: 14rem; border-radius: 0px 65px 65px 0px;">
                     <div class="text-light text-left">
@@ -190,7 +190,7 @@
             </div>
             <div class="row mb-5">
                 <div
-                    @click="redirectTo('http://markusviola.me')"
+                    @click="redirectTo('http://ec2-18-222-233-77.us-east-2.compute.amazonaws.com/')"
                     class="col-md-5 neutral-button rev-neutral shadow h-100 d-flex justify-content-center align-items-center"
                     style="min-height: 14rem; border-radius: 65px 0px 0px 65px;">
                     <div class="text-light text-left">
@@ -228,8 +228,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <h3 class="text-secondary font-weight-bold">Contact</h3> -->
-            <!-- <hr class="mb-5"> -->
         </div>
 
         <hr>
