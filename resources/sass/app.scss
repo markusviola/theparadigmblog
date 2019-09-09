@@ -180,4 +180,22 @@
 
 @import 'media';
 
+// Portfolio
+
+.neutral-direction {
+    cursor: pointer;
+    transition-property: color;
+    &:hover {
+        color: $primary !important;
+    }
+}
+
+.neutral-button {
+    cursor: pointer;
+    transition-property: background;
+    &:hover {
+        background: $primaryDark !important;
+    }
+}
+
 

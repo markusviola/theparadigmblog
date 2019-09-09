@@ -29,4 +29,7 @@ Route::get('/chat','ChatController@index');
 Route::get('/messages','ChatController@fetchMessages');
 Route::post('/messages','ChatController@sendMessage');
 
+// Temporary Feature
+Route::get('/portfolio','PortfolioController@index');
+
 

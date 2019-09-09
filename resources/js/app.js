@@ -23,6 +23,7 @@ Vue.use(VueChatScroll)
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
+Vue.component('portolio-page', require('./components/PortfolioPage.vue').default);
 Vue.component('chat', require('./components/ChatComponent.vue').default);
 
 // const files = require.context('./', true, /\.vue$/i);
