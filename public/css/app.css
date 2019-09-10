@@ -16843,12 +16843,20 @@ input[type=file] {
   }
 
   .global-chatbox {
-    position: fixed;
-    height: 32rem;
-    width: 20rem;
+    height: 50vh;
+    width: 100%;
     bottom: 0;
-    right: 8em;
     visibility: visible;
+  }
+
+  .chat-wrapper {
+    position: -webkit-sticky;
+    position: sticky;
+    display: flex;
+    align-items: flex-end;
+    top: 19vh;
+    height: 80vh;
+    width: 70%;
   }
 }
 
@@ -16882,17 +16890,8 @@ input[type=file] {
 }
 
 @media (max-width: 1720px) {
-  .feed-wrapper {
-    width: 50rem !important;
-  }
-
   .home-stats {
     display: none;
-  }
-
-  .global-chatbox {
-    width: 17rem;
-    right: 3em;
   }
 }
 

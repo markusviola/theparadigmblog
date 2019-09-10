@@ -93,10 +93,12 @@
         </div>
     </div>
     <div class="col-md-3 p-0 d-flex justify-content-center">
-        {{-- @include('posts.side') --}}
+        <div class="chat-wrapper">
+            <global-chat
+                :user="{{ Auth::user() ?? $emptyUser }}"
+            ></global-chat>
+        </div>
+
     </div>
-    {{-- <chat
-        :user="{{ Auth::user() ?? $emptyUser }}"
-    ></chat> --}}
 </div>
 @endsection

@@ -1,7 +1,7 @@
 <template>
     <div class="global-chatbox">
         <div class="card neutral-round shadow-sm">
-            <div class="card-header">
+            <div class="card-header" style="height: 5vh;">
                 <div class="d-flex justify-content-between align-items-center text-secondary">
                     <span class="chat-title">Public Chat</span>
                     <div class="d-flex align-items-center">
@@ -12,8 +12,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body p-0" style="height: 100%;">
-                <ul class="list-unstyled" style="height: 25.5rem; overflow-y: scroll" v-chat-scroll>
+            <div class="card-body p-0">
+                <ul class="list-unstyled" style="height: 40vh; overflow-y: scroll" v-chat-scroll>
                     <li class="p-2 pl-3"
                         v-for="(message, index) in messages"
                         :key="index"
@@ -24,6 +24,7 @@
                 </ul>
             </div>
             <input
+                style="height: 4vh"
                 @keydown="sendTypingEvent"
                 @keyup.enter="sendMessage"
                 v-model="newMessage"

@@ -23,7 +23,7 @@ Vue.use(VueChatScroll)
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-Vue.component('chat', require('./components/ChatComponent.vue').default);
+Vue.component('global-chat', require('./components/GlobalChat.vue').default);
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));

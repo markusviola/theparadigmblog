@@ -15,12 +15,19 @@
     }
 
     .global-chatbox {
-        position: fixed;
-        height: 32rem;
-        width: 20rem;
+        height: 50vh;
+        width: 100%;
         bottom: 0;
-        right: 8em;
         visibility: visible;
+    }
+
+    .chat-wrapper {
+        position: sticky;
+        display: flex;
+        align-items: flex-end;
+        top: 19vh;
+        height: 80vh;
+        width: 70%;
     }
 }
 
@@ -55,17 +62,8 @@
 }
 
 @media(max-width: 1720px) {
-    .feed-wrapper {
-        width: 50rem !important;
-    }
-
     .home-stats {
         display: none;
-    }
-
-    .global-chatbox {
-        width: 17rem;
-        right: 3em;
     }
 }
 
