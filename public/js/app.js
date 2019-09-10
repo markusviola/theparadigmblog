@@ -56293,7 +56293,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "d-flex justify-content-between align-items-center text-secondary"
+                "d-flex align-items-center justify-content-between h-100 text-secondary"
             },
             [
               _c("span", { staticClass: "chat-title" }, [
@@ -56321,7 +56321,7 @@ var render = function() {
           {
             directives: [{ name: "chat-scroll", rawName: "v-chat-scroll" }],
             staticClass: "list-unstyled",
-            staticStyle: { height: "40vh", "overflow-y": "scroll" }
+            staticStyle: { height: "39vh", "overflow-y": "scroll" }
           },
           _vm._l(_vm.messages, function(message, index) {
             return _c("li", { key: index, staticClass: "p-2 pl-3" }, [
@@ -56348,7 +56348,7 @@ var render = function() {
           }
         ],
         staticClass: "form-control rounded-0",
-        staticStyle: { height: "4vh" },
+        staticStyle: { height: "5vh" },
         attrs: {
           type: "text",
           name: "message",

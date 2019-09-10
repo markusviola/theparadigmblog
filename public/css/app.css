@@ -16838,14 +16838,13 @@ input[type=file] {
     position: -webkit-sticky;
     position: sticky;
     top: 14vh;
-    width: 80%;
+    width: 85%;
     height: 77vh;
   }
 
   .global-chatbox {
     height: 50vh;
     width: 100%;
-    bottom: 0;
     visibility: visible;
   }
 
