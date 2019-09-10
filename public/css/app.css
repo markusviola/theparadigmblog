@@ -16835,7 +16835,9 @@ input[type=file] {
   }
 
   .side-wrapper {
-    margin-top: 3rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 14vh;
     width: 80%;
     height: 77vh;
   }
