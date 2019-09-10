@@ -16835,12 +16835,9 @@ input[type=file] {
   }
 
   .side-wrapper {
-    position: fixed;
-    width: 20vw;
+    margin-top: 2rem;
+    width: 80%;
     height: 77vh;
-    left: 5vw;
-    top: 14vh;
-    z-index: 3;
   }
 
   .global-chatbox {
