@@ -1,7 +1,7 @@
 <template>
     <div class="global-chatbox">
         <div class="card neutral-round shadow-sm">
-            <div class="card-header chat-misc">
+            <div class="card-header chat-header">
                 <div class="d-flex align-items-center justify-content-between h-100 text-secondary">
                     <span class="chat-title">Public Chat</span>
                     <div class="d-flex align-items-center">
@@ -30,7 +30,7 @@
                 type="text"
                 name="message"
                 :placeholder="user.id ? 'Say hello to everyone!' : 'Log in and say hello!'"
-                class="form-control chat-misc rounded-0"
+                class="form-control chat-input rounded-0"
             >
         </div>
     </div>
@@ -71,18 +71,6 @@ import { clearTimeout } from 'timers';
                     this.activeUser = false;
                     this.messages.push(event.message);
                 })
-                .listenForWhisper('typing', user => {
-                    // This won't work unless client events
-                    // are enabled from the provider.
-                    this.activeUser = user;
-
-                    if (this.typingTimer) {
-                        window.clearTimeout(this.typingTimer);
-                    }
-                    this.typingTimer = setTimeout(() => {
-                        this.activeUser = false;
-                    }, 2000);
-                });
         },
         methods: {
             fetchMessages() {

@@ -1911,18 +1911,6 @@ __webpack_require__.r(__webpack_exports__);
       _this.activeUser = false;
 
       _this.messages.push(event.message);
-    }).listenForWhisper('typing', function (user) {
-      // This won't work unless client events
-      // are enabled from the provider.
-      _this.activeUser = user;
-
-      if (_this.typingTimer) {
-        window.clearTimeout(_this.typingTimer);
-      }
-
-      _this.typingTimer = setTimeout(function () {
-        _this.activeUser = false;
-      }, 2000);
     });
   },
   methods: {
@@ -56284,7 +56272,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "global-chatbox" }, [
     _c("div", { staticClass: "card neutral-round shadow-sm" }, [
-      _c("div", { staticClass: "card-header chat-misc" }, [
+      _c("div", { staticClass: "card-header chat-header" }, [
         _c(
           "div",
           {
@@ -56339,7 +56327,7 @@ var render = function() {
             expression: "newMessage"
           }
         ],
-        staticClass: "form-control chat-misc rounded-0",
+        staticClass: "form-control chat-input rounded-0",
         attrs: {
           type: "text",
           name: "message",
