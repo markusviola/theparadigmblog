@@ -16740,6 +16740,15 @@ input[type=file] {
   visibility: hidden;
 }
 
+.chat-content {
+  height: 39.5vh;
+  overflow-y: auto;
+}
+
+.chat-misc {
+  height: 5vh;
+}
+
 .side-card {
   background: #d6d5d5;
   height: 100%;

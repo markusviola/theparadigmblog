@@ -89,6 +89,15 @@
     visibility: hidden;
 }
 
+.chat-content {
+    height: 39.5vh;
+    overflow-y: auto;
+}
+
+.chat-misc {
+    height: 5vh;
+}
+
 .side-card {
     background: $light;
     height: 100%;

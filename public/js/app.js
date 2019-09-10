@@ -1878,7 +1878,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user'],
@@ -56285,43 +56284,36 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "global-chatbox" }, [
     _c("div", { staticClass: "card neutral-round shadow-sm" }, [
-      _c(
-        "div",
-        { staticClass: "card-header", staticStyle: { height: "5vh" } },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "d-flex align-items-center justify-content-between h-100 text-secondary"
-            },
-            [
-              _c("span", { staticClass: "chat-title" }, [
-                _vm._v("Public Chat")
+      _c("div", { staticClass: "card-header chat-misc" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "d-flex align-items-center justify-content-between h-100 text-secondary"
+          },
+          [
+            _c("span", { staticClass: "chat-title" }, [_vm._v("Public Chat")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "d-flex align-items-center" }, [
+              _c("span", [
+                _c("strong", { staticClass: "text-right" }, [
+                  _vm._v(_vm._s(_vm.users.length))
+                ]),
+                _vm._v(" online\n                    ")
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "d-flex align-items-center" }, [
-                _c("span", [
-                  _c("strong", { staticClass: "text-right" }, [
-                    _vm._v(_vm._s(_vm.users.length))
-                  ]),
-                  _vm._v(" online\n                    ")
-                ]),
-                _vm._v(" "),
-                _c("i", { staticClass: "fas fa-circle fa-sm alt-neutral ml-2" })
-              ])
-            ]
-          )
-        ]
-      ),
+              _c("i", { staticClass: "fas fa-circle fa-sm alt-neutral ml-2" })
+            ])
+          ]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body p-0" }, [
         _c(
           "ul",
           {
             directives: [{ name: "chat-scroll", rawName: "v-chat-scroll" }],
-            staticClass: "list-unstyled",
-            staticStyle: { height: "39vh", "overflow-y": "scroll" }
+            staticClass: "list-unstyled chat-content"
           },
           _vm._l(_vm.messages, function(message, index) {
             return _c("li", { key: index, staticClass: "p-2 pl-3" }, [
@@ -56347,8 +56339,7 @@ var render = function() {
             expression: "newMessage"
           }
         ],
-        staticClass: "form-control rounded-0",
-        staticStyle: { height: "5vh" },
+        staticClass: "form-control chat-misc rounded-0",
         attrs: {
           type: "text",
           name: "message",
