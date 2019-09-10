@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row mt-5 justify-content-center">
+<div class="row mt-4 justify-content-center">
     <div class="col-md-3 p-0 d-flex justify-content-center">
         @include('posts.side')
     </div>
