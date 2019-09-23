@@ -148,6 +148,7 @@
         <div class="sample-box"></div>
         @include('tools.toast')
         @if (Request::path() == '/'
+            || Request::path() == 'search'
             || Request::path() == 'posts/create'
             || Request::path() == 'profile/'.$url
             || ends_with(Request::path(), 'edit'))
