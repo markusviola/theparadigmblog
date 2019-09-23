@@ -1877,7 +1877,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user'],
@@ -1907,10 +1906,6 @@ __webpack_require__.r(__webpack_exports__);
       _this.users = _this.users.filter(function (u) {
         return u.id != user.id;
       });
-    }).listen('.TheParadigmArticles\\Events\\MessageSent', function (event) {
-      _this.activeUser = false;
-
-      _this.messages.push(event.message);
     });
   },
   methods: {
@@ -1943,9 +1938,6 @@ __webpack_require__.r(__webpack_exports__);
           window.location.href = "/login".concat(unAuth);
         } else notifyUser('Something went wrong.');
       });
-    },
-    sendTypingEvent: function sendTypingEvent() {
-      Echo.join('chat').whisper('typing', this.user);
     }
   }
 });
@@ -56341,7 +56333,6 @@ var render = function() {
         },
         domProps: { value: _vm.newMessage },
         on: {
-          keydown: _vm.sendTypingEvent,
           keyup: function($event) {
             if (
               !$event.type.indexOf("key") &&

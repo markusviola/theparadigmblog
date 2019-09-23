@@ -24,7 +24,6 @@
                 </ul>
             </div>
             <input
-                @keydown="sendTypingEvent"
                 @keyup.enter="sendMessage"
                 v-model="newMessage"
                 type="text"
@@ -67,10 +66,6 @@ import { clearTimeout } from 'timers';
                 .leaving(user => {
                     this.users = this.users.filter(u => u.id != user.id);
                 })
-                .listen('.TheParadigmArticles\\Events\\MessageSent', event => {
-                    this.activeUser = false;
-                    this.messages.push(event.message);
-                })
         },
         methods: {
             fetchMessages() {
@@ -98,10 +93,6 @@ import { clearTimeout } from 'timers';
                         window.location.href = `/login${unAuth}`;
                     } else notifyUser('Something went wrong.');
                 })
-            },
-            sendTypingEvent() {
-                Echo.join('chat')
-                    .whisper('typing', this.user);
             },
         }
     }
