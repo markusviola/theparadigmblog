@@ -2,7 +2,7 @@
 
 namespace TheParadigmArticles\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use TheParadigmArticles\Message;
 use TheParadigmArticles\Events\MessageSent;
 
@@ -17,6 +17,7 @@ class ChatController extends Controller
     {
         parent::__construct();
         $this->middleware('auth')->except('fetchMessages');
+        // $this->middleware('guest')->only('sendMessage');
     }
 
     /**
@@ -26,7 +27,7 @@ class ChatController extends Controller
      */
     public function fetchMessages()
     {
-        return Message::with('user')->get();
+        return Message::with('fromUser')->get();
     }
 
     /**
@@ -38,13 +39,15 @@ class ChatController extends Controller
      */
     public function sendMessage()
     {
+        if (!Auth::check()) return redirect()->route('home');
         $newMessage = request()->message;
-        $createdMessage = auth()->user()->messages()->create([
-            'message' => $newMessage
+        $createdMessage = Message::create([
+            'from' => Auth::user()->id,
+            'message' => $newMessage,
         ]);
 
         broadcast(new MessageSent(
-            $createdMessage->load('user')
+            $createdMessage->load('fromUser')
         ))->toOthers();
 
         return response()->json([

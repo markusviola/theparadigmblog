@@ -18,7 +18,7 @@
                         v-for="(message, index) in messages"
                         :key="index"
                     >
-                        <strong class="alt-anti-neutral">{{ message.user.username }} > </strong>
+                        <strong class="alt-anti-neutral">{{ message.from_user.username }} > </strong>
                         <span class="text-dark">{{ message.message }}</span>
                     </li>
                 </ul>
@@ -74,26 +74,29 @@ import { clearTimeout } from 'timers';
         },
         methods: {
             fetchMessages() {
-                axios.get('messages').then(response => {
+                axios.get('/messages').then(response => {
                     this.messages = response.data;
                 })
             },
             sendMessage() {
-                axios.post('messages', {
+                axios.post('/messages', {
                     message: this.newMessage,
                 })
                 .then(res => {
                     if(res.data.success) {
                         this.messages.push({
-                            user: this.user,
+                            from_user: this.user,
                             message: res.data.message
                         });
                     }
                     this.newMessage = ''
                 })
                 .catch(err => {
-                    const unAuth = '#unauth-access';
-                    window.location.href = `/login${unAuth}`;
+                    const res = err.response;
+                    if (res.status == 401) {
+                        const unAuth = '#unauth-access';
+                        window.location.href = `/login${unAuth}`;
+                    } else notifyUser('Something went wrong.');
                 })
             },
             sendTypingEvent() {

@@ -1917,27 +1917,31 @@ __webpack_require__.r(__webpack_exports__);
     fetchMessages: function fetchMessages() {
       var _this2 = this;
 
-      axios.get('messages').then(function (response) {
+      axios.get('/messages').then(function (response) {
         _this2.messages = response.data;
       });
     },
     sendMessage: function sendMessage() {
       var _this3 = this;
 
-      axios.post('messages', {
+      axios.post('/messages', {
         message: this.newMessage
       }).then(function (res) {
         if (res.data.success) {
           _this3.messages.push({
-            user: _this3.user,
+            from_user: _this3.user,
             message: res.data.message
           });
         }
 
         _this3.newMessage = '';
       })["catch"](function (err) {
-        var unAuth = '#unauth-access';
-        window.location.href = "/login".concat(unAuth);
+        var res = err.response;
+
+        if (res.status == 401) {
+          var unAuth = '#unauth-access';
+          window.location.href = "/login".concat(unAuth);
+        } else notifyUser('Something went wrong.');
       });
     },
     sendTypingEvent: function sendTypingEvent() {
@@ -56306,7 +56310,7 @@ var render = function() {
           _vm._l(_vm.messages, function(message, index) {
             return _c("li", { key: index, staticClass: "p-2 pl-3" }, [
               _c("strong", { staticClass: "alt-anti-neutral" }, [
-                _vm._v(_vm._s(message.user.username) + " > ")
+                _vm._v(_vm._s(message.from_user.username) + " > ")
               ]),
               _vm._v(" "),
               _c("span", { staticClass: "text-dark" }, [
