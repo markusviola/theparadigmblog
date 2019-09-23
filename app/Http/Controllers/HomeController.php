@@ -75,7 +75,9 @@ class HomeController extends Controller
 
         $posts = $posts->latest()->paginate(10);
         $hotPosts = $this->getHotTopics();
-        return view('home', compact('posts', 'hotPosts', 'isSearch'));
+        $emptyUser = new User();
+        return view('home',
+            compact('posts', 'hotPosts', 'isSearch', 'emptyUser'));
 
     }
 
