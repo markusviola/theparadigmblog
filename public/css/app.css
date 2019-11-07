@@ -16654,6 +16654,11 @@ input[type=file] {
   background: #d6d5d5 !important;
 }
 
+.panel-highlight:hover {
+  background: rgba(201, 201, 201, 0.315);
+  cursor: pointer;
+}
+
 .header-img {
   min-width: 100%;
   max-height: 100%;
@@ -16743,6 +16748,10 @@ input[type=file] {
 .chat-content {
   height: 39vh;
   overflow-y: auto;
+}
+
+.equalize-content {
+  margin-top: -43vh;
 }
 
 .side-card {
@@ -16857,7 +16866,6 @@ input[type=file] {
     position: sticky;
     display: flex;
     align-items: flex-end;
-    margin-top: -43vh;
     bottom: 0;
     width: 70%;
   }

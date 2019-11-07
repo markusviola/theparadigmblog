@@ -94,11 +94,9 @@
     </div>
     <div class="col-md-3 p-0">
         <div class="h-100 w-100"></div>
-        <div class="chat-wrapper mx-auto">
-            <global-chat
-                :user="{{ Auth::user() ?? $emptyUser }}"
-            ></global-chat>
-        </div>
+        <global-chat
+            :user="{{ Auth::user() ?? $emptyUser }}"
+        ></global-chat>
     </div>
 </div>
 @endsection
