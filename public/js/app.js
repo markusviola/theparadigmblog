@@ -1877,11 +1877,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user'],
   data: function data() {
     return {
+      activeChat: true,
       messages: [],
       newMessage: '',
       users: [],
@@ -56266,92 +56270,124 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "global-chatbox" }, [
-    _c("div", { staticClass: "card neutral-round shadow-sm" }, [
-      _c("div", { staticClass: "card-header chat-header" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "d-flex align-items-center justify-content-between h-100 text-secondary"
-          },
-          [
-            _c("span", { staticClass: "chat-title" }, [_vm._v("Public Chat")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "d-flex align-items-center" }, [
-              _c("span", [
-                _c("strong", { staticClass: "text-right" }, [
-                  _vm._v(_vm._s(_vm.users.length))
-                ]),
-                _vm._v(" online\n                    ")
-              ]),
-              _vm._v(" "),
-              _c("i", { staticClass: "fas fa-circle fa-sm alt-neutral ml-2" })
-            ])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body p-0" }, [
-        _c(
-          "ul",
-          {
-            directives: [{ name: "chat-scroll", rawName: "v-chat-scroll" }],
-            staticClass: "list-unstyled chat-content"
-          },
-          _vm._l(_vm.messages, function(message, index) {
-            return _c("li", { key: index, staticClass: "p-2 pl-3" }, [
-              _c("strong", { staticClass: "alt-anti-neutral" }, [
-                _vm._v(_vm._s(message.from_user.username) + " > ")
-              ]),
-              _vm._v(" "),
-              _c("span", { staticClass: "text-dark" }, [
-                _vm._v(_vm._s(message.message))
+  return _c(
+    "div",
+    {
+      class:
+        "chat-wrapper " +
+        (_vm.activeChat ? "equalize-content " : "") +
+        " mx-auto"
+    },
+    [
+      _c("div", { staticClass: "global-chatbox" }, [
+        _c("div", { staticClass: "card neutral-round shadow-sm" }, [
+          _c(
+            "div",
+            {
+              staticClass: "card-header chat-header panel-highlight",
+              on: {
+                click: function($event) {
+                  _vm.activeChat = !_vm.activeChat
+                }
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex align-items-center justify-content-between h-100 text-secondary"
+                },
+                [
+                  _c("span", { staticClass: "chat-title" }, [
+                    _vm._v("Public Chat")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "d-flex align-items-center" }, [
+                    _c("span", [
+                      _c("strong", { staticClass: "text-right" }, [
+                        _vm._v(_vm._s(_vm.users.length))
+                      ]),
+                      _vm._v(" online\n                        ")
+                    ]),
+                    _vm._v(" "),
+                    _c("i", {
+                      staticClass: "fas fa-circle fa-sm alt-neutral ml-2"
+                    })
+                  ])
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _vm.activeChat
+            ? _c("div", { staticClass: "card-body p-0" }, [
+                _c(
+                  "ul",
+                  {
+                    directives: [
+                      { name: "chat-scroll", rawName: "v-chat-scroll" }
+                    ],
+                    staticClass: "list-unstyled chat-content"
+                  },
+                  _vm._l(_vm.messages, function(message, index) {
+                    return _c("li", { key: index, staticClass: "p-2 pl-3" }, [
+                      _c("strong", { staticClass: "alt-anti-neutral" }, [
+                        _vm._v(_vm._s(message.from_user.username) + " > ")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "text-dark" }, [
+                        _vm._v(_vm._s(message.message))
+                      ])
+                    ])
+                  }),
+                  0
+                )
               ])
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.newMessage,
-            expression: "newMessage"
-          }
-        ],
-        staticClass: "form-control chat-input rounded-0",
-        attrs: {
-          type: "text",
-          name: "message",
-          placeholder: _vm.user.id
-            ? "Say hello to everyone!"
-            : "Log in and say hello!"
-        },
-        domProps: { value: _vm.newMessage },
-        on: {
-          keyup: function($event) {
-            if (
-              !$event.type.indexOf("key") &&
-              _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-            ) {
-              return null
-            }
-            return _vm.sendMessage($event)
-          },
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.newMessage = $event.target.value
-          }
-        }
-      })
-    ])
-  ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.activeChat
+            ? _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.newMessage,
+                    expression: "newMessage"
+                  }
+                ],
+                staticClass: "form-control chat-input rounded-0",
+                attrs: {
+                  type: "text",
+                  name: "message",
+                  placeholder: _vm.user.id
+                    ? "Say hello to everyone!"
+                    : "Log in and say hello!"
+                },
+                domProps: { value: _vm.newMessage },
+                on: {
+                  keyup: function($event) {
+                    if (
+                      !$event.type.indexOf("key") &&
+                      _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                    ) {
+                      return null
+                    }
+                    return _vm.sendMessage($event)
+                  },
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.newMessage = $event.target.value
+                  }
+                }
+              })
+            : _vm._e()
+        ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

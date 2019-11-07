@@ -1,36 +1,39 @@
 <template>
-    <div class="global-chatbox">
-        <div class="card neutral-round shadow-sm">
-            <div class="card-header chat-header">
-                <div class="d-flex align-items-center justify-content-between h-100 text-secondary">
-                    <span class="chat-title">Public Chat</span>
-                    <div class="d-flex align-items-center">
-                        <span>
-                            <strong class="text-right">{{ users.length }}</strong> online
-                        </span>
-                        <i class="fas fa-circle fa-sm alt-neutral ml-2"></i>
+    <div :class="`chat-wrapper ${activeChat ? 'equalize-content ' : ''} mx-auto`">
+        <div class="global-chatbox">
+            <div class="card neutral-round shadow-sm">
+                <div class="card-header chat-header panel-highlight" @click="activeChat = !activeChat">
+                    <div class="d-flex align-items-center justify-content-between h-100 text-secondary">
+                        <span class="chat-title">Public Chat</span>
+                        <div class="d-flex align-items-center">
+                            <span>
+                                <strong class="text-right">{{ users.length }}</strong> online
+                            </span>
+                            <i class="fas fa-circle fa-sm alt-neutral ml-2"></i>
+                        </div>
                     </div>
                 </div>
+                <div v-if="activeChat" class="card-body p-0">
+                    <ul class="list-unstyled chat-content" v-chat-scroll>
+                        <li class="p-2 pl-3"
+                            v-for="(message, index) in messages"
+                            :key="index"
+                        >
+                            <strong class="alt-anti-neutral">{{ message.from_user.username }} > </strong>
+                            <span class="text-dark">{{ message.message }}</span>
+                        </li>
+                    </ul>
+                </div>
+                <input
+                    v-if="activeChat"
+                    @keyup.enter="sendMessage"
+                    v-model="newMessage"
+                    type="text"
+                    name="message"
+                    :placeholder="user.id ? 'Say hello to everyone!' : 'Log in and say hello!'"
+                    class="form-control chat-input rounded-0"
+                >
             </div>
-            <div class="card-body p-0">
-                <ul class="list-unstyled chat-content" v-chat-scroll>
-                    <li class="p-2 pl-3"
-                        v-for="(message, index) in messages"
-                        :key="index"
-                    >
-                        <strong class="alt-anti-neutral">{{ message.from_user.username }} > </strong>
-                        <span class="text-dark">{{ message.message }}</span>
-                    </li>
-                </ul>
-            </div>
-            <input
-                @keyup.enter="sendMessage"
-                v-model="newMessage"
-                type="text"
-                name="message"
-                :placeholder="user.id ? 'Say hello to everyone!' : 'Log in and say hello!'"
-                class="form-control chat-input rounded-0"
-            >
         </div>
     </div>
 </template>
@@ -41,6 +44,7 @@ import { clearTimeout } from 'timers';
         props: ['user'],
         data() {
             return {
+                activeChat: true,
                 messages: [],
                 newMessage: '',
                 users: [],
