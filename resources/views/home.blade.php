@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row mt-4 justify-content-center vh-100">
+<div class="row mt-4 justify-content-center  w-100 vh-100">
     <div class="col-md-3 p-0 d-flex justify-content-center">
         @include('posts.side')
     </div>
@@ -92,13 +92,13 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3 p-0 d-flex justify-content-center">
-        <div class="chat-wrapper">
+    <div class="col-md-3 p-0">
+        <div class="h-100 w-100"></div>
+        <div class="chat-wrapper mx-auto">
             <global-chat
                 :user="{{ Auth::user() ?? $emptyUser }}"
             ></global-chat>
         </div>
-
     </div>
 </div>
 @endsection

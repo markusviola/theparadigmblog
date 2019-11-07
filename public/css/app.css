@@ -16745,14 +16745,6 @@ input[type=file] {
   overflow-y: auto;
 }
 
-.chat-header {
-  height: 5vh;
-}
-
-.chat-input {
-  height: 4vh;
-}
-
 .side-card {
   background: #d6d5d5;
   height: 100%;
@@ -16856,7 +16848,6 @@ input[type=file] {
   }
 
   .global-chatbox {
-    height: 50vh;
     width: 100%;
     visibility: visible;
   }
@@ -16866,8 +16857,8 @@ input[type=file] {
     position: sticky;
     display: flex;
     align-items: flex-end;
-    top: 19vh;
-    height: 80vh;
+    margin-top: -43vh;
+    bottom: 0;
     width: 70%;
   }
 }

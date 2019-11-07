@@ -15,7 +15,6 @@
     }
 
     .global-chatbox {
-        height: 50vh;
         width: 100%;
         visibility: visible;
     }
@@ -24,8 +23,8 @@
         position: sticky;
         display: flex;
         align-items: flex-end;
-        top: 19vh;
-        height: 80vh;
+        margin-top: -43vh;
+        bottom: 0;
         width: 70%;
     }
 }

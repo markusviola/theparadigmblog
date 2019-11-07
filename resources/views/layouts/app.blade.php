@@ -145,7 +145,6 @@
         </nav>
 
         {{-- Page Content Injection --}}
-        <div class="sample-box"></div>
         @include('tools.toast')
         @if (Request::path() == '/'
             || Request::path() == 'search'
