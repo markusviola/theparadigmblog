@@ -234,7 +234,6 @@
         <div class="px-4 d-flex justify-content-center align-items-center" style="width: 100%; height: 4vh; background: #201e1f; color: #d4d3d3;">
             <div>&copy; 2019 Markus Viola • <span class="font-italic">a dog that barks is not cooked well.</span></div>
         </div>
-
     </div>
 </template>
 
