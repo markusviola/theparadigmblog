@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        <portolio-page></portolio-page>
+        <portfolio-page></portfolio-page>
     </div>
 <script type="application/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {

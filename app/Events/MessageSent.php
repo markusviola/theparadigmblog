@@ -35,4 +35,9 @@ class MessageSent implements ShouldBroadcast
     {
         return new PresenceChannel('chat');
     }
+
+    public function broadcastAs()
+    {
+        return 'NewMessage';
+    }
 }

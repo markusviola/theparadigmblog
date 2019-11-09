@@ -54,7 +54,6 @@ import { clearTimeout } from 'timers';
             }
         },
         mounted() {
-            console.log(this.user);
             console.log('Chat component running successfully.');
         },
         created() {
@@ -70,6 +69,9 @@ import { clearTimeout } from 'timers';
                 .leaving(user => {
                     this.users = this.users.filter(u => u.id != user.id);
                 })
+                .listen('.NewMessage', (event) => {
+                    this.messages.push(event.message);
+                });
         },
         methods: {
             fetchMessages() {
