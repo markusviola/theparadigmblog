@@ -64,4 +64,36 @@
     }
 }
 
+@include media-breakpoint-down(sm) {
+    .portfolio-direction {
+        justify-content: space-around !important;
+    }
+    .portfolio-title {
+        font-size: 3rem !important;
+    }
+    .portolio-title-container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        text-align: center !important;
+    }
+    .portolio-sub-headers {
+        text-align: center;
+    }
+    .porfolio-description {
+        width: 100% !important;
+    }
+    .title-first {
+        border-radius: 45px 45px 0px 0px !important;
+    }
+    .title-second {
+        border-radius: 0px 0px 65px 65px !important;
+    }
+    .def-first {
+        border-radius: 15px 15px 0px 0px !important;
+    }
+    .def-second {
+        border-radius: 0px 0px 15px 15px !important;
+    }
+ }
+
 

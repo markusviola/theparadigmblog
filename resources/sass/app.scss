@@ -203,4 +203,37 @@
     }
 }
 
+.portfolio-title {
+    font-size: 4rem;
+}
+
+.portfolio-direction {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.porfolio-description {
+    width: 75%;
+}
+
+.title-first {
+    min-height: 14rem;
+    border-radius: 65px 0px 0px 65px;
+}
+
+.title-second {
+    min-height: 14rem;
+    border-radius: 0px 65px 65px 0px;
+}
+
+.def-first {
+    min-height: 14rem;
+    border-radius: 5px 0px 0px 65px;
+}
+
+.def-second {
+    min-height: 14rem;
+    border-radius: 0px 65px 5px 0px;
+}
+
 
