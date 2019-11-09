@@ -7,8 +7,9 @@
 require('./bootstrap');
 require('./notification');
 require('./profile');
-require('./modal');
+require('./modal');+
 require('./article');
+require('./helper');
 
 
 window.Vue = require('vue');
@@ -24,7 +25,7 @@ Vue.use(VueChatScroll)
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 Vue.component('global-chat', require('./components/GlobalChat.vue').default);
-// Vue.component('portfolio-page', require('./components/PortfolioPage.vue').default);
+Vue.component('portfolio-page', require('./components/PortfolioPage.vue').default);
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
@@ -45,7 +46,9 @@ $(() => {
     initProfile();
     initArticle();
     initNotifications();
+    initHelpers();
 });
+
 
 
 
