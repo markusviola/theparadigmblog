@@ -30,6 +30,6 @@ Route::get('/messages','ChatController@fetchMessages');
 Route::post('/messages','ChatController@sendMessage');
 
 // Temporary Feature
-Route::get('/portfolio','PortfolioController@index');
+Route::get('/portfolio/{locale}','PortfolioController@index');
 
 

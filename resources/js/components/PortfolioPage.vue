@@ -3,35 +3,44 @@
         <div class="py-3" style="width: 100%; min-height: 80vh; background: #201e1f; color: #d4d3d3;">
             <div class="portfolio-direction font-weight-bold w-100">
                 <div class="neutral-direction text-center mx-5" @click="goTo('projects')">
-                    Projects
+                    {{ this.portfolio.projects }}
                 </div>
                 <div class="neutral-direction text-center mx-5">
-                    Contact
+                    {{ this.portfolio.contact }}
                 </div>
             </div>
             <div class="portolio-title-wrapper container d-flex align-items-center" style="min-height: 80vh;">
                 <div class="portolio-title-container">
+                    <div class="neutral-direction mb-3 d-inline font-weight-bold w-100" @click="toggleLanguage">
+                        {{ this.is_en ? '&lt; 日本語 &gt;' : '&lt; English &gt;' }}
+                    </div>
                     <div class="portfolio-title">
                         <span class="alt-neutral">&lt;</span>
-                        <span>Hi,</span>
-                        <span>it's Markus.</span>
+                        <span>
+                            {{ this.portfolio.intro }}
+                        </span>
                         <span class="alt-neutral">/&gt;</span>
                     </div>
                     <div class="mb-3" style="color: #abaaaa;">web • mobile • systems</div>
                     <div class="porfolio-description text-justify" style="color: #abaaaa;">
                         <div>
-                            aside from his high interest in both automation &amp; machine learning, he is also inclined in learning new technologies which made him pursue decentralized development.
+                            {{ this.portfolio.desc }}
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
         <br>
         <br>
         <div class="container mt-5 mb-5 pt-4">
-            <h3 id="projects" class="text-center text-secondary font-weight-bold pt-3">Projects</h3>
+            <h3 id="projects" class="text-center text-secondary font-weight-bold pt-3">
+                {{ this.portfolio.projects }}
+            </h3>
             <hr class=" mb-5">
-            <h4 class="portolio-sub-headers mb-4 alt-neutral font-weight-bold">&lt; Personal &gt;</h4>
+            <h4 class="portolio-sub-headers mb-4 alt-neutral font-weight-bold">&lt;
+                {{ this.portfolio.personal }}
+            &gt;</h4>
             <div class="row mb-5">
                 <div
                     @click="redirectTo('http://markusviola.me')"
@@ -40,22 +49,32 @@
                         <h2>
                             The Paradigm Articles
                         </h2>
-                        <div class="text-right">linking creative minds.</div>
+                        <div class="text-right">
+                            linking creative minds.
+                        </div>
                     </div>
                 </div>
                 <div
                     class="def-second col-md-7 shadow h-100 bg-light border text-secondary">
                     <div class="py-3">
-                        <span class="font-weight-bold">Definition</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.definition }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify pr-3 mb-3">
-                            An article writing web application that allows users to post and manage articles. The system also supports
-                            profile customization and chatting, to establish an SNS-like environment.
+                            {{ this.portfolio.paradigm_articles }}
                         </div>
                         <div class="mb-3">
-                            <a class="alt-neutral" href="https://github.com/markusviola/theparadigmblog"><i class="fab fa-github fa-lg mr-2"></i>Git Repository</a>
+                            <a class="alt-neutral" href="https://github.com/markusviola/theparadigmblog"><i class="fab fa-github fa-lg mr-2"></i>
+                                Git
+                                <span>
+                                    {{ this.portfolio.repo }}
+                                </span>
+                            </a>
                         </div>
-                        <span class="font-weight-bold">Technologies</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.technologies }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold pl-5 pr-3">
                             <div class="row">
@@ -74,16 +93,24 @@
                 <div
                     class="def-first col-md-7 shadow h-100 bg-light border text-secondary">
                     <div class="py-3">
-                        <span class="font-weight-bold">Definition</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.definition }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify pr-3 mb-3">
-                            A space reservation system that allows the in-charge to manage client requests more efficently through forms &amp; chat.
-                            The system also supports payment history statistics to monitor your profit.
+                            {{ this.portfolio.space_control }}
                         </div>
                         <div class="mb-3">
-                            <a class="alt-neutral" href="https://github.com/markusviola/space-control"><i class="fab fa-github fa-lg mr-2"></i>Git Repository</a>
+                            <a class="alt-neutral" href="https://github.com/markusviola/space-control"><i class="fab fa-github fa-lg mr-2"></i>
+                                Git
+                                <span>
+                                    {{ this.portfolio.repo }}
+                                </span>
+                            </a>
                         </div>
-                        <span class="font-weight-bold">Technologies</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.technologies }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold px-3">
                             <div class="row">
@@ -108,7 +135,9 @@
                     </div>
                 </div>
             </div>
-            <h4 class="portolio-sub-headers mb-4 alt-neutral font-weight-bold">&lt; Work &gt;</h4>
+            <h4 class="portolio-sub-headers mb-4 alt-neutral font-weight-bold">&lt;
+                {{ this.portfolio.work }}
+            &gt;</h4>
             <div class="row mb-5">
                 <div
                     class="title-first col-md-5 rev-neutral shadow h-100 d-flex justify-content-center align-items-center">
@@ -122,16 +151,25 @@
                 <div
                     class="def-second col-md-7 shadow h-100 bg-light border text-secondary">
                     <div class="py-3">
-                        <span class="font-weight-bold">Definition</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.definition }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify pr-3 mb-3">
-                            An e-Learning platform for Japan-based international companies, enabling employees
-                            to learn japanese through online activity sessions &amp; learing curve monitoring from certified japanese teachers.
+                            {{ this.portfolio.babel }}
                         </div>
                         <div class="mb-3">
-                            <span class="text-muted"><i class="fab fa-github fa-lg mr-2"></i>Git Repository - Private</span>
+                            <span class="text-muted"><i class="fab fa-github fa-lg mr-2"></i>
+
+                                Git
+                                <span>
+                                    {{ this.portfolio.repo_private }}
+                                </span>
+                            </span>
                         </div>
-                        <span class="font-weight-bold">Technologies • Backend Role</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.techonologies }}・{{ this.portfolio.backend }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold px-3">
                             <div class="row">
@@ -148,16 +186,24 @@
                 <div
                     class="def-first col-md-7 shadow h-100 bg-light border text-secondary">
                     <div class="py-3">
-                        <span class="font-weight-bold">Definition</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.definition }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify pr-3 mb-3">
-                            An Ethereum framework-based tutorial market platform for blockchain technology enthusiasts providing
-                            stepping stones in mastering decentralized development through actual blockchain apps.
+                            {{ this.portfolio.openberry }}
                         </div>
                         <div class="mb-3">
-                            <span class="text-muted"><i class="fab fa-github fa-lg mr-2"></i>Git Repository - Private</span>
+                            <span class="text-muted"><i class="fab fa-github fa-lg mr-2"></i>
+                                Git
+                                <span>
+                                    {{ this.portfolio.repo_private }}
+                                </span>
+                            </span>
                         </div>
-                        <span class="font-weight-bold">Technologies • Full Stack Role</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.techonologies }} • {{ this.portfolio.fullstack }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold pl-5 pr-3">
                             <div class="row">
@@ -195,16 +241,24 @@
                 <div
                     class="def-second col-md-7 shadow h-100 bg-light border text-secondary">
                     <div class="py-3">
-                        <span class="font-weight-bold">Definition</span>
+                        <span class="font-weight-bold">
+                           {{ this.portfolio.definition }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify pr-3 mb-3">
-                            A transitional care mobile application that lets you coordinate and monitor terminal patients
-                            remotely and efficiently.
+                            {{ this.portfolio.centric }}
                         </div>
                         <div class="mb-3">
-                            <span class="text-muted"><i class="fas fa-code-branch fa-lg mr-2"></i>SVN Repository</span>
+                            <span class="text-muted"><i class="fas fa-code-branch fa-lg mr-2"></i>
+                                SVN
+                                <span>
+                                    {{ this.portfolio.repo_private }}
+                                </span>
+                            </span>
                         </div>
-                        <span class="font-weight-bold">Technologies • Mobile &amp; Backend Role</span>
+                        <span class="font-weight-bold">
+                            {{ this.portfolio.techonologies }}・{{ this.portfolio.mobile_backend }}
+                        </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold px-3">
                             <div class="row">
@@ -230,13 +284,14 @@
 
 <script>
 export default {
+    props: ['portfolio'],
     data() {
         return {
-
+            is_en: true,
         }
     },
     mounted() {
-
+        this.is_en = this.portfolio.lang == 'en';
     },
     methods: {
         redirectTo(link) {
@@ -244,6 +299,9 @@ export default {
         },
         goTo(element) {
             doScrolling(`#${element}`, 1300);
+        },
+        toggleLanguage() {
+            location.href = `/portfolio/${this.is_en ? 'jp' : 'en'}`;
         }
     }
 }
