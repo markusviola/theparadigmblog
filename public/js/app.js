@@ -2273,7 +2273,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -56785,7 +56784,7 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", { staticClass: "neutral-direction text-center mx-5" }, [
-              _vm._v("\n                コンタクト\n            ")
+              _vm._v("\n                コンタクト\n                ")
             ])
           ]
         ),
@@ -56917,11 +56916,8 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("span", [
               _vm._v(
-                "\n                        こんにちは、\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("span", [
+                "\n                        こんにちは、\n                        "
+              ),
               _vm._v(
                 "\n                        マルクスです\n                    "
               )

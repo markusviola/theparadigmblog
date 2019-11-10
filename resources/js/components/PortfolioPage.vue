@@ -8,6 +8,7 @@
                 </div>
                 <div class="neutral-direction text-center mx-5">
                     コンタクト
+                    <!-- Contact -->
                 </div>
             </div>
             <div class="portolio-title-wrapper container d-flex align-items-center" style="min-height: 80vh;">
@@ -17,8 +18,6 @@
                         <span>
                             <!-- Hi, -->
                             こんにちは、
-                        </span>
-                        <span>
                             <!-- it's Markus. -->
                             マルクスです
                         </span>
