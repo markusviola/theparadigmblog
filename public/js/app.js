@@ -2251,6 +2251,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.is_en = this.portfolio.lang == 'en';
+    console.log('A-DAY-CRAMMED PORTFOLIO! by Markus Viola (TEMPORARY ONLY)');
+    console.log('The code is dirty, I know. hahahaha');
   },
   methods: {
     redirectTo: function redirectTo(link) {
@@ -56766,13 +56768,26 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "neutral-direction text-center mx-5" }, [
-              _vm._v(
-                "\n                " +
-                  _vm._s(this.portfolio.contact) +
-                  "\n            "
-              )
-            ])
+            _c(
+              "div",
+              {
+                staticClass: "neutral-direction text-center mx-5",
+                on: {
+                  click: function($event) {
+                    return _vm.redirectTo(
+                      "https://www.linkedin.com/in/markus-xamuel-viola-3018a8180/"
+                    )
+                  }
+                }
+              },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(this.portfolio.contact) +
+                    "\n            "
+                )
+              ]
+            )
           ]
         ),
         _vm._v(" "),

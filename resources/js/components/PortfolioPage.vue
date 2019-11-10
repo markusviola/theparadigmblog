@@ -5,7 +5,7 @@
                 <div class="neutral-direction text-center mx-5" @click="goTo('projects')">
                     {{ this.portfolio.projects }}
                 </div>
-                <div class="neutral-direction text-center mx-5">
+                <div class="neutral-direction text-center mx-5" @click="redirectTo('https://www.linkedin.com/in/markus-xamuel-viola-3018a8180/')">
                     {{ this.portfolio.contact }}
                 </div>
             </div>
@@ -292,6 +292,8 @@ export default {
     },
     mounted() {
         this.is_en = this.portfolio.lang == 'en';
+        console.log('A-DAY-CRAMMED PORTFOLIO! by Markus Viola (TEMPORARY ONLY)');
+        console.log('The code is dirty, I know. hahahaha');
     },
     methods: {
         redirectTo(link) {
