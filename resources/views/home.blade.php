@@ -11,7 +11,8 @@
                 <h2 class="text-secondary">Recent Posts</h2>
                 <hr class="divider">
                 <small class="form-text text-muted mb-4">
-                    Still does not fully support mobile display yet.
+                    As a function-focused website, display responsiveness is yet to be a priority.
+                    {{-- Still does not fully support mobile display yet.  --}}
                 </small>
                 @if (sizeof($posts) > 0)
                     @foreach ($posts as $post)
