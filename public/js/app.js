@@ -2188,6 +2188,92 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {};
@@ -56695,11 +56781,11 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("\n                Projects\n            ")]
+              [_vm._v("\n                プロジェクト\n                ")]
             ),
             _vm._v(" "),
             _c("div", { staticClass: "neutral-direction text-center mx-5" }, [
-              _vm._v("\n                Contact\n            ")
+              _vm._v("\n                コンタクト\n            ")
             ])
           ]
         ),
@@ -56719,18 +56805,12 @@ var render = function() {
           staticClass: "text-center text-secondary font-weight-bold pt-3",
           attrs: { id: "projects" }
         },
-        [_vm._v("Projects")]
+        [_vm._v("\n            プロジェクト\n            ")]
       ),
       _vm._v(" "),
       _c("hr", { staticClass: " mb-5" }),
       _vm._v(" "),
-      _c(
-        "h4",
-        {
-          staticClass: "portolio-sub-headers mb-4 alt-neutral font-weight-bold"
-        },
-        [_vm._v("< Personal >")]
-      ),
+      _vm._m(1),
       _vm._v(" "),
       _c("div", { staticClass: "row mb-5" }, [
         _c(
@@ -56744,14 +56824,14 @@ var render = function() {
               }
             }
           },
-          [_vm._m(1)]
+          [_vm._m(2)]
         ),
         _vm._v(" "),
-        _vm._m(2)
+        _vm._m(3)
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row mb-5" }, [
-        _vm._m(3),
+        _vm._m(4),
         _vm._v(" "),
         _c(
           "div",
@@ -56766,22 +56846,16 @@ var render = function() {
               }
             }
           },
-          [_vm._m(4)]
+          [_vm._m(5)]
         )
       ]),
       _vm._v(" "),
-      _c(
-        "h4",
-        {
-          staticClass: "portolio-sub-headers mb-4 alt-neutral font-weight-bold"
-        },
-        [_vm._v("< Work >")]
-      ),
+      _vm._m(6),
       _vm._v(" "),
-      _vm._m(5),
+      _vm._m(7),
       _vm._v(" "),
       _c("div", { staticClass: "row mb-5" }, [
-        _vm._m(6),
+        _vm._m(8),
         _vm._v(" "),
         _c(
           "div",
@@ -56794,7 +56868,7 @@ var render = function() {
               }
             }
           },
-          [_vm._m(7)]
+          [_vm._m(9)]
         )
       ]),
       _vm._v(" "),
@@ -56812,16 +56886,16 @@ var render = function() {
               }
             }
           },
-          [_vm._m(8)]
+          [_vm._m(10)]
         ),
         _vm._v(" "),
-        _vm._m(9)
+        _vm._m(11)
       ])
     ]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _vm._m(10)
+    _vm._m(12)
   ])
 }
 var staticRenderFns = [
@@ -56841,9 +56915,17 @@ var staticRenderFns = [
           _c("div", { staticClass: "portfolio-title" }, [
             _c("span", { staticClass: "alt-neutral" }, [_vm._v("<")]),
             _vm._v(" "),
-            _c("span", [_vm._v("Hi,")]),
+            _c("span", [
+              _vm._v(
+                "\n                        こんにちは、\n                    "
+              )
+            ]),
             _vm._v(" "),
-            _c("span", [_vm._v("it's Markus.")]),
+            _c("span", [
+              _vm._v(
+                "\n                        マルクスです\n                    "
+              )
+            ]),
             _vm._v(" "),
             _c("span", { staticClass: "alt-neutral" }, [_vm._v("/>")])
           ]),
@@ -56863,12 +56945,25 @@ var staticRenderFns = [
             [
               _c("div", [
                 _vm._v(
-                  "\n                        aside from his high interest in both automation & machine learning, he is also inclined in learning new technologies which made him pursue decentralized development.\n                    "
+                  "\n                        ウェブ、モバイル、システム開発に関する高い汎用性以外に、機械学習と自動化、クラウドコンピューティングとブロックチェーンにも強い関心を持っています\n                    "
                 )
               ])
             ]
           )
         ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h4",
+      { staticClass: "portolio-sub-headers mb-4 alt-neutral font-weight-bold" },
+      [
+        _vm._v("<\n            自由時間開発\n            "),
+        _vm._v("\n        >")
       ]
     )
   },
@@ -56884,7 +56979,9 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "text-right" }, [
-        _vm._v("linking creative minds.")
+        _vm._v(
+          "\n                        linking creative minds.\n                    "
+        )
       ])
     ])
   },
@@ -56901,14 +56998,14 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "py-3" }, [
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Definition")
+            _vm._v("\n                        定義\n                        ")
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "mt-0" }),
           _vm._v(" "),
           _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
             _vm._v(
-              "\n                        An article writing web application that allows users to post and manage articles. The system also supports\n                        profile customization and chatting, to establish an SNS-like environment.\n                    "
+              "\n                        ユーザーが記事を投稿と管理ができるように記事書き込みウェブアプリ。このシステムで、SNSのような環境を確立するために、チャットとプロファイルのカスタマイズもサポートされています。\n                    "
             )
           ]),
           _vm._v(" "),
@@ -56923,13 +57020,22 @@ var staticRenderFns = [
               },
               [
                 _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
-                _vm._v("Git Repository")
+                _vm._v(
+                  "\n                            Git\n                            "
+                ),
+                _c("span", [
+                  _vm._v(
+                    "\n                                レポ\n                                "
+                  )
+                ])
               ]
             )
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Technologies")
+            _vm._v(
+              "\n                        使用技術\n                        "
+            )
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "mt-0" }),
@@ -56970,14 +57076,14 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "py-3" }, [
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Definition")
+            _vm._v("\n                        定義\n                        ")
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "mt-0" }),
           _vm._v(" "),
           _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
             _vm._v(
-              "\n                        A space reservation system that allows the in-charge to manage client requests more efficently through forms & chat.\n                        The system also supports payment history statistics to monitor your profit.\n                    "
+              "\n                        予約管理者がフォームとチャットを通じてクライエントの予約要求をより効率的に管理できるスペース予約管理システム。また、ビジネスの利益を監視する支払記録もサポートします。\n                    "
             )
           ]),
           _vm._v(" "),
@@ -56990,13 +57096,22 @@ var staticRenderFns = [
               },
               [
                 _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
-                _vm._v("Git Repository")
+                _vm._v(
+                  "\n                            Git\n                            "
+                ),
+                _c("span", [
+                  _vm._v(
+                    "\n                                レポ\n                                "
+                  )
+                ])
               ]
             )
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Technologies")
+            _vm._v(
+              "\n                        使用技術\n                        "
+            )
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "mt-0" }),
@@ -57038,6 +57153,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "h4",
+      { staticClass: "portolio-sub-headers mb-4 alt-neutral font-weight-bold" },
+      [
+        _vm._v("<\n            企業開発経歴\n            "),
+        _vm._v("\n        >")
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mb-5" }, [
       _c(
         "div",
@@ -57067,26 +57195,35 @@ var staticRenderFns = [
         [
           _c("div", { staticClass: "py-3" }, [
             _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("Definition")
+              _vm._v("\n                        定義\n                        ")
             ]),
             _vm._v(" "),
             _c("hr", { staticClass: "mt-0" }),
             _vm._v(" "),
             _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
               _vm._v(
-                "\n                        An e-Learning platform for Japan-based international companies, enabling employees\n                        to learn japanese through online activity sessions & learing curve monitoring from certified japanese teachers.\n                    "
+                "\n                        日本に拠点を置く国際企業向けのeラーニングプラットフォーム。従業員がオンライン授業を通じて日本語を学び、認定された日本教師から学生の学習曲線を監視できるようにします。\n                        "
               )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "mb-3" }, [
               _c("span", { staticClass: "text-muted" }, [
                 _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
-                _vm._v("Git Repository - Private")
+                _vm._v(
+                  "\n\n                            Git\n                            "
+                ),
+                _c("span", [
+                  _vm._v(
+                    "\n                                プライベートリポ\n                                "
+                  )
+                ])
               ])
             ]),
             _vm._v(" "),
             _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("Technologies • Backend Role")
+              _vm._v(
+                "\n                        使用技術・バックエンド開発者\n                        "
+              )
             ]),
             _vm._v(" "),
             _c("hr", { staticClass: "mt-0" }),
@@ -57122,26 +57259,35 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "py-3" }, [
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Definition")
+            _vm._v("\n                        定義\n                        ")
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "mt-0" }),
           _vm._v(" "),
           _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
             _vm._v(
-              "\n                        An Ethereum framework-based tutorial market platform for blockchain technology enthusiasts providing\n                        stepping stones in mastering decentralized development through actual blockchain apps.\n                    "
+              "\n                        ブロックチェーン技術愛好家向けのイーサリアムフレームワークベースのチュートリアルプラットフォーム。実際のブロックチェーンアプリを通じて分散開発をマスターするための足掛かりを提供します。\n                        "
             )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
             _c("span", { staticClass: "text-muted" }, [
               _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
-              _vm._v("Git Repository - Private")
+              _vm._v(
+                "\n                            Git\n                            "
+              ),
+              _c("span", [
+                _vm._v(
+                  "\n                                プライベートリポ\n                                "
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Technologies • Full Stack Role")
+            _vm._v(
+              "\n                        使用技術・フルスタック開発者\n                    "
+            )
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "mt-0" }),
@@ -57210,26 +57356,35 @@ var staticRenderFns = [
       [
         _c("div", { staticClass: "py-3" }, [
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Definition")
+            _vm._v("\n                        定義\n                        ")
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "mt-0" }),
           _vm._v(" "),
           _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
             _vm._v(
-              "\n                        A transitional care mobile application that lets you coordinate and monitor terminal patients\n                        remotely and efficiently.\n                    "
+              "\n                        患者をリモートで効率的に調整および監視できる移行期ケアモバイルアプリケーション。このシステムは、ターミナルケアを必要としている患者ケア管理を提供しています。\n                        "
             )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-3" }, [
             _c("span", { staticClass: "text-muted" }, [
               _c("i", { staticClass: "fas fa-code-branch fa-lg mr-2" }),
-              _vm._v("SVN Repository")
+              _vm._v(
+                "\n                            SVN\n                            "
+              ),
+              _c("span", [
+                _vm._v(
+                  "\n                                プライベートリポ\n                                "
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
           _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("Technologies • Mobile & Backend Role")
+            _vm._v(
+              "\n                        使用技術・モバイルとバックエンド開発者\n                        "
+            )
           ]),
           _vm._v(" "),
           _c("hr", { staticClass: "mt-0" }),
