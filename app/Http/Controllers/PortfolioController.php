@@ -10,9 +10,12 @@ class PortfolioController extends Controller
 {
     public function index() {
 
-        if (request()->locale == 'jp') App::setLocale('jp');
+        if (request()->locale == 'jp') {
+            App::setLocale('jp');
+            $lang = 'jp';
+        } else $lang = 'en';
         $portfolio = Lang::get('portfolio');
 
-        return view('portfolio.onepage', compact('portfolio'));
+        return view('portfolio.onepage', compact('portfolio', 'lang'));
     }
 }

@@ -2,6 +2,7 @@
 
 return [
 
+    'lang' => 'en',
     'intro' => 'Hi, it\'s Markus.',
     'desc' => 'aside from my high versatility when it comes to development, may it be web, mobile or systems applications, my interest also inclines
     to machine learning &amp; automations, cloud computing &amp; decentralized programming.',

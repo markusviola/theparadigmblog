@@ -2242,46 +2242,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['portfolio'],
-  mounted: function mounted() {},
+  data: function data() {
+    return {
+      is_en: true
+    };
+  },
+  mounted: function mounted() {
+    this.is_en = this.portfolio.lang == 'en';
+  },
   methods: {
     redirectTo: function redirectTo(link) {
       location.href = link;
     },
     goTo: function goTo(element) {
       doScrolling("#".concat(element), 1300);
+    },
+    toggleLanguage: function toggleLanguage() {
+      location.href = "/portfolio/".concat(this.is_en ? 'jp' : 'en');
     }
   }
 });
@@ -56768,22 +56747,99 @@ var render = function() {
           "div",
           { staticClass: "portfolio-direction font-weight-bold w-100" },
           [
-            _c("div", {
-              staticClass: "neutral-direction text-center mx-5",
-              on: {
-                click: function($event) {
-                  return _vm.goTo("projects")
+            _c(
+              "div",
+              {
+                staticClass: "neutral-direction text-center mx-5",
+                on: {
+                  click: function($event) {
+                    return _vm.goTo("projects")
+                  }
                 }
-              }
-            }),
+              },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(this.portfolio.projects) +
+                    "\n            "
+                )
+              ]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "neutral-direction text-center mx-5" }, [
-              _vm._v("\n                コンタクト\n                ")
+              _vm._v(
+                "\n                " +
+                  _vm._s(this.portfolio.contact) +
+                  "\n            "
+              )
             ])
           ]
         ),
         _vm._v(" "),
-        _vm._m(0)
+        _c(
+          "div",
+          {
+            staticClass:
+              "portolio-title-wrapper container d-flex align-items-center",
+            staticStyle: { "min-height": "80vh" }
+          },
+          [
+            _c("div", { staticClass: "portolio-title-container" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "neutral-direction mb-3 d-inline font-weight-bold w-100",
+                  on: { click: _vm.toggleLanguage }
+                },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(this.is_en ? "< 日本語 >" : "< English >") +
+                      "\n                "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "portfolio-title" }, [
+                _c("span", { staticClass: "alt-neutral" }, [_vm._v("<")]),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(this.portfolio.intro) +
+                      "\n                    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "alt-neutral" }, [_vm._v("/>")])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mb-3", staticStyle: { color: "#abaaaa" } },
+                [_vm._v("web • mobile • systems")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "porfolio-description text-justify",
+                  staticStyle: { color: "#abaaaa" }
+                },
+                [
+                  _c("div", [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(this.portfolio.desc) +
+                        "\n                    "
+                    )
+                  ])
+                ]
+              )
+            ])
+          ]
+        )
       ]
     ),
     _vm._v(" "),
@@ -56798,12 +56854,26 @@ var render = function() {
           staticClass: "text-center text-secondary font-weight-bold pt-3",
           attrs: { id: "projects" }
         },
-        [_vm._v("\n            プロジェクト\n            ")]
+        [
+          _vm._v(
+            "\n            " + _vm._s(this.portfolio.projects) + "\n        "
+          )
+        ]
       ),
       _vm._v(" "),
       _c("hr", { staticClass: " mb-5" }),
       _vm._v(" "),
-      _vm._m(1),
+      _c(
+        "h4",
+        {
+          staticClass: "portolio-sub-headers mb-4 alt-neutral font-weight-bold"
+        },
+        [
+          _vm._v(
+            "<\n            " + _vm._s(this.portfolio.personal) + "\n        >"
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "row mb-5" }, [
         _c(
@@ -56817,14 +56887,142 @@ var render = function() {
               }
             }
           },
-          [_vm._m(2)]
+          [_vm._m(0)]
         ),
         _vm._v(" "),
-        _vm._m(3)
+        _c(
+          "div",
+          {
+            staticClass:
+              "def-second col-md-7 shadow h-100 bg-light border text-secondary"
+          },
+          [
+            _c("div", { staticClass: "py-3" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.definition) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.paradigm_articles) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "alt-neutral",
+                    attrs: {
+                      href: "https://github.com/markusviola/theparadigmblog"
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
+                    _vm._v(
+                      "\n                            Git\n                            "
+                    ),
+                    _c("span", [
+                      _vm._v(
+                        "\n                                " +
+                          _vm._s(this.portfolio.repo) +
+                          "\n                            "
+                      )
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.technologies) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _vm._m(1)
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row mb-5" }, [
-        _vm._m(4),
+        _c(
+          "div",
+          {
+            staticClass:
+              "def-first col-md-7 shadow h-100 bg-light border text-secondary"
+          },
+          [
+            _c("div", { staticClass: "py-3" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.definition) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.space_control) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "alt-neutral",
+                    attrs: {
+                      href: "https://github.com/markusviola/space-control"
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
+                    _vm._v(
+                      "\n                            Git\n                            "
+                    ),
+                    _c("span", [
+                      _vm._v(
+                        "\n                                " +
+                          _vm._s(this.portfolio.repo) +
+                          "\n                            "
+                      )
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.technologies) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _vm._m(2)
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -56839,16 +57037,144 @@ var render = function() {
               }
             }
           },
-          [_vm._m(5)]
+          [_vm._m(3)]
         )
       ]),
       _vm._v(" "),
-      _vm._m(6),
-      _vm._v(" "),
-      _vm._m(7),
+      _c(
+        "h4",
+        {
+          staticClass: "portolio-sub-headers mb-4 alt-neutral font-weight-bold"
+        },
+        [
+          _vm._v(
+            "<\n            " + _vm._s(this.portfolio.work) + "\n        >"
+          )
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "row mb-5" }, [
-        _vm._m(8),
+        _vm._m(4),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "def-second col-md-7 shadow h-100 bg-light border text-secondary"
+          },
+          [
+            _c("div", { staticClass: "py-3" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.definition) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.babel) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c("span", { staticClass: "text-muted" }, [
+                  _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
+                  _vm._v(
+                    "\n\n                            Git\n                            "
+                  ),
+                  _c("span", [
+                    _vm._v(
+                      "\n                                " +
+                        _vm._s(this.portfolio.repo_private) +
+                        "\n                            "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.techonologies) +
+                    "・" +
+                    _vm._s(this.portfolio.backend) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _vm._m(5)
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row mb-5" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "def-first col-md-7 shadow h-100 bg-light border text-secondary"
+          },
+          [
+            _c("div", { staticClass: "py-3" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.definition) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.openberry) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c("span", { staticClass: "text-muted" }, [
+                  _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
+                  _vm._v(
+                    "\n                            Git\n                            "
+                  ),
+                  _c("span", [
+                    _vm._v(
+                      "\n                                " +
+                        _vm._s(this.portfolio.repo_private) +
+                        "\n                            "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.techonologies) +
+                    " • " +
+                    _vm._s(this.portfolio.fullstack) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _vm._m(6)
+            ])
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -56861,7 +57187,7 @@ var render = function() {
               }
             }
           },
-          [_vm._m(9)]
+          [_vm._m(7)]
         )
       ]),
       _vm._v(" "),
@@ -56879,84 +57205,76 @@ var render = function() {
               }
             }
           },
-          [_vm._m(10)]
+          [_vm._m(8)]
         ),
         _vm._v(" "),
-        _vm._m(11)
+        _c(
+          "div",
+          {
+            staticClass:
+              "def-second col-md-7 shadow h-100 bg-light border text-secondary"
+          },
+          [
+            _c("div", { staticClass: "py-3" }, [
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                       " +
+                    _vm._s(this.portfolio.definition) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.centric) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-3" }, [
+                _c("span", { staticClass: "text-muted" }, [
+                  _c("i", { staticClass: "fas fa-code-branch fa-lg mr-2" }),
+                  _vm._v(
+                    "\n                            SVN\n                            "
+                  ),
+                  _c("span", [
+                    _vm._v(
+                      "\n                                " +
+                        _vm._s(this.portfolio.repo_private) +
+                        "\n                            "
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "font-weight-bold" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(this.portfolio.techonologies) +
+                    "・" +
+                    _vm._s(this.portfolio.mobile_backend) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("hr", { staticClass: "mt-0" }),
+              _vm._v(" "),
+              _vm._m(9)
+            ])
+          ]
+        )
       ])
     ]),
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _vm._m(12)
+    _vm._m(10)
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "portolio-title-wrapper container d-flex align-items-center",
-        staticStyle: { "min-height": "80vh" }
-      },
-      [
-        _c("div", { staticClass: "portolio-title-container" }, [
-          _c("div", { staticClass: "portfolio-title" }, [
-            _c("span", { staticClass: "alt-neutral" }, [_vm._v("<")]),
-            _vm._v(" "),
-            _c("span", [
-              _vm._v(
-                "\n                        こんにちは、\n                        "
-              ),
-              _vm._v(
-                "\n                        マルクスです\n                    "
-              )
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "alt-neutral" }, [_vm._v("/>")])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "mb-3", staticStyle: { color: "#abaaaa" } },
-            [_vm._v("web • mobile • systems")]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "porfolio-description text-justify",
-              staticStyle: { color: "#abaaaa" }
-            },
-            [
-              _c("div", [
-                _vm._v(
-                  "\n                        ウェブ、モバイル、システム開発に関する高い汎用性以外に、機械学習と自動化、クラウドコンピューティングとブロックチェーンにも強い関心を持っています\n                    "
-                )
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "h4",
-      { staticClass: "portolio-sub-headers mb-4 alt-neutral font-weight-bold" },
-      [
-        _vm._v("<\n            自由時間開発\n            "),
-        _vm._v("\n        >")
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -56981,74 +57299,20 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass:
-          "def-second col-md-7 shadow h-100 bg-light border text-secondary"
-      },
+      { staticClass: "text-justify font-weight-bold pl-5 pr-3" },
       [
-        _c("div", { staticClass: "py-3" }, [
-          _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("\n                        定義\n                        ")
-          ]),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-auto" }, [_vm._v("PHP")]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
+          _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
           _vm._v(" "),
-          _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
-            _vm._v(
-              "\n                        ユーザーが記事を投稿と管理ができるように記事書き込みウェブアプリ。このシステムで、SNSのような環境を確立するために、チャットとプロファイルのカスタマイズもサポートされています。\n                    "
-            )
-          ]),
+          _c("div", { staticClass: "col-auto" }, [_vm._v("Laravel")]),
           _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "a",
-              {
-                staticClass: "alt-neutral",
-                attrs: {
-                  href: "https://github.com/markusviola/theparadigmblog"
-                }
-              },
-              [
-                _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
-                _vm._v(
-                  "\n                            Git\n                            "
-                ),
-                _c("span", [
-                  _vm._v(
-                    "\n                                レポ\n                                "
-                  )
-                ])
-              ]
-            )
-          ]),
+          _c("div", { staticClass: "col-auto" }, [_vm._v("Echo")]),
           _vm._v(" "),
-          _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v(
-              "\n                        使用技術\n                        "
-            )
-          ]),
+          _c("div", { staticClass: "col-auto" }, [_vm._v("Pusher")]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "text-justify font-weight-bold pl-5 pr-3" },
-            [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-auto" }, [_vm._v("PHP")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Laravel")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Echo")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Pusher")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
-              ])
-            ]
-          )
+          _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
         ])
       ]
     )
@@ -57057,73 +57321,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "def-first col-md-7 shadow h-100 bg-light border text-secondary"
-      },
-      [
-        _c("div", { staticClass: "py-3" }, [
-          _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("\n                        定義\n                        ")
-          ]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
-            _vm._v(
-              "\n                        予約管理者がフォームとチャットを通じてクライエントの予約要求をより効率的に管理できるスペース予約管理システム。また、ビジネスの利益を監視する支払記録もサポートします。\n                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c(
-              "a",
-              {
-                staticClass: "alt-neutral",
-                attrs: { href: "https://github.com/markusviola/space-control" }
-              },
-              [
-                _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
-                _vm._v(
-                  "\n                            Git\n                            "
-                ),
-                _c("span", [
-                  _vm._v(
-                    "\n                                レポ\n                                "
-                  )
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v(
-              "\n                        使用技術\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-auto" }, [_vm._v("PHP")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("Laravel")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("Echo")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("AWS EC2 • RDS")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
-            ])
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-auto" }, [_vm._v("PHP")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("Laravel")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("Echo")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("AWS EC2 • RDS")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
+      ])
+    ])
   },
   function() {
     var _vm = this
@@ -57144,11 +57356,21 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "h4",
-      { staticClass: "portolio-sub-headers mb-4 alt-neutral font-weight-bold" },
+      "div",
+      {
+        staticClass:
+          "title-first col-md-5 rev-neutral shadow h-100 d-flex justify-content-center align-items-center"
+      },
       [
-        _vm._v("<\n            企業開発経歴\n            "),
-        _vm._v("\n        >")
+        _c("div", { staticClass: "text-light text-left" }, [
+          _c("h2", [
+            _vm._v("\n                        Babel\n                    ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text-right" }, [
+            _vm._v("Undo the language barrier.")
+          ])
+        ])
       ]
     )
   },
@@ -57156,84 +57378,16 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mb-5" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "title-first col-md-5 rev-neutral shadow h-100 d-flex justify-content-center align-items-center"
-        },
-        [
-          _c("div", { staticClass: "text-light text-left" }, [
-            _c("h2", [
-              _vm._v("\n                        Babel\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-right" }, [
-              _vm._v("Undo the language barrier.")
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "def-second col-md-7 shadow h-100 bg-light border text-secondary"
-        },
-        [
-          _c("div", { staticClass: "py-3" }, [
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v("\n                        定義\n                        ")
-            ]),
-            _vm._v(" "),
-            _c("hr", { staticClass: "mt-0" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
-              _vm._v(
-                "\n                        日本に拠点を置く国際企業向けのeラーニングプラットフォーム。従業員がオンライン授業を通じて日本語を学び、認定された日本教師から学生の学習曲線を監視できるようにします。\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-3" }, [
-              _c("span", { staticClass: "text-muted" }, [
-                _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
-                _vm._v(
-                  "\n\n                            Git\n                            "
-                ),
-                _c("span", [
-                  _vm._v(
-                    "\n                                プライベートリポ\n                                "
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("span", { staticClass: "font-weight-bold" }, [
-              _vm._v(
-                "\n                        使用技術・バックエンド開発者\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("hr", { staticClass: "mt-0" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Node.js")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Express.js")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [
-                  _vm._v("AWS EC2 • S3 • RDS")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
-              ])
-            ])
-          ])
-        ]
-      )
+    return _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-auto" }, [_vm._v("Node.js")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("Express.js")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("AWS EC2 • S3 • RDS")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("MySQL")])
+      ])
     ])
   },
   function() {
@@ -57242,63 +57396,18 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      {
-        staticClass:
-          "def-first col-md-7 shadow h-100 bg-light border text-secondary"
-      },
+      { staticClass: "text-justify font-weight-bold pl-5 pr-3" },
       [
-        _c("div", { staticClass: "py-3" }, [
-          _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("\n                        定義\n                        ")
-          ]),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-auto" }, [_vm._v("Solidity")]),
           _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
+          _c("div", { staticClass: "col-auto" }, [_vm._v("Ethereum")]),
           _vm._v(" "),
-          _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
-            _vm._v(
-              "\n                        ブロックチェーン技術愛好家向けのイーサリアムフレームワークベースのチュートリアルプラットフォーム。実際のブロックチェーンアプリを通じて分散開発をマスターするための足掛かりを提供します。\n                        "
-            )
-          ]),
+          _c("div", { staticClass: "col-auto" }, [_vm._v("IPFS")]),
           _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c("span", { staticClass: "text-muted" }, [
-              _c("i", { staticClass: "fab fa-github fa-lg mr-2" }),
-              _vm._v(
-                "\n                            Git\n                            "
-              ),
-              _c("span", [
-                _vm._v(
-                  "\n                                プライベートリポ\n                                "
-                )
-              ])
-            ])
-          ]),
+          _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
           _vm._v(" "),
-          _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v(
-              "\n                        使用技術・フルスタック開発者\n                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "text-justify font-weight-bold pl-5 pr-3" },
-            [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Solidity")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Ethereum")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("IPFS")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Vue.js")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto" }, [_vm._v("Vuex")])
-              ])
-            ]
-          )
+          _c("div", { staticClass: "col-auto" }, [_vm._v("Vuex")])
         ])
       ]
     )
@@ -57337,64 +57446,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "def-second col-md-7 shadow h-100 bg-light border text-secondary"
-      },
-      [
-        _c("div", { staticClass: "py-3" }, [
-          _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v("\n                        定義\n                        ")
-          ]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-justify pr-3 mb-3" }, [
-            _vm._v(
-              "\n                        患者をリモートで効率的に調整および監視できる移行期ケアモバイルアプリケーション。このシステムは、ターミナルケアを必要としている患者ケア管理を提供しています。\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-3" }, [
-            _c("span", { staticClass: "text-muted" }, [
-              _c("i", { staticClass: "fas fa-code-branch fa-lg mr-2" }),
-              _vm._v(
-                "\n                            SVN\n                            "
-              ),
-              _c("span", [
-                _vm._v(
-                  "\n                                プライベートリポ\n                                "
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "font-weight-bold" }, [
-            _vm._v(
-              "\n                        使用技術・モバイルとバックエンド開発者\n                        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("hr", { staticClass: "mt-0" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-auto" }, [_vm._v("Kotlin")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("C#")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("ASP.NET Core")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("AWS S3")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-auto" }, [_vm._v("MS SQL Server")])
-            ])
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "text-justify font-weight-bold px-3" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-auto" }, [_vm._v("Kotlin")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("C#")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("ASP.NET Core")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("AWS S3")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-auto" }, [_vm._v("MS SQL Server")])
+      ])
+    ])
   },
   function() {
     var _vm = this

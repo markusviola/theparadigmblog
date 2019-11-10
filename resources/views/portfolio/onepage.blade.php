@@ -26,7 +26,9 @@
 </head>
 <body>
     <div id="app">
-        <portfolio-page :portfolio="{{ json_encode($portfolio) }}"></portfolio-page>
+        <portfolio-page
+            :portfolio="{{ json_encode($portfolio) }}"
+        ></portfolio-page>
     </div>
 <script type="application/javascript">
     document.addEventListener("DOMContentLoaded", (event) => {
