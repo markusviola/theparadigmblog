@@ -3,7 +3,7 @@
         <div class="py-3" style="width: 100%; min-height: 80vh; background: #201e1f; color: #d4d3d3;">
             <div class="portfolio-direction font-weight-bold w-100">
                 <div class="neutral-direction text-center mx-5" @click="goTo('projects')">
-                    プロジェクト
+                    <!-- {{ portfolio.projects }} -->
                     <!-- Projects -->
                 </div>
                 <div class="neutral-direction text-center mx-5">
@@ -315,11 +315,7 @@
 
 <script>
 export default {
-    data() {
-        return {
-
-        }
-    },
+    props: ['portfolio'],
     mounted() {
 
     },

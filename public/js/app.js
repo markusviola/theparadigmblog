@@ -2274,9 +2274,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {};
-  },
+  props: ['portfolio'],
   mounted: function mounted() {},
   methods: {
     redirectTo: function redirectTo(link) {
@@ -56770,18 +56768,14 @@ var render = function() {
           "div",
           { staticClass: "portfolio-direction font-weight-bold w-100" },
           [
-            _c(
-              "div",
-              {
-                staticClass: "neutral-direction text-center mx-5",
-                on: {
-                  click: function($event) {
-                    return _vm.goTo("projects")
-                  }
+            _c("div", {
+              staticClass: "neutral-direction text-center mx-5",
+              on: {
+                click: function($event) {
+                  return _vm.goTo("projects")
                 }
-              },
-              [_vm._v("\n                プロジェクト\n                ")]
-            ),
+              }
+            }),
             _vm._v(" "),
             _c("div", { staticClass: "neutral-direction text-center mx-5" }, [
               _vm._v("\n                コンタクト\n                ")
