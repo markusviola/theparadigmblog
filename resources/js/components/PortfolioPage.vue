@@ -73,7 +73,7 @@
                             </a>
                         </div>
                         <span class="font-weight-bold">
-                            {{ this.portfolio.technologies }}
+                            {{ this.portfolio.technology }}
                         </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold pl-5 pr-3">
@@ -109,7 +109,7 @@
                             </a>
                         </div>
                         <span class="font-weight-bold">
-                            {{ this.portfolio.technologies }}
+                            {{ this.portfolio.technology }}
                         </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold px-3">
@@ -168,7 +168,7 @@
                             </span>
                         </div>
                         <span class="font-weight-bold">
-                            {{ this.portfolio.techonologies }}・{{ this.portfolio.backend }}
+                            {{ this.portfolio.technology }}・{{ this.portfolio.backend }}
                         </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold px-3">
@@ -202,7 +202,7 @@
                             </span>
                         </div>
                         <span class="font-weight-bold">
-                            {{ this.portfolio.techonologies }} • {{ this.portfolio.fullstack }}
+                            {{ this.portfolio.technology }} • {{ this.portfolio.fullstack }}
                         </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold pl-5 pr-3">
@@ -257,7 +257,7 @@
                             </span>
                         </div>
                         <span class="font-weight-bold">
-                            {{ this.portfolio.techonologies }}・{{ this.portfolio.mobile_backend }}
+                            {{ this.portfolio.technology }}・{{ this.portfolio.mobile_backend }}
                         </span>
                         <hr class="mt-0">
                         <div class="text-justify font-weight-bold px-3">
