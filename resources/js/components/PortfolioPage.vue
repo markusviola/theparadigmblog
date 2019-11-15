@@ -140,7 +140,8 @@
             &gt;</h4>
             <div class="row mb-5">
                 <div
-                    class="title-first col-md-5 rev-neutral shadow h-100 d-flex justify-content-center align-items-center">
+                    @click="redirectTo('https://babelmethod.com/')"
+                    class="title-first col-md-5 neutral-button rev-neutral shadow h-100 d-flex justify-content-center align-items-center">
                     <div class="text-light text-left">
                         <h2>
                             Babel
