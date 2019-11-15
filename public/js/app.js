@@ -2242,6 +2242,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['portfolio'],
   data: function data() {
@@ -56679,7 +56680,19 @@ var render = function() {
       ),
       _vm._v(" "),
       _c("div", { staticClass: "row mb-5" }, [
-        _vm._m(4),
+        _c(
+          "div",
+          {
+            staticClass:
+              "title-first col-md-5 neutral-button rev-neutral shadow h-100 d-flex justify-content-center align-items-center",
+            on: {
+              click: function($event) {
+                return _vm.redirectTo("https://babelmethod.com/")
+              }
+            }
+          },
+          [_vm._m(4)]
+        ),
         _vm._v(" "),
         _c(
           "div",
@@ -56980,24 +56993,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "title-first col-md-5 rev-neutral shadow h-100 d-flex justify-content-center align-items-center"
-      },
-      [
-        _c("div", { staticClass: "text-light text-left" }, [
-          _c("h2", [
-            _vm._v("\n                        Babel\n                    ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-right" }, [
-            _vm._v("Undo the language barrier.")
-          ])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "text-light text-left" }, [
+      _c("h2", [
+        _vm._v("\n                        Babel\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-right" }, [
+        _vm._v("Undo the language barrier.")
+      ])
+    ])
   },
   function() {
     var _vm = this
