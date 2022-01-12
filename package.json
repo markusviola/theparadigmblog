@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "laravel-echo": "^1.5.4",
-    "markdown-it": "^9.1.0",
+    "markdown-it": "^12.3.2",
     "pusher-js": "^5.0.0"
   }
 }
